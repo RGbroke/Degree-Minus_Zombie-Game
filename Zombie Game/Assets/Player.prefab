@@ -375,4 +375,4 @@ MonoBehaviour:
   bulletPrefab: {fileID: 918000483746761494, guid: ca2142017356c69498558b5b3b8834fa, type: 3}
   firePoint: {fileID: 3613609573751268121}
   fireForce: 20
-  fireRate: 0.2
+  fireRate: 0.1
