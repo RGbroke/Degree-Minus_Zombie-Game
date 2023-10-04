@@ -7,17 +7,19 @@ public class Weapon : MonoBehaviour
 {
     public GameObject bulletPrefab;
     public Transform firePoint;
+
     public float fireForce = 20f;
-    public Weapon weapon;
-    public float angle = 90f;
+    public float fireRate;
+    float lastShootTime;
+
 
     Vector2 mousePosition;
 
-    void Update()
+    private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKey(KeyCode.Mouse0))
         {
-            weapon.Fire();
+            Fire();
         }
 
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -26,13 +28,18 @@ public class Weapon : MonoBehaviour
     private void FixedUpdate()
     {
         Vector2 aimDirection = mousePosition;
-        float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - angle;
+        float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
     }
 
 
     public void Fire()
     {
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        bullet.GetComponent<Rigidbody2D>().AddForce(firePoint.up * fireForce, ForceMode2D.Impulse);
+        if(Time.time > lastShootTime + fireRate)
+        {
+            lastShootTime = Time.time;
+
+            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            bullet.GetComponent<Rigidbody2D>().AddForce(firePoint.up * fireForce, ForceMode2D.Impulse);
+        }
     }
 }

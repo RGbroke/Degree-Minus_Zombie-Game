@@ -72,7 +72,7 @@ Transform:
   m_GameObject: {fileID: 3209006171535300335}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -8.3, y: -0.9, z: 0}
+  m_LocalPosition: {x: -7.77, y: -0.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfa712aaec9f341429bce0b886dc36db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 4
   rb: {fileID: 3152226216461675333}
 --- !u!61 &3422630603603184675
 BoxCollider2D:
@@ -375,5 +375,4 @@ MonoBehaviour:
   bulletPrefab: {fileID: 918000483746761494, guid: ca2142017356c69498558b5b3b8834fa, type: 3}
   firePoint: {fileID: 3613609573751268121}
   fireForce: 20
-  weapon: {fileID: 814717445347588452}
-  angle: 90
+  fireRate: 0.2
