@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     //Healthbar stuff
-    public int maxHealth = 50;
+    public int maxHealth = 10;
     public int currHealth;
     public HealthBar healthBar;
 
@@ -32,6 +32,12 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             this.TakeDamage(2);
+        }
+
+        //Death Check
+        if(this.currHealth <= 0)
+        {
+            //Go to death screen
         }
     }
 
