@@ -4,20 +4,17 @@ using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class EnemyFollow : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
     private Transform target;
-    public PlayerController player;
     private float health;
     public float speed;
     public float maxHealth = 3f;
     public Animator animator;
-    public Rigidbody2D zombie;
+
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-        Debug.Log(player.currHealth);
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         health = maxHealth;
     }
@@ -26,18 +23,26 @@ public class EnemyFollow : MonoBehaviour
     void Update()
     {
         transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+
         animator.SetFloat("Horizontal", target.position.x - transform.position.x);
         animator.SetFloat("Speed", speed);
     }
 
     public void TakeDamage(float damageAmount)
     {
-
         health -= damageAmount;
 
         if (health <= 0)
         {
             Destroy(gameObject);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.TryGetComponent<PlayerController>(out PlayerController playerComponent))
+        {
+            playerComponent.TakeDamage(1);
         }
     }
 }
