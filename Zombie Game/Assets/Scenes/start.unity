@@ -1361,7 +1361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54d9e23ce6277ab4aab1c771777ffebd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1504935860}
+  player: {fileID: 0}
   GameOverScreen: {fileID: 1026654365}
 --- !u!1001 &627091289
 PrefabInstance:
@@ -1958,7 +1958,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 180, y: -30}
+  m_AnchoredPosition: {x: 250, y: -30}
   m_SizeDelta: {x: 350, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1266832039
@@ -2254,17 +2254,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8587156484053763485, guid: e8b062e4ea524dc43bcb6a2adf8140a3, type: 3}
   m_PrefabInstance: {fileID: 1722748451}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1504935860 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2410324119739780706, guid: e8b062e4ea524dc43bcb6a2adf8140a3, type: 3}
-  m_PrefabInstance: {fileID: 1722748451}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfa712aaec9f341429bce0b886dc36db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1531012145
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2879,34 +2868,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1557002769649977749, guid: e8b062e4ea524dc43bcb6a2adf8140a3, type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2410324119739780706, guid: e8b062e4ea524dc43bcb6a2adf8140a3, type: 3}
-      propertyPath: hb
-      value: 
-      objectReference: {fileID: 1266832039}
     - target: {fileID: 2410324119739780706, guid: e8b062e4ea524dc43bcb6a2adf8140a3, type: 3}
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1266832039}
-    - target: {fileID: 2410324119739780706, guid: e8b062e4ea524dc43bcb6a2adf8140a3, type: 3}
-      propertyPath: maxHealth
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2588117930869202780, guid: e8b062e4ea524dc43bcb6a2adf8140a3, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 128f410b9d8496c42a5cf992f65ee6ed, type: 2}
-    - target: {fileID: 3613609573751268121, guid: e8b062e4ea524dc43bcb6a2adf8140a3, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -9
-      objectReference: {fileID: 0}
-    - target: {fileID: 5060037789874680870, guid: e8b062e4ea524dc43bcb6a2adf8140a3, type: 3}
-      propertyPath: m_SortingOrder
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 5536918832966046342, guid: e8b062e4ea524dc43bcb6a2adf8140a3, type: 3}
       propertyPath: m_Name
       value: Player

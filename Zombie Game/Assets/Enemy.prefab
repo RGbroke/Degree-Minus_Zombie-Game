@@ -130,7 +130,7 @@ MonoBehaviour:
   speed: 2
   maxHealth: 10
   animator: {fileID: 1150052953845089468}
-  zombie: {fileID: 8419489999169770504}
+  damageRate: 1
 --- !u!61 &8192324182210186839
 BoxCollider2D:
   m_ObjectHideFlags: 0
