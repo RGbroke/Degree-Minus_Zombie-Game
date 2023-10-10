@@ -6,7 +6,7 @@ public class GameController : MonoBehaviour
 {
     public PlayerController player;
     public GameOver GameOverScreen;
-    int zombiesKilled = 0;
+    static int zombiesKilled = 0;
 
     public void GameOver()
     {
@@ -20,5 +20,10 @@ public class GameController : MonoBehaviour
             player.healthBar.setActive(false);
             GameOver();
         }
+    }
+
+    public void gainScore()
+    {
+        zombiesKilled++;
     }
 }

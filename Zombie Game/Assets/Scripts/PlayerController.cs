@@ -50,7 +50,6 @@ public class PlayerController : MonoBehaviour
         else
         {
             currHealth = 0;
-            Destroy(gameObject);
         }
         healthBar.SetHealth(currHealth);
     }

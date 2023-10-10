@@ -12,6 +12,8 @@ public class Enemy : MonoBehaviour
     public float maxHealth = 3f;
     public Animator animator;
 
+    public GameController gc;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +36,7 @@ public class Enemy : MonoBehaviour
 
         if (health <= 0)
         {
+            gc.gainScore();
             Destroy(gameObject);
         }
     }
