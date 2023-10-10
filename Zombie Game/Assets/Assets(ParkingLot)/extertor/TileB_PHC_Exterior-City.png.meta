@@ -1,0 +1,2318 @@
+fileFormatVersion: 2
+guid: 82477d555ddba5a4fb55fd1bc9ae20f4
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 241
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72ebc7e1743414a4098efd3096683c9e
+      internalID: -1692996219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_1
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 246
+        width: 4
+        height: 4
+      alignment: 9
+      pivot: {x: 0.58171177, y: 0.4999962}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84215bbaf5ba2004890e5421d61934ed
+      internalID: 2099636634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_2
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 244
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4be59931e475822419ad7f65daabe440
+      internalID: 1730772602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_3
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 241
+        width: 15
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fae445865d8fb5949b793a57df89aa4f
+      internalID: 33422758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_4
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 243
+        width: 14
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 908e8f055a127ff4784bc66301decf0d
+      internalID: -1387936965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_5
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 240
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d71279c37332b2b4389212b53ea7c1c5
+      internalID: 965494002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_6
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 240
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce1a14c8dca5dc44db130bc90bac689e
+      internalID: -1641930768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_7
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 202
+        width: 10
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 577b1f547748cfd42919eb903ede2569
+      internalID: -1648100145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_8
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 193
+        width: 14
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02443b36f33ec8540b40ea14eb727bef
+      internalID: 1945539065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_9
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 192
+        width: 16
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55acc6896b67fe046a009ab9dfd65501
+      internalID: -592083196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_10
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 192
+        width: 14
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29f708395e6bd4b4cb75c5b96ad4a853
+      internalID: 111122005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_11
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 227
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 049b4393e5f0dd7419bfa7fb4a76b10c
+      internalID: -514766321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_12
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 237
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aaafefc5e97fc8448a9656258a63622b
+      internalID: -829241604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_13
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 234
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac481f90f62bcbb4b94657c339c4f918
+      internalID: -524023879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_14
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 229
+        width: 31
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62d60c1269dd3fc4f820868943e9a094
+      internalID: 664427039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 160
+        width: 76
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae52cabeb67e0e743add0f45fa1eab40
+      internalID: 1435293041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_16
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 227
+        width: 26
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d89fac6699a9ba84ebff5e6c0b1726f1
+      internalID: -1831849274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_17
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 228
+        width: 31
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0e56fe9d3aaa2442b6d33e09bb7271f
+      internalID: 1754612512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_18
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 226
+        width: 15
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04fdc2716f3916042a620d6cba2a79a5
+      internalID: -933164985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_19
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 225
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53898f299403a1140a9a2aab946caa27
+      internalID: -2025318383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_20
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 213
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f83afb4cea5a4fb4e81e4e2ef6897eed
+      internalID: -1629510604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_21
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 213
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9eadff13480d1814180ddc9000b906ff
+      internalID: -1851448340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_22
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 212
+        width: 28
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1f10008bf7d5a0468ceb9b8b2beb1ed
+      internalID: 1916447233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_23
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 213
+        width: 28
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bedaadeb851daf24daaafa31c5d614bc
+      internalID: -1863866638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_24
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 163
+        width: 28
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 572d75efd8f783f449c3e80c58dbc122
+      internalID: 1653237757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_25
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 205
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40c14f36f726c0841a56d6792823b74a
+      internalID: -729371500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_26
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 176
+        width: 19
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2428e26ac04806c498c6231da6687f8f
+      internalID: 97490945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 112
+        width: 81
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4df193cde3752444e91564b8b200ac2a
+      internalID: -1095419369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_28
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 195
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f70d6c026960da54b8665874866c65fc
+      internalID: 1211672394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_29
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fc942540dc13634da16fa371293e916
+      internalID: 110253280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_30
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 160
+        width: 11
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e94798227fb4cce47b8e1954d50cafb0
+      internalID: 1084005087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_31
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 176
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93120f954c9fa9d45a2eb3e660bb1b71
+      internalID: -401752978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_32
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 129
+        width: 21
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5938f1a76362d743ba9d9682bc090a4
+      internalID: -124495847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_33
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 163
+        width: 15
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d989eecc05c6bee4db7ef2830c99150a
+      internalID: 194858696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_34
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 170
+        width: 15
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88e1467f147d15a488726c00f6b3ee9e
+      internalID: -1496960490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_35
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 128
+        width: 42
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eaf37748b85fd304c9f1c41e3163beae
+      internalID: 1220834290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_36
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 160
+        width: 17
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e43d44dba7a7ae41854fe234aed1923
+      internalID: 532549448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_37
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 114
+        width: 22
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c0a50f1415c87146921d5e74eabb4d2
+      internalID: -402164860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_38
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 139
+        width: 15
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cc3d727c9af2c14dbe3cda33aaa8fd1
+      internalID: 637283528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_39
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 132
+        width: 15
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17946ed0c2f21ac41945becce89cabb5
+      internalID: -1601200942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_40
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 128
+        width: 28
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25197aa7019330e4c982e75ae16467d3
+      internalID: -1697312120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_41
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 102
+        width: 9
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a27d3cd42567acd4fa1749f7da8b3b31
+      internalID: -1261953346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_42
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 102
+        width: 9
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2cc317a355300a4db56cbb78b9a729a
+      internalID: -1068040549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_43
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 102
+        width: 9
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cb45a7f5dd132147b4fa4c63ec18a50
+      internalID: 1287289390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_44
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 102
+        width: 9
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 604574abcba55ae45a5005fda2c82401
+      internalID: -205233783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_45
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 102
+        width: 9
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cf34a24429331e41848c4f5c94e58b9
+      internalID: 2010906213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_46
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 102
+        width: 9
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94d0d27ad556f3a4a8f63ecc222f6b06
+      internalID: -648668680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_47
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 96
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc8195ef57aee1d49ae35414a9434b27
+      internalID: -2120357477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_48
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 96
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf41cf6a791c4014884c924b831a6188
+      internalID: -337057480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_49
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 100
+        width: 15
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1fa1491e9c81b542980fb622c3e679a
+      internalID: 1435561105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_50
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 103
+        width: 32
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52816aba792a5c941b507ed2b766a337
+      internalID: -1059399560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_51
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 100
+        width: 31
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79a1f6e77d10d5840a7577dc59d07445
+      internalID: -218807575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_52
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 96
+        width: 15
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ed16d7b8abdd104c9ca75e58e20c40d
+      internalID: 1778547817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_53
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 97
+        width: 32
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08e429c63b10b5347a83c0ea82880af9
+      internalID: 186296536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_54
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 82
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0ac8cb92cac5fd409954db46c9f9fba
+      internalID: -751066269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_55
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 81
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62501fb94aacd4d4192f1db342b9839a
+      internalID: 2063295123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_56
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 64
+        width: 14
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2b375f514c150c4b997d13626bc32bf
+      internalID: -1217794798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_57
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 64
+        width: 14
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7413209f7e7f114b99c6d7b63f6de2d
+      internalID: 1486131580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_58
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 64
+        width: 13
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4063f44ce996b0a4cb76c1184ef93df8
+      internalID: 2075453026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_59
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 64
+        width: 13
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e8254de4b01fee4292d3c1b461996a3
+      internalID: 1321745987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_60
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 32
+        width: 15
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db2d39eb1d244c54ea574bc8d44b26ac
+      internalID: 1129235843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_61
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 83
+        width: 4
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a795376408bf68441a462c5db56e06d1
+      internalID: -999496588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_62
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 90
+        width: 5
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3dc566ab923b6c41aaa0a80449bcbe5
+      internalID: -397317295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_63
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 87
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a73f6cb482fe5d54bb682b32e5789fc1
+      internalID: 2127581451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_64
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 54
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c60e980da3fc1b449ad69855021cf26e
+      internalID: 1882890331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_65
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 54
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1308a425b08e0734bbcd2966b86aefe2
+      internalID: -1633562870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_66
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 51
+        width: 15
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f51868f7e2c1e2741887538b44f6e220
+      internalID: -777398724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_67
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 82
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cc81d3da5cce284aaaa906bdaf53282
+      internalID: -566222698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_68
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 85
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3691e9176d62f74787b6862ee7d5144
+      internalID: -1377388244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_69
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 84
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73ef6dc8c0c1c14439797eb964e82e46
+      internalID: -2017610066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_70
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 66
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16467774948812945ba69c890a6525d2
+      internalID: -1297308723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_71
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 66
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69405de689293f547a0160f4bd8d1843
+      internalID: 1559401614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_72
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 68
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51a3b2d3fd5f1b94693a1dfdb39280a0
+      internalID: -701215269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_73
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 76
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5c78478f59edad47b2742f318e3c549
+      internalID: -1480453494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_74
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 49
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 219ce4251e6be7d40acd054a3633497e
+      internalID: 884352256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_75
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 49
+        width: 6
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4659e71e5e0e3464b9f8ef1c24e83719
+      internalID: 972820140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_76
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 49
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f446f2a6e9424d64f9bbc82d724615ab
+      internalID: -1689883895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_77
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 49
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d066c488c45b304aadf917de7b8450e
+      internalID: 35885012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_78
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 38
+        width: 30
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a07d06619f9c4f4fa09f83c3bc78d67
+      internalID: 423425908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_79
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 38
+        width: 28
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56f6a452501bc9c45859588c523e48e7
+      internalID: -523136456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_80
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 16
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f57ba7ec1d8092e47876a7e98e1ab8a7
+      internalID: 1298779409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_81
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 29
+        width: 14
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af1c3e29f8ea142429ad7d3ad78cc8e1
+      internalID: -766746766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_82
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 105
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2aeaa8b91db4414fb8fa85703fb76fe
+      internalID: 763329597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_83
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 34
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5856ea2e740cedf4b867a297334daa9d
+      internalID: 341399474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_84
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 34
+        width: 6
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fde81b6e839398147867d4a1d2a5b7f9
+      internalID: 1142082021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_85
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 34
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f75b5ac8b7eec641adcad1958924eb3
+      internalID: 49870058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_86
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 0
+        width: 12
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c36ea66377623f846a3e53205aeb5b93
+      internalID: -1965325216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_87
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 23
+        width: 13
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03ab701af6eb55746b6644155db4aa22
+      internalID: 840200244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_88
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 25
+        width: 13
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b045b56eb306c0b4ba937b82aac8ffa1
+      internalID: -744037399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_89
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 0
+        width: 15
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29b18c1dcdabb3c4bb8cf63ed6befcc1
+      internalID: 1251328044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_90
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 15
+        width: 13
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e050ba0f5037d34cbe179ec97ed1a1d
+      internalID: 470209421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_91
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 18
+        width: 13
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 590f94d600252fe468e60ffc6ec679f7
+      internalID: 1673177209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_92
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 7
+        width: 30
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ff82040c4419294dac0875482a9b889
+      internalID: 249932792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_93
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 6
+        width: 28
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f837748f5af1dec4b9fcd7dd14edfee7
+      internalID: -1640338192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_94
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 8
+        width: 13
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac08b538438af0640adc6a71560d843f
+      internalID: 1383991203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_95
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 10
+        width: 13
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27c44d8dddd7c8d45a7c746f462149a1
+      internalID: 1563722450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_96
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 0
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3661363cd7740a4e8733e3912908014
+      internalID: -772765735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_97
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 0
+        width: 13
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59446a371168a814fb35c341d2e9f65a
+      internalID: 1687655454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileB_PHC_Exterior-City_98
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 0
+        width: 13
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bcfd158d988e3c49ad4ce133e2e5474
+      internalID: 354399564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      TileB_PHC_Exterior-City_0: -1692996219
+      TileB_PHC_Exterior-City_1: 2099636634
+      TileB_PHC_Exterior-City_10: 111122005
+      TileB_PHC_Exterior-City_11: -514766321
+      TileB_PHC_Exterior-City_12: -829241604
+      TileB_PHC_Exterior-City_13: -524023879
+      TileB_PHC_Exterior-City_14: 664427039
+      TileB_PHC_Exterior-City_15: 1435293041
+      TileB_PHC_Exterior-City_16: -1831849274
+      TileB_PHC_Exterior-City_17: 1754612512
+      TileB_PHC_Exterior-City_18: -933164985
+      TileB_PHC_Exterior-City_19: -2025318383
+      TileB_PHC_Exterior-City_2: 1730772602
+      TileB_PHC_Exterior-City_20: -1629510604
+      TileB_PHC_Exterior-City_21: -1851448340
+      TileB_PHC_Exterior-City_22: 1916447233
+      TileB_PHC_Exterior-City_23: -1863866638
+      TileB_PHC_Exterior-City_24: 1653237757
+      TileB_PHC_Exterior-City_25: -729371500
+      TileB_PHC_Exterior-City_26: 97490945
+      TileB_PHC_Exterior-City_27: -1095419369
+      TileB_PHC_Exterior-City_28: 1211672394
+      TileB_PHC_Exterior-City_29: 110253280
+      TileB_PHC_Exterior-City_3: 33422758
+      TileB_PHC_Exterior-City_30: 1084005087
+      TileB_PHC_Exterior-City_31: -401752978
+      TileB_PHC_Exterior-City_32: -124495847
+      TileB_PHC_Exterior-City_33: 194858696
+      TileB_PHC_Exterior-City_34: -1496960490
+      TileB_PHC_Exterior-City_35: 1220834290
+      TileB_PHC_Exterior-City_36: 532549448
+      TileB_PHC_Exterior-City_37: -402164860
+      TileB_PHC_Exterior-City_38: 637283528
+      TileB_PHC_Exterior-City_39: -1601200942
+      TileB_PHC_Exterior-City_4: -1387936965
+      TileB_PHC_Exterior-City_40: -1697312120
+      TileB_PHC_Exterior-City_41: -1261953346
+      TileB_PHC_Exterior-City_42: -1068040549
+      TileB_PHC_Exterior-City_43: 1287289390
+      TileB_PHC_Exterior-City_44: -205233783
+      TileB_PHC_Exterior-City_45: 2010906213
+      TileB_PHC_Exterior-City_46: -648668680
+      TileB_PHC_Exterior-City_47: -2120357477
+      TileB_PHC_Exterior-City_48: -337057480
+      TileB_PHC_Exterior-City_49: 1435561105
+      TileB_PHC_Exterior-City_5: 965494002
+      TileB_PHC_Exterior-City_50: -1059399560
+      TileB_PHC_Exterior-City_51: -218807575
+      TileB_PHC_Exterior-City_52: 1778547817
+      TileB_PHC_Exterior-City_53: 186296536
+      TileB_PHC_Exterior-City_54: -751066269
+      TileB_PHC_Exterior-City_55: 2063295123
+      TileB_PHC_Exterior-City_56: -1217794798
+      TileB_PHC_Exterior-City_57: 1486131580
+      TileB_PHC_Exterior-City_58: 2075453026
+      TileB_PHC_Exterior-City_59: 1321745987
+      TileB_PHC_Exterior-City_6: -1641930768
+      TileB_PHC_Exterior-City_60: 1129235843
+      TileB_PHC_Exterior-City_61: -999496588
+      TileB_PHC_Exterior-City_62: -397317295
+      TileB_PHC_Exterior-City_63: 2127581451
+      TileB_PHC_Exterior-City_64: 1882890331
+      TileB_PHC_Exterior-City_65: -1633562870
+      TileB_PHC_Exterior-City_66: -777398724
+      TileB_PHC_Exterior-City_67: -566222698
+      TileB_PHC_Exterior-City_68: -1377388244
+      TileB_PHC_Exterior-City_69: -2017610066
+      TileB_PHC_Exterior-City_7: -1648100145
+      TileB_PHC_Exterior-City_70: -1297308723
+      TileB_PHC_Exterior-City_71: 1559401614
+      TileB_PHC_Exterior-City_72: -701215269
+      TileB_PHC_Exterior-City_73: -1480453494
+      TileB_PHC_Exterior-City_74: 884352256
+      TileB_PHC_Exterior-City_75: 972820140
+      TileB_PHC_Exterior-City_76: -1689883895
+      TileB_PHC_Exterior-City_77: 35885012
+      TileB_PHC_Exterior-City_78: 423425908
+      TileB_PHC_Exterior-City_79: -523136456
+      TileB_PHC_Exterior-City_8: 1945539065
+      TileB_PHC_Exterior-City_80: 1298779409
+      TileB_PHC_Exterior-City_81: -766746766
+      TileB_PHC_Exterior-City_82: 763329597
+      TileB_PHC_Exterior-City_83: 341399474
+      TileB_PHC_Exterior-City_84: 1142082021
+      TileB_PHC_Exterior-City_85: 49870058
+      TileB_PHC_Exterior-City_86: -1965325216
+      TileB_PHC_Exterior-City_87: 840200244
+      TileB_PHC_Exterior-City_88: -744037399
+      TileB_PHC_Exterior-City_89: 1251328044
+      TileB_PHC_Exterior-City_9: -592083196
+      TileB_PHC_Exterior-City_90: 470209421
+      TileB_PHC_Exterior-City_91: 1673177209
+      TileB_PHC_Exterior-City_92: 249932792
+      TileB_PHC_Exterior-City_93: -1640338192
+      TileB_PHC_Exterior-City_94: 1383991203
+      TileB_PHC_Exterior-City_95: 1563722450
+      TileB_PHC_Exterior-City_96: -772765735
+      TileB_PHC_Exterior-City_97: 1687655454
+      TileB_PHC_Exterior-City_98: 354399564
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
