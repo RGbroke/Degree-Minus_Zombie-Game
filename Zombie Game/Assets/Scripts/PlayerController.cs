@@ -33,12 +33,6 @@ public class PlayerController : MonoBehaviour
         {
             this.TakeDamage(2);
         }
-
-        //Death Check
-        if(this.currHealth <= 0)
-        {
-            //Go to death screen
-        }
     }
 
     private void FixedUpdate()
