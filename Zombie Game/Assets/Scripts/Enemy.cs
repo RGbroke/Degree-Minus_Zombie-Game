@@ -13,8 +13,6 @@ public class Enemy : MonoBehaviour
     public Animator animator;
     bool isColliding = false;
     PlayerController player;
-    public float damageRate;
-    float lastDamageTime;
 
     public GameController gc;
 
@@ -33,9 +31,8 @@ public class Enemy : MonoBehaviour
         animator.SetFloat("Horizontal", target.position.x - transform.position.x);
         animator.SetFloat("Speed", speed);
 
-        if (isColliding && Time.time > lastDamageTime + damageRate)
+        if (isColliding)
         {
-            lastDamageTime = Time.time;
             player.TakeDamage(1);
         }
     }
@@ -48,8 +45,6 @@ public class Enemy : MonoBehaviour
         {
             gc.gainScore();
             Destroy(gameObject);
-            PlayerController scorekeep = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-            scorekeep.score += 1;
         }
     }
 
