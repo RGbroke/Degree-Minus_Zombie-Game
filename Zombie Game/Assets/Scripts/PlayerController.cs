@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rb;
 
     public int currHealth;
+    public int score = 0;
 
     Vector2 moveDirection;
 

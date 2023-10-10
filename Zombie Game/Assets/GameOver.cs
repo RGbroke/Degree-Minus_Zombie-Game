@@ -12,10 +12,11 @@ public class GameOver : MonoBehaviour
     public void Setup(int score)
     {
         gameObject.SetActive(true);
-        description.text = score.ToString() + " Zombies \"Oof'd\"";
+        description.text = score.ToString() + " Zombies killed";
     }
     public void RestartButton()
     {
+        gameObject.SetActive(false);
         SceneManager.LoadScene("start");
     }
     public void ExitButton()
