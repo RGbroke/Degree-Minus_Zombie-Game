@@ -16,6 +16,8 @@ public class Enemy : MonoBehaviour
     public float damageRate;
     float lastDamageTime;
 
+    public GameController gc;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +46,7 @@ public class Enemy : MonoBehaviour
 
         if (health <= 0)
         {
+            gc.gainScore();
             Destroy(gameObject);
             PlayerController scorekeep = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
             scorekeep.score += 1;
