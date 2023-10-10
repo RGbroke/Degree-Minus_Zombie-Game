@@ -12,7 +12,8 @@ public class GameOver : MonoBehaviour
     public void Setup(int score)
     {
         gameObject.SetActive(true);
-        description.text = score.ToString() + " Zombies \"Oof'd\"";
+        PlayerController scorekeep = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        description.text = scorekeep.score.ToString() + " Zombies \"Oof'd\"";
     }
     public void RestartButton()
     {

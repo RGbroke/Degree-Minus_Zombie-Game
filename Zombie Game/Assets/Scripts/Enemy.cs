@@ -11,6 +11,10 @@ public class Enemy : MonoBehaviour
     public float speed;
     public float maxHealth = 3f;
     public Animator animator;
+    bool isColliding = false;
+    PlayerController player;
+    public float damageRate;
+    float lastDamageTime;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +30,12 @@ public class Enemy : MonoBehaviour
 
         animator.SetFloat("Horizontal", target.position.x - transform.position.x);
         animator.SetFloat("Speed", speed);
+
+        if (isColliding && Time.time > lastDamageTime + damageRate)
+        {
+            lastDamageTime = Time.time;
+            player.TakeDamage(1);
+        }
     }
 
     public void TakeDamage(float damageAmount)
@@ -35,6 +45,8 @@ public class Enemy : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
+            PlayerController scorekeep = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+            scorekeep.score += 1;
         }
     }
 
@@ -42,6 +54,16 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent<PlayerController>(out PlayerController playerComponent))
         {
+            isColliding = true;
+            player = playerComponent;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.TryGetComponent<PlayerController>(out PlayerController playerComponent))
+        {
+            isColliding = false;
             playerComponent.TakeDamage(1);
         }
     }

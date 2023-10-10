@@ -159,6 +159,7 @@ MonoBehaviour:
   moveSpeed: 4
   rb: {fileID: 3152226216461675333}
   currHealth: 0
+  damageRate: 1
 --- !u!61 &3422630603603184675
 BoxCollider2D:
   m_ObjectHideFlags: 0
