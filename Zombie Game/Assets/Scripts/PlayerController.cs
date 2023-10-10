@@ -14,6 +14,11 @@ public class PlayerController : MonoBehaviour
     public int currHealth;
     public int score = 0;
 
+    bool hit = false;
+    public float damageRate = 1f;
+    float lastDamageTime;
+    int damageTaken;
+
     Vector2 moveDirection;
 
     void Start()
@@ -30,11 +35,20 @@ public class PlayerController : MonoBehaviour
 
         moveDirection = new Vector2(moveX, moveY).normalized;
 
-        //Code to test healthbar. Remove later
-        if (Input.GetKeyDown(KeyCode.Space))
+        if(Time.time > lastDamageTime + damageRate && hit)
         {
-            this.TakeDamage(2);
+            lastDamageTime = Time.time;
+            if (currHealth - damageTaken > 0)
+            {
+                currHealth -= damageTaken;
+            }
+            else
+            {
+                currHealth = 0;
+            }
+            healthBar.SetHealth(currHealth);
         }
+        hit = false;
     }
 
     private void FixedUpdate()
@@ -44,14 +58,7 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if(currHealth-damage > 0)
-        {
-            currHealth -= damage;
-        }
-        else
-        {
-            currHealth = 0;
-        }
-        healthBar.SetHealth(currHealth);
+        damageTaken = damage;
+        hit = true;
     }
 }

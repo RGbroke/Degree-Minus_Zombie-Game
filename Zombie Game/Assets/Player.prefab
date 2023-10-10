@@ -109,7 +109,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 849283748143769478}
@@ -159,7 +159,8 @@ MonoBehaviour:
   moveSpeed: 4
   rb: {fileID: 3152226216461675333}
   currHealth: 0
-  damageRate: 1
+  score: 0
+  damageRate: 0.3
 --- !u!61 &3422630603603184675
 BoxCollider2D:
   m_ObjectHideFlags: 0
