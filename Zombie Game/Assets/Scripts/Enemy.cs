@@ -15,6 +15,14 @@ public class Enemy : MonoBehaviour
     PlayerController player;
 
     public GameController gc;
+    public SpriteRenderer sprite;
+
+    public IEnumerator FlashRed()
+    {
+        sprite.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        sprite.color = Color.white;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +47,7 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(float damageAmount)
     {
+        StartCoroutine(FlashRed());
         health -= damageAmount;
 
         if (health <= 0)
