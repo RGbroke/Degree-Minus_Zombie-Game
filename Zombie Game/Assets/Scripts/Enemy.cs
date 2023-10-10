@@ -44,7 +44,7 @@ public class Enemy : MonoBehaviour
         if (health <= 0)
         {
             gc.gainScore();
-            Destroy(gameObject);
+            Destroy(this.gameObject);
         }
     }
 
