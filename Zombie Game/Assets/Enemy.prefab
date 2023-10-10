@@ -131,6 +131,7 @@ MonoBehaviour:
   maxHealth: 10
   animator: {fileID: 1150052953845089468}
   gc: {fileID: 0}
+  sprite: {fileID: 7813864211610970591}
 --- !u!61 &8192324182210186839
 BoxCollider2D:
   m_ObjectHideFlags: 0

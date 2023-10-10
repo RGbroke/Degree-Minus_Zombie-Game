@@ -19,7 +19,16 @@ public class PlayerController : MonoBehaviour
     float lastDamageTime;
     int damageTaken;
 
-    Vector2 moveDirection;
+    Vector2 moveDirection; 
+    
+    public SpriteRenderer sprite;
+
+    public IEnumerator FlashRed()
+    {
+        sprite.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        sprite.color = Color.white;
+    }
 
     void Start()
     {
@@ -37,6 +46,7 @@ public class PlayerController : MonoBehaviour
 
         if(Time.time > lastDamageTime + damageRate && hit)
         {
+            StartCoroutine(FlashRed());
             lastDamageTime = Time.time;
             if (currHealth - damageTaken > 0)
             {
