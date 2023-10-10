@@ -8,7 +8,6 @@ public class PlayerController : MonoBehaviour
     public int maxHealth = 10;
     public int currHealth;
     public HealthBar healthBar;
-
     public float moveSpeed = 5f;
     public Rigidbody2D rb;
 
@@ -40,7 +39,8 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
     }
 
-    void TakeDamage(int damage)
+   
+    public void TakeDamage(int damage)
     {
         if(currHealth-damage > 0)
         {
@@ -52,4 +52,13 @@ public class PlayerController : MonoBehaviour
         }
         healthBar.SetHealth(currHealth);
     }
+    
+    /*public void OnCollisionEnter (Collison col)
+    {
+        if (col.gameObject.name.Contains("Enemy"))
+        {
+            TakeDamage(10);
+            Debug.log("hi");
+        }
+    }*/
 }
