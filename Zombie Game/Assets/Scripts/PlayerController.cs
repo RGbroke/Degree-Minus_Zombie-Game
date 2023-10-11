@@ -4,14 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(PlayerInput))]
 public class PlayerController : MonoBehaviour
 {
     //Health
     public HealthBar healthBar;
     [SerializeField] private int maxHealth = 10;
-    public int currHealth;
+    private int currHealth;
     
 
     //Movement
@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 moveDirection;
     private Vector2 aimDirection;
 
-    private CharacterController controller;
+    [SerializeField] private Rigidbody2D controller;
     private PlayerControls playerControls;
     private PlayerInput playerInput;
     private float controllerDeadzone;
@@ -44,7 +44,6 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        controller = GetComponent<CharacterController>();
         playerInput = GetComponent<PlayerInput>();
         playerControls = new PlayerControls();
     }
@@ -103,9 +102,9 @@ public class PlayerController : MonoBehaviour
         moveDirection = playerControls.Controls.Movement.ReadValue<Vector2>();
         aimDirection = playerControls.Controls.Aim.ReadValue<Vector2>();
     }
-    void HandleMovement() 
+    void HandleMovement() //0 -0.75 5 12.25
     {
-        controller.Move(moveDirection * Time.deltaTime * moveSpeed);
+        controller.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
         animator.SetFloat("Horizontal", moveDirection.x);
         animator.SetFloat("Speed", moveDirection.sqrMagnitude);
     }
@@ -146,5 +145,10 @@ public class PlayerController : MonoBehaviour
     {
         damageTaken = damage;
         hit = true;
+    }
+
+    public float getHealth()
+    {
+        return currHealth;
     }
 }
