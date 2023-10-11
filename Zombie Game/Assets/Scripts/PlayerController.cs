@@ -1,28 +1,67 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(PlayerInput))]
 public class PlayerController : MonoBehaviour
 {
-    //Healthbar stuff
-    public int maxHealth = 10;
+    //Health
     public HealthBar healthBar;
-
-    public float moveSpeed = 5f;
-    public Rigidbody2D rb;
-
+    [SerializeField] private int maxHealth = 10;
     public int currHealth;
-    public int score = 0;
-
-    bool hit = false;
-    public float damageRate = 1f;
-    float lastDamageTime;
-    int damageTaken;
-
-    Vector2 moveDirection; 
     
+
+    //Movement
+    [SerializeField] private float moveSpeed = 5f;
+
+    private Vector2 moveDirection;
+    private Vector2 aimDirection;
+
+    private CharacterController controller;
+    private PlayerControls playerControls;
+    private PlayerInput playerInput;
+    private float controllerDeadzone;
+    private bool isGamepad;
+
+    //Weapon & Aim
+    [SerializeField] private Pivot pivot;
+    public Animator animator;
+    [SerializeField] private Weapon weapon;
+    [SerializeField] private float bulletSpeed;
+    [SerializeField] private float fireRate;
+    private bool fire;
+
+    //Damage
+    [SerializeField] private float damageRate = 1f;
+    private bool hit = false;
+    private float lastDamageTime;
+    private int damageTaken;
+
     public SpriteRenderer sprite;
 
+    private void Awake()
+    {
+        controller = GetComponent<CharacterController>();
+        playerInput = GetComponent<PlayerInput>();
+        playerControls = new PlayerControls();
+    }
+    private void OnEnable()
+    {
+        //Health
+        currHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
+
+        playerControls.Enable();
+        playerControls.Controls.Fire.started += ctx => StartFiring();
+        playerControls.Controls.Fire.canceled += ctx => StopFiring();
+    }
+    private void OnDisable()
+    {
+        playerControls.Disable();
+    }
     public IEnumerator FlashRed()
     {
         sprite.color = Color.red;
@@ -30,19 +69,17 @@ public class PlayerController : MonoBehaviour
         sprite.color = Color.white;
     }
 
-    void Start()
-    {
-        currHealth = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
-    }
-
     // Update is called once per frame
     void Update()
     {
-        float moveX = Input.GetAxisRaw("Horizontal");
-        float moveY = Input.GetAxisRaw("Vertical");
-
-        moveDirection = new Vector2(moveX, moveY).normalized;
+        //Movement/Control handling
+        HandleInput();
+        HandleMovement();
+        HandleAiming();
+        if (fire)
+        {
+            Fire();
+        }
 
         if(Time.time > lastDamageTime + damageRate && hit)
         {
@@ -61,9 +98,48 @@ public class PlayerController : MonoBehaviour
         hit = false;
     }
 
-    private void FixedUpdate()
+    void HandleInput() 
     {
-        rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
+        moveDirection = playerControls.Controls.Movement.ReadValue<Vector2>();
+        aimDirection = playerControls.Controls.Aim.ReadValue<Vector2>();
+    }
+    void HandleMovement() 
+    {
+        controller.Move(moveDirection * Time.deltaTime * moveSpeed);
+        animator.SetFloat("Horizontal", moveDirection.x);
+        animator.SetFloat("Speed", moveDirection.sqrMagnitude);
+    }
+    void HandleAiming()
+    {
+        if (isGamepad) 
+        {
+            pivot.HandleAiming(aimDirection);
+        } 
+        else 
+        { 
+            pivot.HandleAiming(); 
+        }
+
+    }
+
+    public void OnDeviceChange(PlayerInput i)
+    {
+        isGamepad = i.currentControlScheme.Equals("Gamepad") ? true : false;
+    }
+
+    private void StartFiring()
+    {
+        fire = true;
+    }
+    private void StopFiring()
+    {
+        fire = false;
+    }
+    private void Fire()
+    {
+        Debug.Log("FIRE");
+        weapon.Fire(bulletSpeed, fireRate);
+        
     }
 
     public void TakeDamage(int damage)

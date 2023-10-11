@@ -55,6 +55,10 @@ public class Enemy : MonoBehaviour
             gc.gainScore();
             Destroy(this.gameObject);
         }
+        if(speed > 1)
+        {
+            speed--;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

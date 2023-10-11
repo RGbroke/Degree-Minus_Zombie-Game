@@ -16,6 +16,7 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
+        StartCoroutine(spawnEnemy(0, zombie));
         StartCoroutine(spawnEnemy(minSpawnTime, zombie));
     }
 
@@ -24,6 +25,9 @@ public class EnemySpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(interval);
         GameObject newEnemy = Instantiate(enemy, transform.position, Quaternion.identity);
-        StartCoroutine(spawnEnemy(interval, enemy));
+        if(interval != 0)
+        {
+            StartCoroutine(spawnEnemy(interval, enemy));
+        }
     }
 }
