@@ -23,7 +23,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Rigidbody2D controller;
     private PlayerControls playerControls;
     private PlayerInput playerInput;
-    private float controllerDeadzone;
     private bool isGamepad;
 
     //Weapon & Aim
