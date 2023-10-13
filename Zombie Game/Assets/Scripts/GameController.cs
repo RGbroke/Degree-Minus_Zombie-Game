@@ -15,7 +15,7 @@ public class GameController : MonoBehaviour
 
     public void Update()
     {
-        if(player.currHealth <= 0)
+        if(player.getHealth() <= 0)
         {
             player.healthBar.setActive(false);
             GameOver();

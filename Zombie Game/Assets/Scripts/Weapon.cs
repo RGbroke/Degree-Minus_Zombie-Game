@@ -8,31 +8,9 @@ public class Weapon : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform firePoint;
 
-    public float fireForce = 20f;
-    public float fireRate;
-    float lastShootTime;
+    private static float lastShootTime;
 
-
-    Vector2 mousePosition;
-
-    private void Update()
-    {
-        if (Input.GetKey(KeyCode.Mouse0))
-        {
-            Fire();
-        }
-
-        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-    }
-
-    private void FixedUpdate()
-    {
-        Vector2 aimDirection = mousePosition;
-        float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
-    }
-
-
-    public void Fire()
+    public void Fire(float fireForce, float fireRate)
     {
         if(Time.time > lastShootTime + fireRate)
         {
