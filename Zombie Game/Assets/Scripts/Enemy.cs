@@ -15,6 +15,8 @@ public class Enemy : MonoBehaviour
     PlayerController player;
 
     public GameController gc;
+
+
     public SpriteRenderer sprite;
 
     public IEnumerator FlashRed()
@@ -35,7 +37,10 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-
+        float distance = Vector3.Distance (this.transform.position, target.transform.position);
+        checkDistance();
+        if (gc.firstZombie == true)
+            resumeTimer();
         animator.SetFloat("Horizontal", target.position.x - transform.position.x);
         animator.SetFloat("Speed", speed);
 
@@ -78,4 +83,28 @@ public class Enemy : MonoBehaviour
             playerComponent.TakeDamage(1);
         }
     }
+
+
+    public void checkDistance()
+    {
+        float distance = Vector3.Distance (this.transform.position, target.transform.position);
+        if(distance <= 12 && gc.firstZombie!= true)
+            seen();
+    }
+
+    public void resumeTimer()
+    {
+         if(Input.GetMouseButtonDown(0))
+            {
+                Time.timeScale = 1;
+                Debug.Log(gc.firstZombie);
+            }
+    }
+
+    private void seen()
+    {
+        gc.firstZombieSeen();
+        Time.timeScale = 0;
+    }
+
 }

@@ -7,7 +7,9 @@ public class GameController : MonoBehaviour
     public PlayerController player;
     public GameOver GameOverScreen;
     static int zombiesKilled = 0;
-
+    public bool firstZombie = false;
+    public bool secondZombie = false;
+    
     public void GameOver()
     {
         GameOverScreen.Setup(zombiesKilled);
@@ -26,4 +28,12 @@ public class GameController : MonoBehaviour
     {
         zombiesKilled++;
     }
+
+    public void firstZombieSeen()
+    {
+        firstZombie = true;
+    }
+
+    
+   
 }

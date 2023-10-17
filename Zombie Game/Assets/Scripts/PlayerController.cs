@@ -103,9 +103,12 @@ public class PlayerController : MonoBehaviour
     }
     void HandleMovement() //0 -0.75 5 12.25
     {
-        controller.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
-        animator.SetFloat("Horizontal", moveDirection.x);
-        animator.SetFloat("Speed", moveDirection.sqrMagnitude);
+        if(Time.timeScale != 0 )
+        {
+            controller.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
+            animator.SetFloat("Horizontal", moveDirection.x);
+            animator.SetFloat("Speed", moveDirection.sqrMagnitude);
+        }
     }
     void HandleAiming()
     {
