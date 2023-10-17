@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour
     private int damageTaken;
 
     public SpriteRenderer sprite;
+    public SpriteRenderer weaponSprite;
 
     private void Awake()
     {
@@ -68,8 +69,10 @@ public class PlayerController : MonoBehaviour
     public IEnumerator FlashRed()
     {
         sprite.color = Color.red;
+        weaponSprite.color = Color.red;
         yield return new WaitForSeconds(0.1f);
         sprite.color = Color.white;
+        weaponSprite.color = Color.white;
     }
 
     // Update is called once per frame
