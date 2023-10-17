@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.EventSystems;
 
 public class Enemy : MonoBehaviour
@@ -16,6 +17,8 @@ public class Enemy : MonoBehaviour
 
     public GameController gc;
     public SpriteRenderer sprite;
+
+    public AudioSource zombieAttackNoise;
 
     public IEnumerator FlashRed()
     {
@@ -41,7 +44,9 @@ public class Enemy : MonoBehaviour
 
         if (isColliding)
         {
+            zombieAttackNoise.Play();
             player.TakeDamage(1);
+            new WaitForSeconds(1f);
         }
     }
 

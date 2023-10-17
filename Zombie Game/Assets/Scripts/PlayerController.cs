@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Audio;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(PlayerInput))]
@@ -32,6 +33,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float bulletSpeed;
     [SerializeField] private float fireRate;
     private bool fire;
+
+    //Weapon SFX
+    public AudioSource gunshotEnd;
 
     //Damage
     [SerializeField] private float damageRate = 1f;
@@ -132,6 +136,7 @@ public class PlayerController : MonoBehaviour
     private void StopFiring()
     {
         fire = false;
+        gunshotEnd.Play();
     }
     private void Fire()
     {
