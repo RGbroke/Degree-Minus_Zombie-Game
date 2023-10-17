@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.EventSystems;
 
-public class Enemy : MonoBehaviour
+public class EnemyChaser : MonoBehaviour
 {
     private Transform target;
     private float health;
@@ -52,7 +52,7 @@ public class Enemy : MonoBehaviour
 
         float distance = Vector3.Distance(this.transform.position, target.transform.position);
         checkDistance();
-        if (gc.firstZombie == true)
+        if (gc.secondZombie == true)
             resumeTimer();
     }
 
@@ -95,7 +95,7 @@ public class Enemy : MonoBehaviour
     public void checkDistance()
     {
         float distance = Vector3.Distance(this.transform.position, target.transform.position);
-        if (distance <= 12 && gc.firstZombie != true)
+        if (distance <= 12 && gc.secondZombie != true)
             seen();
     }
 
@@ -104,15 +104,14 @@ public class Enemy : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             Time.timeScale = 1;
-            Debug.Log(gc.firstZombie);
+            Debug.Log(gc.secondZombie);
         }
     }
 
     private void seen()
     {
-        gc.firstZombieSeen();
+        gc.secondZombieSeen();
 	dialogue.index++;
-	Debug.Log(dialogue.index);
         Time.timeScale = 0;
     }
 }

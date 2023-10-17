@@ -8,34 +8,22 @@ public class Dialogue : MonoBehaviour
     public TextMeshProUGUI textComponent;
     public string[] lines;
     private float textspeed;
-    private int index;
+    public int index;
     public GameController gc;
 
     void Start()
     {
-        textComponent.text = string.Empty;
-        StartDialogue();
+        textComponent.text = lines[index];	
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        if(Input.GetMouseButtonDown(1))
-        {
-            Debug.Log(gc.firstZombie);
-            if(textComponent.text == lines[index])
-            {
-                NextLine();
-            }
-             else
-            {
-            StopAllCoroutines();
-            textComponent.text = lines[index];
-            }
-        }
-
+        textComponent.text = lines[index];	
     }
+
+
 
     public void Trigger()
     {
@@ -67,8 +55,6 @@ public class Dialogue : MonoBehaviour
         if (index < lines.Length - 1)
         {
             index++;
-            textComponent.text = string.Empty;
-            StartCoroutine(TypeLine());
         }
 
         /* else{
