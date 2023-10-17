@@ -71,6 +71,7 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.TryGetComponent<PlayerController>(out PlayerController playerComponent))
         {
             isColliding = true;
+            animator.SetBool("isColliding", true);
             player = playerComponent;
         }
     }
@@ -80,6 +81,7 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.TryGetComponent<PlayerController>(out PlayerController playerComponent))
         {
             isColliding = false;
+            animator.SetBool("isColliding", false);
             playerComponent.TakeDamage(1);
         }
     }
