@@ -2856,11 +2856,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 258107748855629486, guid: 04bc8e035d2bbae44b14779d10fdf09f, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 258107748855629486, guid: 04bc8e035d2bbae44b14779d10fdf09f, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.2
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 258107748855629486, guid: 04bc8e035d2bbae44b14779d10fdf09f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4925,7 +4925,7 @@ MonoBehaviour:
   animator: {fileID: 1504935868}
   weapon: {fileID: 1421555473}
   bulletSpeed: 20
-  fireRate: 0.15
+  fireRate: 0.2
   gunshotEnd: {fileID: 1504935876}
   damageRate: 1
   sprite: {fileID: 1504935873}
