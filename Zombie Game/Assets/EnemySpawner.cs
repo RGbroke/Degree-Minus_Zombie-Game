@@ -1,33 +1,28 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField]
+    private GameController gc;
+    [SerializeField]
     private GameObject zombie;
     [SerializeField]
-    private float minSpawnTime;
+    private float spawnDelay;
     [SerializeField]
-    private float maxSpawnTime;
+    private float maxConcurrent;
 
-    private float spawnTime;
-    private float zombies = 0;
-    private float maxZombies = 2;
+    private float spawnTime = 0;
 
-    void Start()
+    void Update()
     {
-        StartCoroutine(spawnEnemy(0, zombie));
-        StartCoroutine(spawnEnemy(minSpawnTime, zombie));
-    }
-
-
-    private IEnumerator spawnEnemy(float interval, GameObject enemy)
-    {
-        yield return new WaitForSeconds(interval);
-        GameObject newEnemy = Instantiate(enemy, transform.position, Quaternion.identity);
-        if(interval != 0)
+        spawnTime -= Time.deltaTime;
+        if (spawnTime <= 0 && gc.numActiveZombies() < maxConcurrent)
         {
-            StartCoroutine(spawnEnemy(interval, enemy));
+            gc.addActiveZombies(1);
+            Instantiate(zombie, transform.position, Quaternion.identity);
+            spawnTime = UnityEngine.Random.Range(spawnDelay/2, spawnDelay);
         }
     }
 }

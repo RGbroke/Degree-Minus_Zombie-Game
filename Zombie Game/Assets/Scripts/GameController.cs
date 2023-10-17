@@ -7,6 +7,9 @@ public class GameController : MonoBehaviour
     public PlayerController player;
     public GameOver GameOverScreen;
     static int zombiesKilled = 0;
+    public bool firstZombie = false;
+    public bool secondZombie = false;
+    static int activeZombies = 0;
 
     public void GameOver()
     {
@@ -20,10 +23,37 @@ public class GameController : MonoBehaviour
             player.healthBar.setActive(false);
             GameOver();
         }
+	if(zombiesKilled == 10)
+	{
+		/*Steven's function to enable going into the hospital*/
+		/*Display text to panel*/
+	}
+
     }
 
     public void gainScore()
     {
         zombiesKilled++;
+        activeZombies--;
+    }
+
+    public void addActiveZombies(int num)
+    {
+        activeZombies += num;
+    }
+
+    public int numActiveZombies()
+    {
+        return activeZombies;
+    }
+
+    public void firstZombieSeen()
+    {
+        firstZombie = true;
+    }
+
+    public void secondZombieSeen()
+    {
+        secondZombie = true;
     }
 }
