@@ -23,7 +23,7 @@ public class Dialogue : MonoBehaviour
         
         if(Input.GetMouseButtonDown(1))
         {
-
+            Debug.Log(gc.firstZombie);
             if(textComponent.text == lines[index])
             {
                 NextLine();

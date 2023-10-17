@@ -104,7 +104,7 @@ public class Enemy : MonoBehaviour
     private void seen()
     {
         gc.firstZombieSeen();
-        Time.timeScale = 0;
+        Time.timeScale = 2;
     }
 
 }
