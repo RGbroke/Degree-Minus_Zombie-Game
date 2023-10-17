@@ -41954,7 +41954,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &1561018711
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -42024,6 +42024,7 @@ MonoBehaviour:
   gunshotEnd: {fileID: 1561018709}
   damageRate: 1
   sprite: {fileID: 1561018713}
+  weaponSprite: {fileID: 0}
 --- !u!212 &1561018713 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 1557002769649977749, guid: e8b062e4ea524dc43bcb6a2adf8140a3, type: 3}
