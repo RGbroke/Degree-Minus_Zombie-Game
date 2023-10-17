@@ -13,6 +13,7 @@ public class GameOver : MonoBehaviour
     {
         gameObject.SetActive(true);
         description.text = score.ToString() + " Zombies killed";
+        Time.timeScale = 0f;
     }
     public void RestartButton()
     {
