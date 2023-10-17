@@ -49,10 +49,10 @@ public class Enemy : MonoBehaviour
             new WaitForSeconds(1f);
         }
 
-        float distance = Vector3.Distance(this.transform.position, target.transform.position);
+       /* float distance = Vector3.Distance(this.transform.position, target.transform.position);
         checkDistance();
         if (gc.firstZombie == true)
-            resumeTimer();
+            resumeTimer();*/
     }
 
     public void TakeDamage(float damageAmount)
@@ -90,7 +90,7 @@ public class Enemy : MonoBehaviour
             playerComponent.TakeDamage(1);
         }
     }
-
+    /*
     public void checkDistance()
     {
         float distance = Vector3.Distance(this.transform.position, target.transform.position);
@@ -112,4 +112,6 @@ public class Enemy : MonoBehaviour
         gc.firstZombieSeen();
         Time.timeScale = 0;
     }
+    */
+
 }
