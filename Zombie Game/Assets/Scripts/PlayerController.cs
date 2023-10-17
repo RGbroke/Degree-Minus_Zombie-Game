@@ -76,9 +76,13 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //Movement/Control handling
-        HandleInput();
-        HandleMovement();
-        HandleAiming();
+	if(Time.timeScale != 0){
+	
+        	HandleInput();
+        	HandleMovement();
+        	HandleAiming();
+	}
+
         if (fire)
         {
             Fire();
