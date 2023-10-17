@@ -95,7 +95,7 @@ public class Enemy : MonoBehaviour
     public void checkDistance()
     {
         float distance = Vector3.Distance(this.transform.position, target.transform.position);
-        if (distance <= 10 && gc.firstZombie != true)
+        if (distance <= 12 && gc.firstZombie != true)
             seen();
     }
 
