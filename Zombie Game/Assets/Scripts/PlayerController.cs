@@ -141,7 +141,6 @@ public class PlayerController : MonoBehaviour
     }
     private void Fire()
     {
-        Debug.Log("FIRE");
         weapon.Fire(bulletSpeed, fireRate);
         
     }

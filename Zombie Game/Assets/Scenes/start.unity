@@ -3363,9 +3363,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf2c4c6ecfb2a0b4c870c4d4e1215946, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gc: {fileID: 571784347}
   zombie: {fileID: 1774999927600836300}
-  minSpawnTime: 6
-  maxSpawnTime: 8
+  spawnDelay: 10
+  maxConcurrent: 4
 --- !u!4 &755057633
 Transform:
   m_ObjectHideFlags: 0
@@ -19851,9 +19852,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf2c4c6ecfb2a0b4c870c4d4e1215946, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gc: {fileID: 571784347}
   zombie: {fileID: 1774999927600836300}
-  minSpawnTime: 5
-  maxSpawnTime: 8
+  spawnDelay: 10
+  maxConcurrent: 4
 --- !u!4 &1642708108
 Transform:
   m_ObjectHideFlags: 0
@@ -21180,9 +21182,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf2c4c6ecfb2a0b4c870c4d4e1215946, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gc: {fileID: 571784347}
   zombie: {fileID: 698448757}
-  minSpawnTime: 60
-  maxSpawnTime: 60
+  spawnDelay: 5
+  maxConcurrent: 1
 --- !u!4 &2067010104
 Transform:
   m_ObjectHideFlags: 0
