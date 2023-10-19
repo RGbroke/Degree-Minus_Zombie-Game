@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 1668721096761550328}
   - component: {fileID: 8277614590128913956}
   - component: {fileID: 2639719991977007569}
+  - component: {fileID: 5895310697153616963}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -313,13 +314,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 0}
   maxHealth: 15
-  moveSpeed: 6
+  moveSpeed: 10
   controller: {fileID: 8277614590128913956}
   pivot: {fileID: 8066613370844561859}
   animator: {fileID: 2588117930869202780}
   weapon: {fileID: 814717445347588452}
-  bulletSpeed: 20
-  fireRate: 0.15
+  bulletSpeed: 30
+  fireRate: 0.1
   gunshotEnd: {fileID: 2639719991977007569}
   damageRate: 0.5
   sprite: {fileID: 1557002769649977749}
@@ -408,7 +409,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: 5f246984315f9be4dbd36832710298f8, type: 2}
   m_audioClip: {fileID: 8300000, guid: 6f1ff5f3dcdd5264eb5b845196c1805d, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.7
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -492,6 +493,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!210 &5895310697153616963
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5536918832966046342}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 2
+  m_SortAtRoot: 0
 --- !u!1 &5973932773297106990
 GameObject:
   m_ObjectHideFlags: 0
@@ -567,7 +580,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 6cf953f91fff5144eaf83f92e1ba54cd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -606,7 +619,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: 5f246984315f9be4dbd36832710298f8, type: 2}
   m_audioClip: {fileID: 8300000, guid: 3875663a8aa943c45a8789b144401135, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.4
+  m_Volume: 1
   m_Pitch: 0.7
   Loop: 0
   Mute: 0
