@@ -9,6 +9,8 @@ public class Enemy : MonoBehaviour
 {
     private Transform target;
     private float health;
+    private Color defaultColor;
+
     public float speed;
     public float maxHealth = 3f;
     public Animator animator;
@@ -25,7 +27,7 @@ public class Enemy : MonoBehaviour
     {
         sprite.color = Color.red;
         yield return new WaitForSeconds(0.1f);
-        sprite.color = Color.white;
+        sprite.color = defaultColor;
     }
 
     // Start is called before the first frame update
@@ -33,6 +35,7 @@ public class Enemy : MonoBehaviour
     {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         health = maxHealth;
+        defaultColor = sprite.color;
     }
 
     // Update is called once per frame
@@ -110,9 +113,9 @@ public class Enemy : MonoBehaviour
 
     private void seen()
     {
-        gc.firstZombieSeen();
-	dialogue.index++;
-	Debug.Log(dialogue.index);
-        Time.timeScale = 0;
+        //gc.firstZombieSeen();
+	    //dialogue.index++;
+	    //Debug.Log(dialogue.index);
+        //Time.timeScale = 0;
     }
 }

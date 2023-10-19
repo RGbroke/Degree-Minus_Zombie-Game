@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
     //Weapon SFX
     public AudioSource gunshotEnd;
 
-    //Damage
+    //Player Damage
     [SerializeField] private float damageRate = 1f;
     private bool hit = false;
     private float lastDamageTime;
@@ -79,12 +79,11 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //Movement/Control handling
-	if(Time.timeScale != 0){
-	
-        	HandleInput();
-        	HandleMovement();
-        	HandleAiming();
-	}
+	    if(Time.timeScale != 0){
+            HandleInput();
+            HandleMovement();
+            HandleAiming();
+	    }
 
         if (fire)
         {
@@ -113,7 +112,7 @@ public class PlayerController : MonoBehaviour
         moveDirection = playerControls.Controls.Movement.ReadValue<Vector2>();
         aimDirection = playerControls.Controls.Aim.ReadValue<Vector2>();
     }
-    void HandleMovement() //0 -0.75 5 12.25
+    void HandleMovement()
     {
         controller.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
         animator.SetFloat("Horizontal", moveDirection.x);
@@ -121,7 +120,7 @@ public class PlayerController : MonoBehaviour
     }
     void HandleAiming()
     {
-        if (isGamepad) 
+        if(isGamepad) 
         {
             pivot.HandleAiming(aimDirection);
         } 

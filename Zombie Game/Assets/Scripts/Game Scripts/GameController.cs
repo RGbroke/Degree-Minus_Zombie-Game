@@ -23,11 +23,11 @@ public class GameController : MonoBehaviour
             player.healthBar.setActive(false);
             GameOver();
         }
-	if(zombiesKilled == 10)
-	{
-		/*Steven's function to enable going into the hospital*/
-		/*Display text to panel*/
-	}
+	    if(zombiesKilled == 10)
+	    {
+		    /*Steven's function to enable going into the hospital*/
+		    /*Display text to panel*/
+	    }
 
     }
 
