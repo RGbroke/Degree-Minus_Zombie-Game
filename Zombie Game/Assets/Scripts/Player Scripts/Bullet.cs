@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public float destroyTime = 3f;
+
+    private void Start()
+    {
+        Physics2D.IgnoreLayerCollision(0, 10);
+        Destroy(gameObject, destroyTime);
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent))

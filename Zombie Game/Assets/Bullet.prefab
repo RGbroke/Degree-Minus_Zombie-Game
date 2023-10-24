@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2038724187382652906}
   - component: {fileID: 2337552776122131531}
   - component: {fileID: -8919477916352315271}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,6 +126,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bb5dcafffa90404cb07b141b4182da1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyTime: 3
+  FlashSprite: {fileID: 21300000, guid: bfe72ec0a19efee40b681f2af46b996e, type: 3}
+  FramesToFlash: 10
 --- !u!70 &-8919477916352315271
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
