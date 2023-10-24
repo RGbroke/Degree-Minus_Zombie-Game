@@ -157,6 +157,12 @@ public class PlayerController : MonoBehaviour
         hit = true;
     }
 
+    public void addHealth(int health)
+    {
+        currHealth += health;
+        healthBar.SetHealth(currHealth);
+    }
+
     public float getHealth()
     {
         return currHealth;

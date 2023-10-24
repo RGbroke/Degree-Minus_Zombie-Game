@@ -527,6 +527,10 @@ PrefabInstance:
       propertyPath: rayCount
       value: 500
       objectReference: {fileID: 0}
+    - target: {fileID: 5046631439779379279, guid: 82ef21c0bbb2d7249837e1a8baddaa42, type: 3}
+      propertyPath: viewDistance
+      value: 40
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
