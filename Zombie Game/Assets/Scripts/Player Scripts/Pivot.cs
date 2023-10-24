@@ -6,11 +6,15 @@ using UnityEngine.EventSystems;
 public class Pivot : MonoBehaviour
 {
     public GameObject myPlayer;
+    [SerializeField] private FieldOfView fieldOfView;
 
     public void HandleAiming(Vector2 aim)
     {
         Vector3 difference = (Vector3.right * aim.x + Vector3.up * aim.y);
         difference.Normalize();
+        Vector3 adj = Quaternion.Euler(0, 0, fieldOfView.fov) * difference;
+        fieldOfView.SetAimDirection(adj);
+        fieldOfView.SetOrigin(transform.position);
 
         float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, rotationZ);
@@ -35,6 +39,9 @@ public class Pivot : MonoBehaviour
     {
         Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         difference.Normalize();
+        Vector3 adj = Quaternion.Euler(0, 0, fieldOfView.fov) * difference;
+        fieldOfView.SetAimDirection(adj);
+        fieldOfView.SetOrigin(transform.position);
 
         float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, rotationZ);

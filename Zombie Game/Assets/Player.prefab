@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myPlayer: {fileID: 5536918832966046342}
+  fieldOfView: {fileID: 0}
 --- !u!1 &3209006171535300335
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,7 +321,7 @@ MonoBehaviour:
   animator: {fileID: 2588117930869202780}
   weapon: {fileID: 814717445347588452}
   bulletSpeed: 30
-  fireRate: 0.1
+  fireRate: 0.2
   gunshotEnd: {fileID: 2639719991977007569}
   damageRate: 0.5
   sprite: {fileID: 1557002769649977749}
