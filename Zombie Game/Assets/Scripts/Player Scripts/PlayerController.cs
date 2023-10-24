@@ -11,8 +11,8 @@ public class PlayerController : MonoBehaviour
 {
     //Health
     public HealthBar healthBar;
-    [SerializeField] private int maxHealth = 10;
-    private int currHealth;
+    [SerializeField] public int maxHealth = 10;
+    [HideInInspector] public int currHealth;
     
 
     //Movement
