@@ -30,7 +30,6 @@ public class Enemy : MonoBehaviour
         sprite.color = defaultColor;
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
@@ -38,7 +37,6 @@ public class Enemy : MonoBehaviour
         defaultColor = sprite.color;
     }
 
-    // Update is called once per frame
     void Update()
     {
         transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
@@ -69,10 +67,6 @@ public class Enemy : MonoBehaviour
             gc.gainScore();
             Destroy(this.gameObject);
         }
-        //if(speed > 1)
-        //{
-            //speed--;
-        //}
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

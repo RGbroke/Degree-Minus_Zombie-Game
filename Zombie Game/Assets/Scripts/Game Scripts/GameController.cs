@@ -1,26 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
     public PlayerController player;
     public GameOver GameOverScreen;
-    static int zombiesKilled = 0;
+    public static int zombiesKilled = 0;
+    public static int activeZombies = 0;
     public bool firstZombie = false;
     public bool secondZombie = false;
-    static int activeZombies = 0;
-
-    public TextMeshProUGUI objectiveTracker;
-    public GameObject deactivator;
 
     public void Start()
     {
         zombiesKilled = 0;
         activeZombies = 0;
-        objectiveTracker.text = "Objective: Kill Zombies 0/20";
     }
 
     public void GameOver()
@@ -35,16 +29,6 @@ public class GameController : MonoBehaviour
             player.healthBar.setActive(false);
             GameOver();
         }
-	    if(zombiesKilled >= 20)
-	    {
-            objectiveTracker.text = "Objective: Escape Into the Hospital!";
-            deactivator.SetActive(true);
-	    }
-        else
-        {
-            objectiveTracker.text = "Objective: Kill Zombies " + zombiesKilled + "/20";
-        }
-
     }
 
     public void gainScore()
@@ -61,6 +45,11 @@ public class GameController : MonoBehaviour
     public int numActiveZombies()
     {
         return activeZombies;
+    }
+
+    public int numZombiesKilled()
+    {
+        return zombiesKilled;
     }
 
     public void firstZombieSeen()
