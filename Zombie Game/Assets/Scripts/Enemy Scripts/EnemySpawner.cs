@@ -9,20 +9,30 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private GameObject zombie;
     [SerializeField]
-    private float spawnDelay;
+    private float spawnDelayMin;
     [SerializeField]
-    private float maxConcurrent;
+    private float spawnDelayMax;
+    
 
+    private bool isActive = false;
     private float spawnTime = 0;
 
     void Update()
     {
         spawnTime -= Time.deltaTime;
-        if (spawnTime <= 0 && gc.numActiveZombies() < maxConcurrent)
+        if (spawnTime <= 0 && isActive)
         {
-            gc.addActiveZombies(1);
-            Instantiate(zombie, transform.position, Quaternion.identity);
-            spawnTime = UnityEngine.Random.Range(spawnDelay/2, spawnDelay);
+            spawnZombie();
+            spawnTime = UnityEngine.Random.Range(spawnDelayMin, spawnDelayMax);
         }
     }
+    public void spawnZombie()
+    {
+        gc.addActiveZombies(1);
+        Instantiate(zombie, transform.position, Quaternion.identity);
+    }
+
+    public void activate() { isActive = true; }
+    public void deactivate() { isActive = false; }
+
 }

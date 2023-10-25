@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -10,6 +12,16 @@ public class GameController : MonoBehaviour
     public bool firstZombie = false;
     public bool secondZombie = false;
     static int activeZombies = 0;
+
+    public TextMeshProUGUI objectiveTracker;
+    public GameObject deactivator;
+
+    public void Start()
+    {
+        zombiesKilled = 0;
+        activeZombies = 0;
+        objectiveTracker.text = "Objective: Kill Zombies 0/20";
+    }
 
     public void GameOver()
     {
@@ -23,11 +35,15 @@ public class GameController : MonoBehaviour
             player.healthBar.setActive(false);
             GameOver();
         }
-	    if(zombiesKilled == 10)
+	    if(zombiesKilled >= 20)
 	    {
-		    /*Steven's function to enable going into the hospital*/
-		    /*Display text to panel*/
+            objectiveTracker.text = "Objective: Escape Into the Hospital!";
+            deactivator.SetActive(true);
 	    }
+        else
+        {
+            objectiveTracker.text = "Objective: Kill Zombies " + zombiesKilled + "/20";
+        }
 
     }
 
