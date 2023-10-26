@@ -324,7 +324,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 8587156484053763485, guid: e8b062e4ea524dc43bcb6a2adf8140a3, type: 3}
   speed: 3
-  rotateSpeed: 0.02
+  rotateSpeed: 0.5
   distanceToShoot: 12
   distanceToStop: 8
   fireRate: 0.5
