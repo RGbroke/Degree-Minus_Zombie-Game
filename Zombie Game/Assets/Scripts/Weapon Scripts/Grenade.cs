@@ -30,10 +30,10 @@ public class Grenade : MonoBehaviour
     }
     void Explode()
     {
-        
-        //Explosion Effect
-        Instantiate(explosionEffect, transform.position, transform.rotation); //Istantiates an explosion
 
+        //Explosion Effect
+        GameObject explosion = Instantiate(explosionEffect, transform.position, transform.rotation); //Istantiates an explosion
+        explosion.transform.up = Vector3.up;
         //Effect nearby objects
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, blastRadius); //Gets an array of objects withing blastRadius of grenade
         

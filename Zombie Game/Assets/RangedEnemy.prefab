@@ -326,12 +326,12 @@ MonoBehaviour:
   speed: 3
   rotateSpeed: 0.02
   distanceToShoot: 12
-  distanceToStop: 5
-  fireRate: 1
+  distanceToStop: 8
+  fireRate: 0.5
   firingPoint: {fileID: 6739939057642368551}
   bulletPrefab: {fileID: 3566689402830594846, guid: 04c6a45edf6caf14fa11e32e93bddbef, type: 3}
   animator: {fileID: 6392495385256375438}
-  bulletSpeed: 10
+  bulletSpeed: 15
   maxHealth: 3
   sprite: {fileID: 8035699478130400961}
   gc: {fileID: 0}
