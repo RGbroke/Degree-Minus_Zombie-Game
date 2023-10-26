@@ -14,6 +14,7 @@ public class EnemyProjectile : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        rb.isKinematic = true;
         Destroy(gameObject, destroyTime);
     }
 
@@ -22,6 +23,18 @@ public class EnemyProjectile : MonoBehaviour
         rb.velocity = transform.up * speed;
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (!other.gameObject.tag.Contains("Enemy"))
+        {
+            if (other.TryGetComponent<PlayerController>(out PlayerController playerComponent))
+            {
+                playerComponent.TakeDamage(1);
+            }
+            Destroy(gameObject);
+        }
+    }
+    /*
     // NOTE * MAKE SURE ALL ENEMIES CONTAIN SUBSTRING "ENEMY"
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -34,4 +47,5 @@ public class EnemyProjectile : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    */
 }
