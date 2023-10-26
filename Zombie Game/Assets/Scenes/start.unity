@@ -2003,7 +2003,7 @@ PrefabInstance:
       objectReference: {fileID: 1480719227}
     - target: {fileID: 1286219405140639863, guid: 4a25e842cd0452544a35ac9f6567b980, type: 3}
       propertyPath: fireRate
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1286219405140639863, guid: 4a25e842cd0452544a35ac9f6567b980, type: 3}
       propertyPath: bulletSpeed
