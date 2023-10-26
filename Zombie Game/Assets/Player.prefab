@@ -434,6 +434,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: c41ccb61-a0ce-409b-8c03-36a8848a2daa
     m_ActionName: Player/Pause[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2115788589608772105}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: Grenade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: ee93c5c9-2574-42a0-a900-5b0947d1960d
+    m_ActionName: Player/Grenade[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -461,10 +477,13 @@ MonoBehaviour:
   weapon: {fileID: 814717445347588452}
   bulletSpeed: 30
   fireRate: 0.2
+  grenadeCooldown: 5
   gunshotEnd: {fileID: 2639719991977007569}
   damageRate: 0.5
   sprite: {fileID: 1557002769649977749}
   weaponSprite: {fileID: 5060037789874680870}
+  cursorTexture: {fileID: 2800000, guid: 3b05a93d8c2ebcc43bb96735f61237c3, type: 3}
+  cursorTextureShoot: {fileID: 2800000, guid: 943a9770bea270c40ac0d4d658a8126d, type: 3}
 --- !u!61 &1668721096761550328
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -745,6 +764,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 918000483746761494, guid: ca2142017356c69498558b5b3b8834fa, type: 3}
+  grenadePrefab: {fileID: 7041855262765582583, guid: c0cf9bb22d6d0b148b719c68d7fe27a7, type: 3}
   firePoint: {fileID: 3613609573751268121}
   muzzle: {fileID: 3209006171535300335}
   gunshot: {fileID: 4751145713111198621}

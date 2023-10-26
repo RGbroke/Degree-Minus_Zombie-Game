@@ -49,6 +49,16 @@ public class PlayerController : MonoBehaviour
     public SpriteRenderer sprite;
     public SpriteRenderer weaponSprite;
 
+    [SerializeField] private Texture2D cursorTexture;
+    [SerializeField] private Texture2D cursorTextureShoot;
+    private Vector2 cursorHotspot;
+
+    private void Start()
+    {
+        cursorHotspot = new Vector2(cursorTexture.width / 2, cursorTexture.height / 2);
+        Cursor.SetCursor(cursorTexture, cursorHotspot, CursorMode.Auto);
+    }
+
     private void Awake()
     {
         Time.timeScale = 1f;
@@ -143,11 +153,13 @@ public class PlayerController : MonoBehaviour
     private void StartFiring()
     {
         fire = true;
+        Cursor.SetCursor(cursorTextureShoot, cursorHotspot, CursorMode.Auto);
     }
     private void StopFiring()
     {
         fire = false;
         gunshotEnd.Play();
+        Cursor.SetCursor(cursorTexture, cursorHotspot, CursorMode.Auto);
     }
     private void Fire()
     {
