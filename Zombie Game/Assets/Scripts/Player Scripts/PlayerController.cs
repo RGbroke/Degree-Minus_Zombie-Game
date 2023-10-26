@@ -183,7 +183,10 @@ public class PlayerController : MonoBehaviour
 
     public void addHealth(int health)
     {
-        currHealth += health;
+        if ((currHealth + health) <= maxHealth)
+            currHealth += health;
+        else
+            currHealth = maxHealth;
         healthBar.SetHealth(currHealth);
     }
 

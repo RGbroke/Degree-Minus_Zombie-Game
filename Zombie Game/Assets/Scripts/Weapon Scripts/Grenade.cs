@@ -50,11 +50,11 @@ public class Grenade : MonoBehaviour
             {
                 zombieRange.TakeDamage(explosionDamage);
             }
-            PlayerController player = collider.GetComponent<PlayerController>();
+            /*PlayerController player = collider.GetComponent<PlayerController>();
             if (player)
             {
                 player.TakeDamage((int)explosionDamage);
-            }
+            }*/
 
         }
 
