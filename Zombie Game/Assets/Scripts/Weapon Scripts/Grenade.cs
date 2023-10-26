@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Grenade : MonoBehaviour
@@ -31,7 +30,7 @@ public class Grenade : MonoBehaviour
     }
     void Explode()
     {
-        Debug.Log("BOOM");
+        
         //Explosion Effect
         Instantiate(explosionEffect, transform.position, transform.rotation); //Istantiates an explosion
 

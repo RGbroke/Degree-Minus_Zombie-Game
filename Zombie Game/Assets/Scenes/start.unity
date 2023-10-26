@@ -2742,8 +2742,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gc: {fileID: 571784347}
   zombie: {fileID: 698448757}
-  spawnDelayMin: 2
-  spawnDelayMax: 6
+  spawnDelayMin: 1
+  spawnDelayMax: 5
 --- !u!4 &755057633
 Transform:
   m_ObjectHideFlags: 0
@@ -18491,8 +18491,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gc: {fileID: 571784347}
   zombie: {fileID: 698448757}
-  spawnDelayMin: 2
-  spawnDelayMax: 6
+  spawnDelayMin: 1
+  spawnDelayMax: 5
 --- !u!4 &1642708108
 Transform:
   m_ObjectHideFlags: 0
@@ -19267,7 +19267,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 256
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
