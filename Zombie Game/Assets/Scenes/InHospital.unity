@@ -482,7 +482,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8366717870760542248, guid: 4a25e842cd0452544a35ac9f6567b980, type: 3}
       propertyPath: m_Name
-      value: RangedEnemy
+      value: Zombie_Spitter
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -865,8 +865,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2138089283}
-  - {fileID: 1562797528}
   - {fileID: 1918482224}
+  - {fileID: 1562797528}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &939082106 stripped
@@ -53287,6 +53287,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 814717445347588452, guid: e8b062e4ea524dc43bcb6a2adf8140a3, type: 3}
+      propertyPath: grenadePrefab
+      value: 
+      objectReference: {fileID: 7041855262765582583, guid: c0cf9bb22d6d0b148b719c68d7fe27a7, type: 3}
     - target: {fileID: 1668721096761550328, guid: e8b062e4ea524dc43bcb6a2adf8140a3, type: 3}
       propertyPath: m_SpriteTilingProperty.drawMode
       value: 0
@@ -53298,6 +53302,10 @@ PrefabInstance:
     - target: {fileID: 2115788589608772105, guid: e8b062e4ea524dc43bcb6a2adf8140a3, type: 3}
       propertyPath: moveSpeed
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2115788589608772105, guid: e8b062e4ea524dc43bcb6a2adf8140a3, type: 3}
+      propertyPath: grenadeCooldown
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5536918832966046342, guid: e8b062e4ea524dc43bcb6a2adf8140a3, type: 3}
       propertyPath: m_Name
@@ -53352,9 +53360,49 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9104526574485756195, guid: e8b062e4ea524dc43bcb6a2adf8140a3, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 9104526574485756195, guid: e8b062e4ea524dc43bcb6a2adf8140a3, type: 3}
+      propertyPath: m_ActionEvents.Array.data[14].m_ActionId
+      value: ee93c5c9-2574-42a0-a900-5b0947d1960d
+      objectReference: {fileID: 0}
+    - target: {fileID: 9104526574485756195, guid: e8b062e4ea524dc43bcb6a2adf8140a3, type: 3}
+      propertyPath: m_ActionEvents.Array.data[14].m_ActionName
+      value: Player/Grenade[/Keyboard/space]
+      objectReference: {fileID: 0}
+    - target: {fileID: 9104526574485756195, guid: e8b062e4ea524dc43bcb6a2adf8140a3, type: 3}
+      propertyPath: m_ActionEvents.Array.data[14].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9104526574485756195, guid: e8b062e4ea524dc43bcb6a2adf8140a3, type: 3}
+      propertyPath: m_ActionEvents.Array.data[14].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9104526574485756195, guid: e8b062e4ea524dc43bcb6a2adf8140a3, type: 3}
       propertyPath: m_ActionEvents.Array.data[13].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 697845682}
+    - target: {fileID: 9104526574485756195, guid: e8b062e4ea524dc43bcb6a2adf8140a3, type: 3}
+      propertyPath: m_ActionEvents.Array.data[14].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2119474026}
+    - target: {fileID: 9104526574485756195, guid: e8b062e4ea524dc43bcb6a2adf8140a3, type: 3}
+      propertyPath: m_ActionEvents.Array.data[14].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9104526574485756195, guid: e8b062e4ea524dc43bcb6a2adf8140a3, type: 3}
+      propertyPath: m_ActionEvents.Array.data[14].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Grenade
+      objectReference: {fileID: 0}
+    - target: {fileID: 9104526574485756195, guid: e8b062e4ea524dc43bcb6a2adf8140a3, type: 3}
+      propertyPath: m_ActionEvents.Array.data[14].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 9104526574485756195, guid: e8b062e4ea524dc43bcb6a2adf8140a3, type: 3}
+      propertyPath: m_ActionEvents.Array.data[14].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -57875,7 +57923,7 @@ PrefabInstance:
       objectReference: {fileID: 1918482226}
     - target: {fileID: 7356862119447816681, guid: 04bc8e035d2bbae44b14779d10fdf09f, type: 3}
       propertyPath: m_Name
-      value: Zombie_M
+      value: Zombie_Melee
       objectReference: {fileID: 0}
     - target: {fileID: 2075626444968750368, guid: 142c6d60e93e8ab46bebeeae9e7292b0, type: 3}
       propertyPath: speed

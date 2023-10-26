@@ -46,8 +46,6 @@ public class RangedEnemy : MonoBehaviour
         StartCoroutine(FlashRed());
         health -= damageAmount;
 
-        Debug.Log("asdfasd");
-
         if (health <= 0)
         {
             gc.gainScore();

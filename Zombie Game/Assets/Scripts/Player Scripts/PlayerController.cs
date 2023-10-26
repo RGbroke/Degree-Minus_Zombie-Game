@@ -32,7 +32,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Weapon weapon;
     [SerializeField] private float bulletSpeed;
     [SerializeField] private float fireRate;
+    [SerializeField] private float grenadeCooldown;
+    private float currGrenadeCooldown = 0;
     private bool fire;
+    
 
     //Weapon SFX
     public AudioSource gunshotEnd;
@@ -78,6 +81,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        currGrenadeCooldown -= Time.deltaTime;
         //Movement/Control handling
 	    if(Time.timeScale != 0){
             HandleInput();
@@ -148,6 +152,14 @@ public class PlayerController : MonoBehaviour
     private void Fire()
     {
         weapon.Fire(bulletSpeed, fireRate);
+    }
+    public void Grenade()
+    {
+        if (currGrenadeCooldown <= 0)
+        {
+            weapon.ThrowGrenade(bulletSpeed / 4);
+            currGrenadeCooldown = grenadeCooldown;
+        }
         
     }
 

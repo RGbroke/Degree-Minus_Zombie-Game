@@ -14,14 +14,12 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("HI");
         if(collision.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent))
         {
             enemyComponent.TakeDamage(1);
         }
         else if (collision.gameObject.TryGetComponent<RangedEnemy>(out RangedEnemy enemyComp))
         {
-            Debug.Log("we here");
             enemyComp.TakeDamage(1);
         }
 

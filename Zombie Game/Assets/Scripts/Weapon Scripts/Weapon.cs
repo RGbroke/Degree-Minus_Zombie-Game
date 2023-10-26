@@ -7,6 +7,7 @@ using UnityEngine.Audio;
 public class Weapon : MonoBehaviour
 {
     public GameObject bulletPrefab;
+    public GameObject grenadePrefab;
     public Transform firePoint;
     public GameObject muzzle;
     public AudioSource gunshot;
@@ -25,6 +26,13 @@ public class Weapon : MonoBehaviour
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
             bullet.GetComponent<Rigidbody2D>().AddForce(firePoint.up * fireForce, ForceMode2D.Impulse);
         }
+    }
+
+    public void ThrowGrenade(float fireForce)
+    {
+        lastShootTime = Time.time;
+        GameObject grenade = Instantiate(grenadePrefab, firePoint.position, firePoint.rotation);
+        grenade.GetComponent<Rigidbody2D>().AddForce(firePoint.up * fireForce, ForceMode2D.Impulse);
     }
 
     IEnumerator DoFlash()
