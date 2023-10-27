@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
     public GameController gc;
     public Dialogue dialogue;
     public SpriteRenderer sprite;
+    public GameObject healthBar;
 
     public AudioSource zombieAttackNoise;
 
@@ -66,6 +67,10 @@ public class Enemy : MonoBehaviour
         {
             gc.gainScore();
             Destroy(this.gameObject);
+        }
+        else
+        {
+            healthBar.transform.localScale = new Vector3(health / maxHealth, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
         }
     }
 

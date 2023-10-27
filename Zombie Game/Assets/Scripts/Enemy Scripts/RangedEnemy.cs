@@ -31,6 +31,8 @@ public class RangedEnemy : MonoBehaviour
     public float maxHealth = 3f;
     public SpriteRenderer sprite;
     public GameController gc;
+    public GameObject healthBar;
+
 
 
 
@@ -50,6 +52,10 @@ public class RangedEnemy : MonoBehaviour
         {
             gc.gainScore();
             Destroy(this.gameObject);
+        }
+        else
+        {
+            healthBar.transform.localScale = new Vector3(health / maxHealth, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
         }
         if (speed > 1)
         {
