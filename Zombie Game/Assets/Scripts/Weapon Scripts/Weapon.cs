@@ -8,7 +8,7 @@ public class Weapon : MonoBehaviour
 {
     public GameObject bulletPrefab;
     public GameObject grenadePrefab;
-    public Transform firePoint;
+        public Transform firePoint;
     public GameObject muzzle;
     public AudioSource gunshot;
 
