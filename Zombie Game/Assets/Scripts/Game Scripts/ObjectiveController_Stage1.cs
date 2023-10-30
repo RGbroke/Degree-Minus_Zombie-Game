@@ -18,22 +18,20 @@ public class ObjectiveController_Stage1 : MonoBehaviour
     [SerializeField]
     private int zombiesToKill;
 
-    private bool objectiveFlag = false;
-
 
     private void Update()
     {
 
-        objectiveDisplay.text = "<style=\"Title\">Objective:</style>\n";
+        objectiveDisplay.text = "<style=\"Title\">Objective:</style>\n\n";
         if (gc.numZombiesKilled() >= zombiesToKill)
         {
-            objectiveDisplay.text += " - Clear Area of Zombies (" + gc.numZombiesKilled() + "/" + zombiesToKill + ")";
-            objectiveDisplay.text += " - Enter The Hospital";
+            objectiveDisplay.text += "<style=\"Complete\">Clear Area of Zombies (" + gc.numZombiesKilled() + "/" + zombiesToKill + ")</style>\n";
+            objectiveDisplay.text += "<style=\"Normal\">Enter The Hospital</style>";
             objectiveComplete();
         }
         else
         {
-            objectiveDisplay.text += " - Clear Area of Zombies (" + gc.numZombiesKilled() + "/" + zombiesToKill + ")";
+            objectiveDisplay.text += "<style=\"Normal\">Clear Area of Zombies (" + gc.numZombiesKilled() + "/" + zombiesToKill + ")</style>";
         }
     }
 
