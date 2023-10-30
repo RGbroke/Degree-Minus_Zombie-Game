@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2038724187382652906}
   - component: {fileID: 2337552776122131531}
   - component: {fileID: -8919477916352315271}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142,7 +142,7 @@ CapsuleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 7863
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -159,6 +159,6 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.0034371018}
-  m_Size: {x: 1, y: 1.9931287}
+  m_Offset: {x: -0.08233316, y: -1.2198079}
+  m_Size: {x: 1.0357966, y: 1.0357966}
   m_Direction: 0

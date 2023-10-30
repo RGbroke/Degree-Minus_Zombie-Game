@@ -157,7 +157,7 @@ Transform:
   m_GameObject: {fileID: 3209006171535300335}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -9, y: -0.9, z: 0}
+  m_LocalPosition: {x: -7.05, y: -0.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -228,11 +228,12 @@ GameObject:
   - component: {fileID: 2588117930869202780}
   - component: {fileID: 9104526574485756195}
   - component: {fileID: 2115788589608772105}
-  - component: {fileID: 1668721096761550328}
   - component: {fileID: 8277614590128913956}
   - component: {fileID: 2639719991977007569}
   - component: {fileID: 5895310697153616963}
-  m_Layer: 0
+  - component: {fileID: 5293885480335755155}
+  - component: {fileID: 5764626759682815456}
+  m_Layer: 11
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -307,7 +308,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!95 &2588117930869202780
 Animator:
   serializedVersion: 5
@@ -450,6 +451,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: ee93c5c9-2574-42a0-a900-5b0947d1960d
     m_ActionName: Player/Grenade[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 47f3225f-5b4c-43ff-a685-d6e93e1dde2c
+    m_ActionName: Player/Melee[/Mouse/rightButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -484,51 +489,6 @@ MonoBehaviour:
   weaponSprite: {fileID: 5060037789874680870}
   cursorTexture: {fileID: 2800000, guid: 3b05a93d8c2ebcc43bb96735f61237c3, type: 3}
   cursorTextureShoot: {fileID: 2800000, guid: 943a9770bea270c40ac0d4d658a8126d, type: 3}
---- !u!61 &1668721096761550328
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5536918832966046342}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.095300436, y: -0.45110703}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 19, y: 19}
-    newSize: {x: 19, y: 19}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 4.809399, y: 13.135723}
-  m_EdgeRadius: 0
 --- !u!50 &8277614590128913956
 Rigidbody2D:
   serializedVersion: 4
@@ -664,6 +624,76 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_SortAtRoot: 0
+--- !u!70 &5293885480335755155
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5536918832966046342}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 4087
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.026605526, y: -0.26604968}
+  m_Size: {x: 5.0056987, y: 11.869813}
+  m_Direction: 0
+--- !u!58 &5764626759682815456
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5536918832966046342}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 5120
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -5.321019}
+  serializedVersion: 2
+  m_Radius: 1.8909199
 --- !u!1 &5973932773297106990
 GameObject:
   m_ObjectHideFlags: 0
@@ -769,7 +799,9 @@ MonoBehaviour:
   muzzle: {fileID: 3209006171535300335}
   gunshot: {fileID: 4751145713111198621}
   FlashSprite: {fileID: 21300000, guid: bfe72ec0a19efee40b681f2af46b996e, type: 3}
-  FramesToFlash: 5
+  FramesToFlash: 3
+  meleeDelay: 0.3
+  weaponSprite: {fileID: 5060037789874680870}
 --- !u!82 &4751145713111198621
 AudioSource:
   m_ObjectHideFlags: 0
