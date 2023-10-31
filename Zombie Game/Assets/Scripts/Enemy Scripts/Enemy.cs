@@ -52,10 +52,9 @@ public class Enemy : MonoBehaviour
             new WaitForSeconds(1f);
         }
 
-       /* float distance = Vector3.Distance(this.transform.position, target.transform.position);
-        checkDistance();
-        if (gc.firstZombie == true)
-            resumeTimer();*/
+        float distance = Vector3.Distance(this.transform.position, target.transform.position);
+        if (distance <= 10 && gc.firstZombie != true)
+            seen();
     }
 
     public void TakeDamage(float damageAmount)
@@ -93,30 +92,12 @@ public class Enemy : MonoBehaviour
             playerComponent.TakeDamage(1);
         }
     }
-    /*
-    public void checkDistance()
-    {
-        float distance = Vector3.Distance(this.transform.position, target.transform.position);
-        if (distance <= 10 && gc.firstZombie != true)
-            seen();
-    }
-
-    public void resumeTimer()
-    {
-        if (Input.GetMouseButtonDown(1))
-        {
-            Time.timeScale = 1;
-            Debug.Log(gc.firstZombie);
-        }
-    }
+   
 
     private void seen()
     {
-        //gc.firstZombieSeen();
-	    //dialogue.index++;
-	    //Debug.Log(dialogue.index);
-        //Time.timeScale = 0;
+        gc.firstZombieSeen();
     }
-    */
+    
 
 }
