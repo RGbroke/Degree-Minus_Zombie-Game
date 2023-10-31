@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection.Emit;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,28 +19,36 @@ public class ObjectiveController_Stage1 : MonoBehaviour
     [SerializeField]
     private int zombiesToKill;
 
+    private bool mainObj = false;
+    private int objectiveFlag = 0;
+
 
     private void Update()
     {
 
         objectiveDisplay.text = "<style=\"Title\">Objective:</style>\n\n";
-        objectiveDisplay.text += "<style=\"Normal\">Find the Entrance of the Hospital</style>\n\n";//Since game wont start until player is near the hospital Also No sound until player apporaches hospital here
-    
-        if (gc.numZombiesKilled() >= zombiesToKill)
-        {   
-            objectiveDisplay.text += "<style=\"Complete\">Clear Area of Zombies (" + gc.numZombiesKilled() + "/" + zombiesToKill + ")</style>\n";
-            objectiveDisplay.text += "<style=\"Normal\">Enter The Hospital</style>";
+        switch (objectiveFlag)
+        {
+            case 2:
+                objectiveDisplay.text += "<style=\"Normal\">Good Job! Now Enter The Hospital</style>";
+                trigger.SetActive(true);
+                break;
+            case 1:
+                objectiveDisplay.text += "<style=\"Normal\">Zombies Approach! Clear the Area to get inside! (" + gc.numZombiesKilled() + "/" + zombiesToKill + ")</style>";
+                break;
+            case 0:
+                objectiveDisplay.text += "<style=\"Normal\">Try to Ender the Hospital</style>\n";
+                break;
+        }
+        if(gc.numZombiesKilled() >= zombiesToKill && !mainObj)
+        {
+            mainObj = true;
             objectiveComplete();
         }
-        else
-        {
-            objectiveDisplay.text += "<style=\"Normal\">Clear Area of Zombies (" + gc.numZombiesKilled() + "/" + zombiesToKill + ")</style>";
-        }
     }
-
-    private void objectiveComplete()
+    public void objectiveComplete()
     {
-        trigger.SetActive(true);
+        objectiveFlag++;
     }
 
 
