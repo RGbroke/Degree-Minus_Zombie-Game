@@ -18,6 +18,7 @@ public class Weapon : MonoBehaviour
     public float meleeDelay = 0.3f;
     private bool meleeBlocked;
     public SpriteRenderer weaponSprite;
+    public float bulletDamage = 1f;
 
     public void Fire(float fireForce, float fireRate)
     {
@@ -28,6 +29,7 @@ public class Weapon : MonoBehaviour
             lastShootTime = Time.time;
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
             bullet.GetComponent<Rigidbody2D>().AddForce(firePoint.up * fireForce, ForceMode2D.Impulse);
+            bullet.GetComponent<Bullet>().damage = bulletDamage;
         }
     }
 
@@ -54,7 +56,7 @@ public class Weapon : MonoBehaviour
         renderer.sprite = originalSprite;
     }
 
-    public void Melee()
+    public void DoMelee()
     {
         if(meleeBlocked)
             return;

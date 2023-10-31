@@ -452,7 +452,19 @@ MonoBehaviour:
     m_ActionId: ee93c5c9-2574-42a0-a900-5b0947d1960d
     m_ActionName: Player/Grenade[/Keyboard/space]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2115788589608772105}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: Grenade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 47f3225f-5b4c-43ff-a685-d6e93e1dde2c
     m_ActionName: Player/Melee[/Mouse/rightButton]
   m_NeverAutoSwitchControlSchemes: 0
@@ -473,7 +485,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 0}
-  maxHealth: 10
+  maxHealth: 15
   currHealth: 0
   moveSpeed: 6
   controller: {fileID: 8277614590128913956}
@@ -482,7 +494,7 @@ MonoBehaviour:
   weapon: {fileID: 814717445347588452}
   bulletSpeed: 30
   fireRate: 0.2
-  grenadeCooldown: 5
+  grenadeCooldown: 8
   gunshotEnd: {fileID: 2639719991977007569}
   damageRate: 0.5
   sprite: {fileID: 1557002769649977749}
@@ -528,7 +540,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: 5f246984315f9be4dbd36832710298f8, type: 2}
   m_audioClip: {fileID: 8300000, guid: 6f1ff5f3dcdd5264eb5b845196c1805d, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -800,8 +812,9 @@ MonoBehaviour:
   gunshot: {fileID: 4751145713111198621}
   FlashSprite: {fileID: 21300000, guid: bfe72ec0a19efee40b681f2af46b996e, type: 3}
   FramesToFlash: 3
-  meleeDelay: 0.3
+  meleeDelay: 1
   weaponSprite: {fileID: 5060037789874680870}
+  bulletDamage: 10
 --- !u!82 &4751145713111198621
 AudioSource:
   m_ObjectHideFlags: 0
@@ -814,7 +827,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: 5f246984315f9be4dbd36832710298f8, type: 2}
   m_audioClip: {fileID: 8300000, guid: 3875663a8aa943c45a8789b144401135, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.25
   m_Pitch: 0.7
   Loop: 0
   Mute: 0
