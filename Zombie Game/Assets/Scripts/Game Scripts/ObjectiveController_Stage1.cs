@@ -21,7 +21,8 @@ public class ObjectiveController_Stage1 : MonoBehaviour
 
     private bool mainObj = false;
     private int objectiveFlag = 0;
-
+    [SerializeField]
+    private PopupSystem popup; /*Leave this here for now*/
 
     private void Update()
     {
@@ -37,7 +38,7 @@ public class ObjectiveController_Stage1 : MonoBehaviour
                 objectiveDisplay.text += "<style=\"Normal\">Zombies Approach! Clear the Area to get inside! (" + gc.numZombiesKilled() + "/" + zombiesToKill + ")</style>";
                 break;
             case 0:
-                objectiveDisplay.text += "<style=\"Normal\">Try to Ender the Hospital</style>\n";
+                objectiveDisplay.text += "<style=\"Normal\">Try to Enter the Hospital</style>\n";
                 break;
         }
         if(gc.numZombiesKilled() >= zombiesToKill && !mainObj)
