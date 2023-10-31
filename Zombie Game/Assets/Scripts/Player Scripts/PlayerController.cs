@@ -174,6 +174,10 @@ public class PlayerController : MonoBehaviour
         }
         
     }
+    public void Melee()
+    {
+       weapon.Melee();
+    }
 
     public void TakeDamage(int damage)
     {
