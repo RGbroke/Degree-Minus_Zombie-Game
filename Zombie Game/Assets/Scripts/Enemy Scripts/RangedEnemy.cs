@@ -66,7 +66,6 @@ public class RangedEnemy : MonoBehaviour
 
     private void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         rb = gameObject.GetComponent<Rigidbody2D>();
         timeToFire = 0f;
         health = maxHealth;
@@ -74,8 +73,13 @@ public class RangedEnemy : MonoBehaviour
 
     private void Update()
     {
-        if (target != null)
-            {// Calculate the direction vector from the enemy to the player.
+        if (!target)
+        {
+            GetTarget();
+        }
+        else
+        {
+            // Calculate the direction vector from the enemy to the player.
             Vector3 direction = (target.position - transform.position).normalized;
 
             // Determine if the player is on the left or right side of the zombie.
@@ -113,10 +117,6 @@ public class RangedEnemy : MonoBehaviour
         {
             Shoot();
         }
-
-        float distance = Vector3.Distance(this.transform.position, target.transform.position);
-        if (distance <= 15 && gc.secondZombie != true)
-            seen();
     }
 
     private void RotateFiringPoint()
@@ -163,7 +163,13 @@ public class RangedEnemy : MonoBehaviour
         }
     }
 
-   
+    private void GetTarget()
+    {
+        if (GameObject.FindGameObjectWithTag("Player"))
+        {
+            target = GameObject.FindGameObjectWithTag("Player").transform;
+        }
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -179,10 +185,5 @@ public class RangedEnemy : MonoBehaviour
         {
             playerComponent.TakeDamage(1);
         }
-    }
-
-    private void seen()
-    {
-        gc.secondZombieSeen();
     }
 }
