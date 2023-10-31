@@ -21,11 +21,17 @@ public class ObjectiveController_Stage1 : MonoBehaviour
 
     private void Update()
     {
-        objectiveDisplay.text = "Objective:\n - Clear Area of Zombies (" + gc.numZombiesKilled() + "/" + zombiesToKill +")";
+
+        objectiveDisplay.text = "<style=\"Title\">Objective:</style>\n\n";
         if (gc.numZombiesKilled() >= zombiesToKill)
         {
-            objectiveDisplay.text += "\n - Enter The Hospital";
+            objectiveDisplay.text += "<style=\"Complete\">Clear Area of Zombies (" + gc.numZombiesKilled() + "/" + zombiesToKill + ")</style>\n";
+            objectiveDisplay.text += "<style=\"Normal\">Enter The Hospital</style>";
             objectiveComplete();
+        }
+        else
+        {
+            objectiveDisplay.text += "<style=\"Normal\">Clear Area of Zombies (" + gc.numZombiesKilled() + "/" + zombiesToKill + ")</style>";
         }
     }
 
