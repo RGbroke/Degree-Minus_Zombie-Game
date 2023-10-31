@@ -1390,7 +1390,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 196123225}
   spawner: {fileID: 1219200445}
-  spawnAmount: 3
+  spawnAmount: 1
 --- !u!114 &1086292439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1405,7 +1405,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 196123225}
   spawner: {fileID: 857368254}
-  spawnAmount: 3
+  spawnAmount: 1
 --- !u!114 &1086292440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1420,7 +1420,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 196123225}
   spawner: {fileID: 1539938516}
-  spawnAmount: 4
+  spawnAmount: 2
 --- !u!114 &1086292441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1435,7 +1435,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 196123225}
   spawner: {fileID: 1420644521}
-  spawnAmount: 4
+  spawnAmount: 2
 --- !u!61 &1086292442
 BoxCollider2D:
   m_ObjectHideFlags: 0
