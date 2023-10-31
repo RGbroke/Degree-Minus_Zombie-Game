@@ -23,8 +23,10 @@ public class ObjectiveController_Stage1 : MonoBehaviour
     {
 
         objectiveDisplay.text = "<style=\"Title\">Objective:</style>\n\n";
+        objectiveDisplay.text += "<style=\"Normal\">Find the Entrance of the Hospital</style>\n\n";//Since game wont start until player is near the hospital Also No sound until player apporaches hospital here
+    
         if (gc.numZombiesKilled() >= zombiesToKill)
-        {
+        {   
             objectiveDisplay.text += "<style=\"Complete\">Clear Area of Zombies (" + gc.numZombiesKilled() + "/" + zombiesToKill + ")</style>\n";
             objectiveDisplay.text += "<style=\"Normal\">Enter The Hospital</style>";
             objectiveComplete();
