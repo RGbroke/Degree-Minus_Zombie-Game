@@ -8,8 +8,6 @@ public class GameController : MonoBehaviour
     public GameOver GameOverScreen;
     public static int zombiesKilled = 0;
     public static int activeZombies = 0;
-    public bool firstZombie = false;
-    public bool secondZombie = false;
     public PopupSystem popup;
     public void Start()
     {
@@ -28,15 +26,6 @@ public class GameController : MonoBehaviour
         {
             player.healthBar.setActive(false);
             GameOver();
-        }
-
-        if(Input.GetKeyDown(KeyCode.G))
-        {
-            if(popup.animator.GetCurrentAnimatorStateInfo(0).IsName("pop"))
-                {
-                Time.timeScale = 1;
-                popup.animator.SetTrigger("close");
-                }
         }
     }
 
@@ -60,20 +49,4 @@ public class GameController : MonoBehaviour
     {
         return zombiesKilled;
     }
-
-    public void firstZombieSeen()
-    {
-        firstZombie = true;
-        string text = "Type: Normal Zombie \nHP: Medium \nDamage: Medium \nSpeed: High";
-        popup.PopUp(text, 0);
-    }
-
-    public void secondZombieSeen()
-    {
-        secondZombie = true;
-        string text = "Type: Spitter Zombie \nHP: Low \nDamage: Medium \nSpeed: Medium";
-        popup.PopUp(text, 0);
-    }
-
-    
 }

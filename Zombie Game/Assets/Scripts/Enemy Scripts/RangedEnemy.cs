@@ -113,10 +113,6 @@ public class RangedEnemy : MonoBehaviour
         {
             Shoot();
         }
-
-        float distance = Vector3.Distance(this.transform.position, target.transform.position);
-        if (distance <= 15 && gc.secondZombie != true)
-            seen();
     }
 
     private void RotateFiringPoint()
@@ -179,10 +175,5 @@ public class RangedEnemy : MonoBehaviour
         {
             playerComponent.TakeDamage(1);
         }
-    }
-
-    private void seen()
-    {
-        gc.secondZombieSeen();
     }
 }

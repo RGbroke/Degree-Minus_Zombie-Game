@@ -51,10 +51,6 @@ public class Enemy : MonoBehaviour
             player.TakeDamage(1);
             new WaitForSeconds(1f);
         }
-
-        float distance = Vector3.Distance(this.transform.position, target.transform.position);
-        if (distance <= 10 && gc.firstZombie != true)
-            seen();
     }
 
     public void TakeDamage(float damageAmount)
@@ -92,12 +88,4 @@ public class Enemy : MonoBehaviour
             playerComponent.TakeDamage(1);
         }
     }
-   
-
-    private void seen()
-    {
-        gc.firstZombieSeen();
-    }
-    
-
 }
