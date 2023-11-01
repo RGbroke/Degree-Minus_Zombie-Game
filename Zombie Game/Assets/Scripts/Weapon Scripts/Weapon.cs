@@ -20,6 +20,9 @@ public class Weapon : MonoBehaviour
     public SpriteRenderer weaponSprite;
     public float bulletDamage = 1f;
 
+    public Transform circleOrigin;
+    public float radius;
+
     public void Fire(float fireForce, float fireRate)
     {
         if(Time.time > lastShootTime + fireRate)
@@ -70,5 +73,20 @@ public class Weapon : MonoBehaviour
         yield return new WaitForSeconds(meleeDelay);
         meleeBlocked = false;
         weaponSprite.color = Color.white;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.blue;
+        Vector3 position = circleOrigin == null ? Vector3.zero : circleOrigin.position;
+        Gizmos.DrawWireSphere(position, radius);
+    }
+
+    public void DetectColliders()
+    {
+        foreach (Collider2D collider in Physics2D.OverlapCircleAll(circleOrigin.position, radius))
+        {
+            Debug.Log(collider.name);
+        }
     }
 }

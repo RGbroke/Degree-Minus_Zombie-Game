@@ -718,6 +718,7 @@ GameObject:
   - component: {fileID: 5060037789874680870}
   - component: {fileID: 814717445347588452}
   - component: {fileID: 4751145713111198621}
+  - component: {fileID: 8357887399160669838}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
@@ -812,9 +813,11 @@ MonoBehaviour:
   gunshot: {fileID: 4751145713111198621}
   FlashSprite: {fileID: 21300000, guid: bfe72ec0a19efee40b681f2af46b996e, type: 3}
   FramesToFlash: 3
-  meleeDelay: 1
+  meleeDelay: 0.3
   weaponSprite: {fileID: 5060037789874680870}
   bulletDamage: 10
+  circleOrigin: {fileID: 3613609573751268121}
+  radius: 1
 --- !u!82 &4751145713111198621
 AudioSource:
   m_ObjectHideFlags: 0
@@ -911,3 +914,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &8357887399160669838
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5973932773297106990}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3a8b0aadd73a5df44a724067e16158d4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
