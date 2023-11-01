@@ -33,7 +33,7 @@ public class RangedEnemy : MonoBehaviour
     public GameController gc;
     public GameObject healthBar;
 
-
+    UnityEngine.AI.NavMeshAgent agent;
 
 
     public IEnumerator FlashRed()
@@ -66,6 +66,11 @@ public class RangedEnemy : MonoBehaviour
 
     private void Start()
     {
+        agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
+        agent.stoppingDistance = distanceToStop;
+
         rb = gameObject.GetComponent<Rigidbody2D>();
         timeToFire = 0f;
         health = maxHealth;
@@ -100,7 +105,9 @@ public class RangedEnemy : MonoBehaviour
 
             if (!(Vector2.Distance(target.position, transform.position) <= distanceToStop))
             {
-                transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+                agent.SetDestination(target.position);
+
+                //transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
 
                 animator.SetFloat("Horizontal", target.position.x - transform.position.x);
                 animator.SetFloat("Speed", speed);

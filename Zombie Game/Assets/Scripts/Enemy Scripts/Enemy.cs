@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Audio;
 using UnityEngine.EventSystems;
 
@@ -24,6 +25,8 @@ public class Enemy : MonoBehaviour
 
     public AudioSource zombieAttackNoise;
 
+    NavMeshAgent agent;
+
     public IEnumerator FlashRed()
     {
         sprite.color = Color.red;
@@ -33,6 +36,10 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
+        agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
+
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         health = maxHealth;
         defaultColor = sprite.color;
@@ -40,7 +47,9 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+        agent.SetDestination(target.position);
+
+        //transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
 
         animator.SetFloat("Horizontal", target.position.x - transform.position.x);
         animator.SetFloat("Speed", speed);
