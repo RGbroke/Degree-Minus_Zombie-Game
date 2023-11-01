@@ -172,11 +172,11 @@ public class PlayerController : MonoBehaviour
             weapon.ThrowGrenade(bulletSpeed / 4);
             currGrenadeCooldown = grenadeCooldown;
         }
-
+        
     }
     public void Melee()
     {
-        weapon.DoMelee();
+       weapon.Melee();
     }
 
     public void TakeDamage(int damage)

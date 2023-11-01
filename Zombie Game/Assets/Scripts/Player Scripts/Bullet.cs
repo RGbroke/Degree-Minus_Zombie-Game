@@ -5,7 +5,6 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float destroyTime = 3f;
-    public float damage;
 
     private void Start()
     {
@@ -17,11 +16,11 @@ public class Bullet : MonoBehaviour
     {
         if(collision.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent))
         {
-            enemyComponent.TakeDamage(damage);
+            enemyComponent.TakeDamage(1);
         }
         else if (collision.gameObject.TryGetComponent<RangedEnemy>(out RangedEnemy enemyComp))
         {
-            enemyComp.TakeDamage(damage);
+            enemyComp.TakeDamage(1);
         }
 
         Destroy(gameObject);
