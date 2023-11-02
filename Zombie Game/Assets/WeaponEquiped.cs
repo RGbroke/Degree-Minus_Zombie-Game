@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -38,14 +39,12 @@ public class WeaponEquiped : MonoBehaviour
         if (!context.started)
             return;
 
-        switchVisual.SetTrigger("Prev");
-        equiped = (equiped - 1) % 3;
-        UnityEngine.Debug.Log("Weapon: " + equiped);
+        prevWeapon();
     }
     public void prevWeapon()
     {
         switchVisual.SetTrigger("Prev");
-        equiped = (equiped-1) % 3;
+        equiped = (equiped + 2) % 3;
         UnityEngine.Debug.Log("Weapon: " + equiped);
     }
 
