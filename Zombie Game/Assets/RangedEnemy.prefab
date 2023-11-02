@@ -281,6 +281,7 @@ GameObject:
   - component: {fileID: 2224930650944752087}
   - component: {fileID: -3232268577538416755}
   - component: {fileID: 8291270778727971325}
+  - component: {fileID: 1865967085330976227}
   m_Layer: 8
   m_Name: RangedEnemy
   m_TagString: RangedEnemy
@@ -559,9 +560,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.0042701, y: -5.7084684}
+  m_Offset: {x: 0.41630745, y: -5.0837626}
   serializedVersion: 2
-  m_Radius: 1.9415666
+  m_Radius: 2.750012
 --- !u!70 &-3232268577538416755
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -619,3 +620,48 @@ NavMeshAgent:
   m_BaseOffset: 8
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1865967085330976227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8366717870760542248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30c593a9737f8c94f88ac7a66264ece2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb2d: {fileID: 5113872316954544131}
+  strength: 0
+  delay: 0
+  OnBegin:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1286219405140639863}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnDone:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1286219405140639863}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
