@@ -74,7 +74,6 @@ public class Enemy : MonoBehaviour
 
         if (health <= 0)
         {
-            gc.gainScore();
             Destroy(this.gameObject);
         }
         else
@@ -101,6 +100,11 @@ public class Enemy : MonoBehaviour
             animator.SetBool("isColliding", false);
             playerComponent.TakeDamage(1);
         }
+    }
+
+    void OnDestroy()
+    {
+        gc.zombieKilled();
     }
     /*
     public void checkDistance()

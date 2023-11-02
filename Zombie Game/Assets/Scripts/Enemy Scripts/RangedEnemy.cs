@@ -50,7 +50,6 @@ public class RangedEnemy : MonoBehaviour
 
         if (health <= 0)
         {
-            gc.gainScore();
             Destroy(this.gameObject);
         }
         else
@@ -192,5 +191,9 @@ public class RangedEnemy : MonoBehaviour
         {
             playerComponent.TakeDamage(1);
         }
+    }
+    void OnDestroy()
+    {
+        gc.zombieKilled();
     }
 }
