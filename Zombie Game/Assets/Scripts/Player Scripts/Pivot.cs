@@ -6,10 +6,15 @@ using UnityEngine.EventSystems;
 public class Pivot : MonoBehaviour
 {
     public GameObject myPlayer;
+    public GameObject weapon;
     [SerializeField] private FieldOfView fieldOfView;
 
     public void HandleAiming(Vector2 aim)
     {
+        if (weapon.GetComponent<Weapon>().IsAttacking)
+        {
+            return;
+        }
         Vector3 difference = (Vector3.right * aim.x + Vector3.up * aim.y);
         difference.Normalize();
         Vector3 adj = Quaternion.Euler(0, 0, fieldOfView.fov) * difference;
@@ -37,6 +42,10 @@ public class Pivot : MonoBehaviour
 
     public void HandleAiming()
     {
+        if (weapon.GetComponent<Weapon>().IsAttacking)
+        {
+            return;
+        }
         Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         difference.Normalize();
         Vector3 adj = Quaternion.Euler(0, 0, fieldOfView.fov) * difference;
@@ -59,6 +68,7 @@ public class Pivot : MonoBehaviour
                 transform.localRotation = Quaternion.Euler(180, 0, -rotationZ);
             }
             myPlayer.transform.rotation = Quaternion.Euler(0, 0, 0);
+
         }
     }
 }

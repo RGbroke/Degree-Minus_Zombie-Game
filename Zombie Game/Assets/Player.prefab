@@ -130,6 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myPlayer: {fileID: 5536918832966046342}
+  weapon: {fileID: 5973932773297106990}
   fieldOfView: {fileID: 0}
 --- !u!1 &3209006171535300335
 GameObject:
@@ -231,8 +232,8 @@ GameObject:
   - component: {fileID: 8277614590128913956}
   - component: {fileID: 2639719991977007569}
   - component: {fileID: 5895310697153616963}
-  - component: {fileID: 5293885480335755155}
   - component: {fileID: 5764626759682815456}
+  - component: {fileID: 6844149218161349843}
   m_Layer: 11
   m_Name: Player
   m_TagString: Player
@@ -455,7 +456,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2115788589608772105}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: Grenade
+        m_MethodName: Melee
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -485,7 +486,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 0}
-  maxHealth: 15
+  maxHealth: 9999
   currHealth: 0
   moveSpeed: 6
   controller: {fileID: 8277614590128913956}
@@ -501,6 +502,11 @@ MonoBehaviour:
   weaponSprite: {fileID: 5060037789874680870}
   cursorTexture: {fileID: 2800000, guid: 3b05a93d8c2ebcc43bb96735f61237c3, type: 3}
   cursorTextureShoot: {fileID: 2800000, guid: 943a9770bea270c40ac0d4d658a8126d, type: 3}
+  meleeDelay: 0.3
+  meleeDamage: 1
+  knockOutTime: 0.3
+  meleeForce: 1000
+  meleeRadius: 0.5
 --- !u!50 &8277614590128913956
 Rigidbody2D:
   serializedVersion: 4
@@ -636,41 +642,6 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_SortAtRoot: 0
---- !u!70 &5293885480335755155
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5536918832966046342}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 4087
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.026605526, y: -0.26604968}
-  m_Size: {x: 5.0056987, y: 11.869813}
-  m_Direction: 0
 --- !u!58 &5764626759682815456
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -706,6 +677,41 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -5.321019}
   serializedVersion: 2
   m_Radius: 1.8909199
+--- !u!70 &6844149218161349843
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5536918832966046342}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 4087
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.057764847, y: -0.69319165}
+  m_Size: {x: 5.020626, y: 12.068079}
+  m_Direction: 0
 --- !u!1 &5973932773297106990
 GameObject:
   m_ObjectHideFlags: 0
@@ -719,6 +725,7 @@ GameObject:
   - component: {fileID: 814717445347588452}
   - component: {fileID: 4751145713111198621}
   - component: {fileID: 8357887399160669838}
+  - component: {fileID: 5322344376478917971}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
@@ -740,6 +747,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3613609573751268121}
+  - {fileID: 4693116448126179140}
   m_Father: {fileID: 849283748143769478}
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 180}
 --- !u!212 &5060037789874680870
@@ -812,12 +820,16 @@ MonoBehaviour:
   muzzle: {fileID: 3209006171535300335}
   gunshot: {fileID: 4751145713111198621}
   FlashSprite: {fileID: 21300000, guid: bfe72ec0a19efee40b681f2af46b996e, type: 3}
-  FramesToFlash: 3
-  meleeDelay: 0.3
   weaponSprite: {fileID: 5060037789874680870}
-  bulletDamage: 10
-  circleOrigin: {fileID: 3613609573751268121}
-  radius: 1
+  circleOrigin: {fileID: 4693116448126179140}
+  meleePoint: {fileID: 5536918832966046342}
+  bulletDamage: 1
+  animator: {fileID: 8357887399160669838}
+  meleeDelay: 0.3
+  meleeDamage: 0
+  knockOutTime: 0
+  meleeForce: 0
+  meleeRadius: 0
 --- !u!82 &4751145713111198621
 AudioSource:
   m_ObjectHideFlags: 0
@@ -935,3 +947,76 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5322344376478917971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5973932773297106990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 418c20b63321afb42b538ed4370dcacc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnAnimationEventTriggered:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 814717445347588452}
+        m_TargetAssemblyTypeName: Weapon, Assembly-CSharp
+        m_MethodName: ResetIsAttacking
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnAttackPerformed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 814717445347588452}
+        m_TargetAssemblyTypeName: Weapon, Assembly-CSharp
+        m_MethodName: DetectColliders
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!1 &6828098205963360906
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4693116448126179140}
+  m_Layer: 0
+  m_Name: CircleOrigin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4693116448126179140
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6828098205963360906}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.16, y: -1.06, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5722080887866217117}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

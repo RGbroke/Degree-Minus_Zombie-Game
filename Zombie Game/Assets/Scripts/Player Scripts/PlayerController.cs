@@ -53,10 +53,21 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Texture2D cursorTextureShoot;
     private Vector2 cursorHotspot;
 
+    public float meleeDelay;
+    public float meleeDamage;
+    public float knockOutTime;
+    public float meleeForce;
+    public float meleeRadius;
+
     private void Start()
     {
         cursorHotspot = new Vector2(cursorTexture.width / 2, cursorTexture.height / 2);
         Cursor.SetCursor(cursorTexture, cursorHotspot, CursorMode.Auto);
+        weapon.meleeDelay = meleeDelay;
+        weapon.meleeDamage = meleeDamage;
+        weapon.knockOutTime = knockOutTime;
+        weapon.meleeForce = meleeForce;
+        weapon.meleeRadius = meleeRadius;
     }
 
     private void Awake()
