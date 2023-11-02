@@ -6,26 +6,13 @@ using UnityEngine.UI;
 public class HealthBar : MonoBehaviour
 {
     public Slider slider;
+    public Gradient gradient;
     public Image fill;
 
-    private void Update()
-    {
-        if (slider.value > 3 * slider.maxValue / 4) // Health > 75%
-        {
-            fill.color = Color.green;
-        }
-        else if (slider.value > slider.maxValue / 3) //Health > 33%
-        {
-            fill.color = Color.yellow;
-        }
-        else //Health < 33%
-        {
-            fill.color = Color.red;
-        }
-    }
     public void SetHealth(int health)
     {
         slider.value = health;
+        fill.color = gradient.Evaluate(slider.normalizedValue);
     }
     public void SetMaxHealth(int health)
     {
