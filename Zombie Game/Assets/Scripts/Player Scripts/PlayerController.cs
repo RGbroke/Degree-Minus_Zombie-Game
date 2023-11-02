@@ -100,15 +100,20 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
+    private void FixedUpdate()
+    {
+
+        if (Time.timeScale != 0)
+        {
+            HandleInput();
+            HandleMovement();
+            HandleAiming();
+        }
+    }
     void Update()
     {
         currGrenadeCooldown -= Time.deltaTime;
         //Movement/Control handling
-	    if(Time.timeScale != 0){
-            HandleInput();
-            HandleMovement();
-            HandleAiming();
-	    }
 
         if (fire)
         {

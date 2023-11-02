@@ -8,7 +8,7 @@ public class Weapon : MonoBehaviour
 {
     public GameObject bulletPrefab;
     public GameObject grenadePrefab;
-        public Transform firePoint;
+    public Transform firePoint;
     public GameObject muzzle;
     public AudioSource gunshot;
 
@@ -25,11 +25,7 @@ public class Weapon : MonoBehaviour
     public bool IsAttacking { get; private set; }
 
     [HideInInspector]
-    public float meleeDelay;
-    public float meleeDamage;
-    public float knockOutTime;
-    public float meleeForce;
-    public float meleeRadius;
+    public float meleeDelay, meleeDamage, knockOutTime, meleeForce, meleeRadius;
 
     public void ResetIsAttacking()
     {
