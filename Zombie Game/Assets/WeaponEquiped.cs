@@ -2,23 +2,77 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using static System.Net.Mime.MediaTypeNames;
 
 public class WeaponEquiped : MonoBehaviour
 {
     [SerializeField]
-    GameObject weapon1;
+    private GameObject startingWeapon;
 
     [SerializeField]
-    GameObject weapon2;
+    private UnityEngine.UI.Image weapon1_Display;
 
     [SerializeField]
-    GameObject weapon3;
+    private UnityEngine.UI.Image weapon2_Display;
 
     [SerializeField]
-    Animator switchVisual;
+    private UnityEngine.UI.Image weapon3_Display;
 
+    [SerializeField]
+    private Animator switchVisual;
+
+    private List<GameObject> weapons = new List<GameObject>();
+    private int windowPos = 0;
     private int equiped = 0;
+
+    void Start()
+    {
+        if (!startingWeapon)
+            return;
+
+        weapons.Add(startingWeapon);
+        updateWindow();
+    }
+
+    private void updateWindow()
+    {
+        //Setting window
+        switch (windowPos % 3)
+        {
+            case 0:
+                setWeaponWindow(weapon3_Display, weapon1_Display, weapon2_Display);
+                break;
+            case 1:
+                setWeaponWindow(weapon1_Display, weapon2_Display, weapon3_Display);
+                break;
+            case 2:
+                setWeaponWindow(weapon2_Display, weapon3_Display, weapon1_Display);
+                break;
+        }
+    }
+
+    private void setWeaponWindow(UnityEngine.UI.Image prev, UnityEngine.UI.Image equip, UnityEngine.UI.Image next)
+    {
+        equip.sprite = getEquiped().GetComponent<SpriteRenderer>().sprite;
+        equip.color = getEquiped().GetComponent<SpriteRenderer>().color;
+        next.sprite = getNextWeapon().GetComponent<SpriteRenderer>().sprite;
+        next.color = getNextWeapon().GetComponent<SpriteRenderer>().color;
+        prev.sprite = getPrevWeapon().GetComponent<SpriteRenderer>().sprite;
+        prev.color = getPrevWeapon().GetComponent<SpriteRenderer>().color;
+    }
+
+
+
+    public void addWeapon(GameObject newWeapon)
+    {
+        if (!newWeapon)
+            return;
+
+        weapons.Add(newWeapon);
+        updateWindow();
+    }
 
     public void nextWeapon(InputAction.CallbackContext context)
     {
@@ -27,11 +81,18 @@ public class WeaponEquiped : MonoBehaviour
 
         nextWeapon();
     }
+    
+    
     public void nextWeapon()
     {
+        if(weapons.Count > 0)
+        {
+            equiped = (equiped + 1) % weapons.Count;
+            updateWindow();
+        }
+
+        windowPos = (windowPos + 1) % 3;
         switchVisual.SetTrigger("Next");
-        equiped = (equiped + 1) % 3;
-        UnityEngine.Debug.Log("Weapon: " + equiped);
     }
 
     public void prevWeapon(InputAction.CallbackContext context)
@@ -43,22 +104,41 @@ public class WeaponEquiped : MonoBehaviour
     }
     public void prevWeapon()
     {
+        if (weapons.Count > 0)
+        {
+            equiped = (equiped + weapons.Count - 1) % weapons.Count;
+            updateWindow();
+        }
+        windowPos = (windowPos + 2) % 3;
         switchVisual.SetTrigger("Prev");
-        equiped = (equiped + 2) % 3;
-        UnityEngine.Debug.Log("Weapon: " + equiped);
     }
 
-    public GameObject getEquiped(InputAction.CallbackContext context)
+    public GameObject getPrevWeapon()
     {
-        switch (equiped)
+        if (weapons.Count == 0)
         {
-            case 0:
-                return weapon1;
-            case 1:
-                return weapon2;
-            case 2:
-                return weapon3;
+            return null;
         }
-        return null; //Should never run but just in case
+        int prevIndex = (equiped + weapons.Count - 1) % weapons.Count;
+        return weapons[prevIndex];
+    }
+
+    public GameObject getNextWeapon()
+    {
+        if (weapons.Count == 0)
+        {
+            return null;
+        }
+        int nextIndex = (equiped + 1) % weapons.Count;
+        return weapons[nextIndex];
+    }
+
+    public GameObject getEquiped()
+    {
+        if (weapons.Count == 0)
+        {
+            return null;
+        }
+        return weapons[equiped];
     }
 }
