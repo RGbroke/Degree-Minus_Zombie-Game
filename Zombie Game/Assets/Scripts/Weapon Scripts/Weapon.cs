@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Audio;
 using TMPro;
+using UnityEngine.InputSystem;
 
 public class Weapon : MonoBehaviour
 {
@@ -16,6 +17,9 @@ public class Weapon : MonoBehaviour
     public AudioSource gunshot;
     public Sprite FlashSprite;
 
+    //Weapon Control
+    public WeaponEquiped weaponControl;
+
     //Gun Stats
     private float amtBullet = 1f;
     private float destroyTime = 0.5f;
@@ -24,8 +28,9 @@ public class Weapon : MonoBehaviour
     private float bulletDamage = 1f;
     private float spread = 0.05f;
     public bool automatic = false;
+
+    //Timer
     private static float lastShootTime;
-    private int currentGun = 0;
 
     //Melee
     [HideInInspector]
@@ -34,64 +39,36 @@ public class Weapon : MonoBehaviour
     public bool IsAttacking { get; private set; }
     public GameObject meleePoint;
     public Animator animator;
-
+    private void Start()
+    {
+        WeaponChanged();
+    }
     public void ResetIsAttacking()
     {
         IsAttacking = false;
     }
 
-    public void ChangeWeapon()
+    public void WeaponChanged(InputAction.CallbackContext context)
     {
-        if (currentGun != 3)
-        {
-            currentGun++;
-        }
-        else
-        {
-            currentGun = 0;
-        }
-        switch (currentGun)
-        {
-            case 0:
-                amtBullet = 1f;
-                destroyTime = 0.5f;
-                bulletSpeed = 30f;
-                fireRate = 0.5f;
-                bulletDamage = 1f;
-                spread = 0.05f;
-                automatic = false;
-                break;
+        if (!context.started)
+            return;
+        WeaponChanged();
+    }
 
-            case 1:
-                amtBullet = 1f;
-                destroyTime = 0.5f;
-                bulletSpeed = 30f;
-                fireRate = 0.3f;
-                bulletDamage = 1f;
-                spread = 0.05f;
-                automatic = true;
-                break;
+    public void WeaponChanged()
+    {
+        Gun newGun = weaponControl.getEquiped().GetComponent<Gun>();
 
-            case 2:
-                amtBullet = 6f;
-                destroyTime = 0.3f;
-                bulletSpeed = 50f;
-                fireRate = 1f;
-                bulletDamage = 1f;
-                spread = 0.15f;
-                automatic = false;
-                break;
+        if (!newGun) //Exit if the current equiped gun is null
+            return;
 
-            case 3:
-                amtBullet = 6f;
-                destroyTime = 0.3f;
-                bulletSpeed = 50f;
-                fireRate = 0.5f;
-                bulletDamage = 1f;
-                spread = 0.15f;
-                automatic = true;
-                break;
-        }
+        amtBullet = newGun.getNumBulletsPerShot();
+        destroyTime = newGun.getBulletLifespan();
+        bulletSpeed = newGun.getBulletSpeed();
+        fireRate = newGun.getTimeBetweenShots();
+        bulletDamage = newGun.getBulletDamage();
+        spread = newGun.getSpread();
+        automatic = newGun.isAutomatic();
     }
 
     public void Fire()
