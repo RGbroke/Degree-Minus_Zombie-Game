@@ -441,6 +441,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1802161260}
+    - target: {fileID: 1286219405140639863, guid: 4a25e842cd0452544a35ac9f6567b980, type: 3}
+      propertyPath: healthDrop
+      value: 
+      objectReference: {fileID: 3948647394299110574, guid: d268366105919cf4686ab1f7157ab816, type: 3}
     - target: {fileID: 6833494616640385139, guid: 4a25e842cd0452544a35ac9f6567b980, type: 3}
       propertyPath: m_LocalPosition.x
       value: 100
@@ -87008,6 +87012,10 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 1742496746694104854, guid: 04bc8e035d2bbae44b14779d10fdf09f, type: 3}
+      propertyPath: healthDrop
+      value: 
+      objectReference: {fileID: 3948647394299110574, guid: d268366105919cf4686ab1f7157ab816, type: 3}
     - target: {fileID: 1742496746694104854, guid: 04bc8e035d2bbae44b14779d10fdf09f, type: 3}
       propertyPath: zombieAttackNoise
       value: 

@@ -16,6 +16,7 @@ public class Weapon : MonoBehaviour
     public GameObject muzzle;
     public AudioSource gunshot;
     public Sprite FlashSprite;
+    public float FlashSpeed = 0.01f;
 
     //Weapon Control
     public WeaponEquiped weaponControl;
@@ -75,7 +76,7 @@ public class Weapon : MonoBehaviour
     {
         if(Time.time > lastShootTime + fireRate)
         {
-            StartCoroutine(DoFlash(0.1f));
+            StartCoroutine(DoFlash(FlashSpeed));
             gunshot.Play();
             lastShootTime = Time.time;
             for (int i = 0; i < amtBullet; i++)

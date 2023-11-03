@@ -35,6 +35,10 @@ public class RangedEnemy : MonoBehaviour
 
     UnityEngine.AI.NavMeshAgent agent;
 
+    //PowerUpDrop
+    public GameObject healthDrop;
+    public float ZombiesToKill = 20f;
+
 
     public IEnumerator FlashRed()
     {
@@ -50,16 +54,22 @@ public class RangedEnemy : MonoBehaviour
 
         if (health <= 0)
         {
+            if (gc.numZombiesKilled() % 20 == 0)
+            {
+                Instantiate(healthDrop, transform.position, transform.rotation);
+            }
             Destroy(this.gameObject);
         }
         else
         {
             healthBar.transform.localScale = new Vector3(health / maxHealth, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
         }
+        /*
         if (speed > 1)
         {
             speed--;
         }
+        */
     }
 
 
