@@ -8,12 +8,6 @@ public class Bullet : MonoBehaviour
     [HideInInspector]
     public float damage;
 
-    private void Start()
-    {
-        Physics2D.IgnoreLayerCollision(0, 10);
-        Destroy(gameObject, destroyTime);
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent))
@@ -27,10 +21,5 @@ public class Bullet : MonoBehaviour
 
         Destroy(gameObject);
     }
-
-     private void OnCollisionExit2D(Collision2D collision)
-     {
-        Destroy(gameObject);
-     }
 
 }
