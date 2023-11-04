@@ -59,7 +59,6 @@ public class EnemyChaser : MonoBehaviour
 
         if (health <= 0)
         {
-            gc.gainScore();
             Destroy(this.gameObject);
         }
         if(speed > 1)
@@ -88,5 +87,8 @@ public class EnemyChaser : MonoBehaviour
         }
     }
 
-
+    void OnDestroy()
+    {
+        gc.zombieKilled();
+    }
 }

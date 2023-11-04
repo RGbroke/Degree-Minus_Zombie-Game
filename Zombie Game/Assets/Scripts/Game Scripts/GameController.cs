@@ -8,9 +8,12 @@ public class GameController : MonoBehaviour
     public GameOver GameOverScreen;
     public static int zombiesKilled = 0;
     public static int activeZombies = 0;
+
     
     [SerializeField] private PopupSystem popup;
     [SerializeField] private TutorialScript tutorial;
+    public int maxZombies = 100;
+
 
     
     public void Start()
@@ -38,8 +41,7 @@ public class GameController : MonoBehaviour
             tutorialResume();
         }
     }
-
-    public void gainScore()
+    public void zombieKilled()
     {
         zombiesKilled++;
         activeZombies--;
@@ -48,6 +50,11 @@ public class GameController : MonoBehaviour
     public void addActiveZombies(int num)
     {
         activeZombies += num;
+    }
+
+    public int getMaxZombies()
+    {
+        return maxZombies;
     }
 
     public int numActiveZombies()
