@@ -158,7 +158,7 @@ Transform:
   m_GameObject: {fileID: 3209006171535300335}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -10.19, y: -0.9, z: 0}
+  m_LocalPosition: {x: -7.05, y: -0.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -468,14 +468,6 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 47f3225f-5b4c-43ff-a685-d6e93e1dde2c
     m_ActionName: Player/Melee[/Mouse/rightButton]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: ff87b206-5011-4dbf-b2ab-76485556da8b
-    m_ActionName: Player/NextWeapon[/Keyboard/e]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 88c7d609-2ecb-45be-a805-5670124831ce
-    m_ActionName: Player/PrevWeapon[/Keyboard/q]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -494,7 +486,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 0}
-  maxHealth: 15
+  maxHealth: 9999
   currHealth: 0
   moveSpeed: 6
   controller: {fileID: 8277614590128913956}
@@ -502,7 +494,7 @@ MonoBehaviour:
   animator: {fileID: 2588117930869202780}
   weapon: {fileID: 814717445347588452}
   bulletSpeed: 30
-  fireRate: 1
+  fireRate: 0.2
   grenadeCooldown: 8
   gunshotEnd: {fileID: 2639719991977007569}
   damageRate: 0.5

@@ -528,8 +528,6 @@ MonoBehaviour:
   sprite: {fileID: 8035699478130400961}
   gc: {fileID: 0}
   healthBar: {fileID: 1924780966808193331}
-  healthDrop: {fileID: 3948647394299110574, guid: d268366105919cf4686ab1f7157ab816, type: 3}
-  ZombiesToKill: 20
 --- !u!58 &2224930650944752087
 CircleCollider2D:
   m_ObjectHideFlags: 0

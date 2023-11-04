@@ -14,12 +14,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public int maxHealth = 10;
     [HideInInspector] public int currHealth;
     
+
     //Movement
     [SerializeField] private float moveSpeed = 5f;
+
     private Vector2 moveDirection;
     private Vector2 aimDirection;
 
-    //Controls
     [SerializeField] private Rigidbody2D controller;
     private PlayerControls playerControls;
     private PlayerInput playerInput;
@@ -27,17 +28,17 @@ public class PlayerController : MonoBehaviour
 
     //Weapon & Aim
     [SerializeField] private Pivot pivot;
+    public Animator animator;
     [SerializeField] private Weapon weapon;
+    [SerializeField] private float bulletSpeed;
+    [SerializeField] private float fireRate;
+    [SerializeField] private float grenadeCooldown;
+    private float currGrenadeCooldown = 0;
     private bool fire;
-    private bool automatic;
+    
 
     //Weapon SFX
     public AudioSource gunshotEnd;
-
-    //Grenade
-    [SerializeField] private float grenadeSpeed = 20f;
-    [SerializeField] private float grenadeCooldown;
-    private float currGrenadeCooldown = 0;
 
     //Player Damage
     [SerializeField] private float damageRate = 1f;
@@ -45,17 +46,13 @@ public class PlayerController : MonoBehaviour
     private float lastDamageTime;
     private int damageTaken;
 
-    //Sprite & Animation
     public SpriteRenderer sprite;
     public SpriteRenderer weaponSprite;
-    public Animator animator;
 
-    //Cursor
     [SerializeField] private Texture2D cursorTexture;
     [SerializeField] private Texture2D cursorTextureShoot;
     private Vector2 cursorHotspot;
 
-    //Melee
     public float meleeDelay;
     public float meleeDamage;
     public float knockOutTime;
@@ -84,10 +81,12 @@ public class PlayerController : MonoBehaviour
         //Health
         currHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
-
-        playerControls.Enable();
-        playerControls.Controls.Fire.started += ctx => StartFiring();
-        playerControls.Controls.Fire.canceled += ctx => StopFiring();
+        if(Time.timeScale != 0)
+        {
+            playerControls.Enable();
+            playerControls.Controls.Fire.started += ctx => StartFiring();
+            playerControls.Controls.Fire.canceled += ctx => StopFiring();
+        }
     }
     private void OnDisable()
     {
@@ -105,6 +104,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     private void FixedUpdate()
     {
+
         if (Time.timeScale != 0)
         {
             HandleInput();
@@ -117,16 +117,15 @@ public class PlayerController : MonoBehaviour
         currGrenadeCooldown -= Time.deltaTime;
         //Movement/Control handling
 
-        if (fire && automatic)
+        if (fire)
         {
-            weapon.Fire();
+            Fire();
         }
 
         if(Time.time > lastDamageTime + damageRate && hit)
         {
             StartCoroutine(FlashRed());
             lastDamageTime = Time.time;
-
             if (currHealth - damageTaken > 0)
             {
                 currHealth -= damageTaken;
@@ -135,7 +134,6 @@ public class PlayerController : MonoBehaviour
             {
                 currHealth = 0;
             }
-
             healthBar.SetHealth(currHealth);
         }
         hit = false;
@@ -146,14 +144,12 @@ public class PlayerController : MonoBehaviour
         moveDirection = playerControls.Controls.Movement.ReadValue<Vector2>();
         aimDirection = playerControls.Controls.Aim.ReadValue<Vector2>();
     }
-
     void HandleMovement()
     {
         controller.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
         animator.SetFloat("Horizontal", moveDirection.x);
         animator.SetFloat("Speed", moveDirection.sqrMagnitude);
     }
-
     void HandleAiming()
     {
         if(isGamepad) 
@@ -175,34 +171,36 @@ public class PlayerController : MonoBehaviour
     private void StartFiring()
     {
         fire = true;
-        automatic = weapon.automatic;
-        if (!automatic)
-        {
-            weapon.Fire();
-        }
         Cursor.SetCursor(cursorTextureShoot, cursorHotspot, CursorMode.Auto);
     }
-
     private void StopFiring()
     {
         fire = false;
         gunshotEnd.Play();
         Cursor.SetCursor(cursorTexture, cursorHotspot, CursorMode.Auto);
     }
-
+    private void Fire()
+    {
+        if(Time.timeScale != 0)
+            {   
+                weapon.Fire(bulletSpeed, fireRate);
+            }
+    }
     public void Grenade()
     {
         if (currGrenadeCooldown <= 0)
         {
-            weapon.ThrowGrenade(grenadeSpeed / 4);
+            weapon.ThrowGrenade(bulletSpeed / 4);
             currGrenadeCooldown = grenadeCooldown;
         }
         
     }
-
     public void Melee()
     {
-       weapon.Melee();
+        if(Time.timeScale != 0)
+            {   
+                weapon.Melee();
+            }
     }
 
     public void TakeDamage(int damage)
