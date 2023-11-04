@@ -3,52 +3,75 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Audio;
+using TMPro;
+using UnityEngine.InputSystem;
 
 public class Weapon : MonoBehaviour
 {
+    //Bullet & Grenade
     public GameObject bulletPrefab;
     public GameObject grenadePrefab;
-    public Transform firePoint;
+
+    //Muzzle Flash
     public GameObject muzzle;
     public AudioSource gunshot;
-    public float lastShootTime;
-    public Sprite FlashSprite;
-    private bool meleeBlocked;
-    public SpriteRenderer weaponSprite;
-    public int bulletShot;
-    public int grenadeThrew;
-    public int meleeCount;
-    public Transform circleOrigin;
-    public GameObject meleePoint;
-    public float bulletDamage = 1f;
-    public Animator animator;
-    public bool IsAttacking { get; private set; }
 
+    //Timer
+    private static float lastShootTime;
+
+    //Melee
     [HideInInspector]
     public float meleeDelay, meleeDamage, knockOutTime, meleeForce, meleeRadius;
-
+    private bool meleeBlocked;
+    public bool IsAttacking { get; private set; }
+    public GameObject meleePoint;
+    public Animator animator;
+    private void Start()
+    {
+        WeaponChanged();
+    }
     public void ResetIsAttacking()
     {
         IsAttacking = false;
     }
 
-    public void Fire(float fireForce, float fireRate)
+    public void WeaponChanged(InputAction.CallbackContext context)
+    {
+        if (!context.started)
+            return;
+        WeaponChanged();
+    }
+
+    public void WeaponChanged()
+    {
+        Gun newGun = weaponControl.getEquiped().GetComponent<Gun>();
+
+        if (!newGun) //Exit if the current equiped gun is null
+            return;
+
+        amtBullet = newGun.getNumBulletsPerShot();
+        destroyTime = newGun.getBulletLifespan();
+        bulletSpeed = newGun.getBulletSpeed();
+        fireRate = newGun.getTimeBetweenShots();
+        bulletDamage = newGun.getBulletDamage();
+        spread = newGun.getSpread();
+        automatic = newGun.isAutomatic();
+    }
+
+    public void Fire()
     {
         if(Time.time > lastShootTime + fireRate)
         {
-            StartCoroutine(DoFlash(fireRate));
+            StartCoroutine(DoFlash(FlashSpeed));
             gunshot.Play();
             lastShootTime = Time.time;
-            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-            bullet.GetComponent<Rigidbody2D>().AddForce(firePoint.up * fireForce, ForceMode2D.Impulse);
-            bullet.GetComponent<Bullet>().damage = bulletDamage;
-            bulletShot++;
         }
     }
 
     public void ThrowGrenade(float fireForce)
     {
         lastShootTime = Time.time;
+        Transform firePoint = muzzle.transform;
         GameObject grenade = Instantiate(grenadePrefab, firePoint.position, firePoint.rotation);
         grenade.GetComponent<Rigidbody2D>().AddForce(firePoint.up * fireForce, ForceMode2D.Impulse);
     }
@@ -58,7 +81,7 @@ public class Weapon : MonoBehaviour
         var renderer = muzzle.GetComponent<SpriteRenderer>();
         var originalSprite = renderer.sprite;
         renderer.sprite = FlashSprite;
-        yield return new WaitForSeconds(flashrate/2); ;
+        yield return new WaitForSeconds(flashrate); ;
 
         renderer.sprite = originalSprite;
     }
@@ -83,12 +106,14 @@ public class Weapon : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.blue;
+        Transform circleOrigin = muzzle.transform;
         Vector3 position = circleOrigin == null ? Vector3.zero : circleOrigin.position;
         Gizmos.DrawWireSphere(position, meleeRadius);
     }
 
     public void DetectColliders()
     {
+        Transform circleOrigin = muzzle.transform;
         foreach (Collider2D collider in Physics2D.OverlapCircleAll(circleOrigin.position, meleeRadius))
         {
             Enemy enemy;
