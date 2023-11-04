@@ -8,8 +8,6 @@ using UnityEngine.UI;
 public class ObjectiveController_Stage1 : MonoBehaviour
 {
     [SerializeField]
-    private PlayerController pc;
-    [SerializeField]
     private GameController gc;
 
     [SerializeField]
@@ -21,28 +19,16 @@ public class ObjectiveController_Stage1 : MonoBehaviour
     [SerializeField]
     private int zombiesToKill;
 
-    [SerializeField]
-    private TutorialScript tutorial;
-
-    /*private bool mainObj = false;*/
-    public int objectiveFlag = 0;
+    private bool mainObj = false;
+    private int objectiveFlag = 0;
     [SerializeField]
     private PopupSystem popup; /*Leave this here for now*/
-    [SerializeField]
-    public Weapon weapon;
-    public int gunAttackCount = 0;
-    public int normalAttackCount = 0;
-    public int grenadeAttackCount = 0;
-    public bool hpObtained = false;
-    public bool enemyKilled = false;
-    
-    private bool mainObj = false;
-    private string text;
+
     private void Update()
     {
+
         objectiveDisplay.text = "<style=\"Title\">Objective:</style>\n\n";
-        objectiveDisplay.text += text;
-        /*switch (objectiveFlag)
+        switch (objectiveFlag)
         {
             case 2:
                 objectiveDisplay.text += "<style=\"Normal\">Good Job! Now Enter The Hospital</style>";
@@ -59,96 +45,13 @@ public class ObjectiveController_Stage1 : MonoBehaviour
         {
             mainObj = true;
             objectiveComplete();
-        }*/
-        if(tutorial.tutorialNext == false || tutorial.currObjective > 1)
-        {
-            switch (objectiveFlag)
-            {
-                case 1:
-                    gunAttack();
-                    break;
-                case 2: 
-                    normalAttack();
-                    break;
-                case 3:
-                    text = "<style=\"Normal\">Zombies Approach! Clear the Area to get inside! (" + gc.numZombiesKilled() + "/" + zombiesToKill + ")</style>";
-                    break;
-                case 4:
-                    text = "<style=\"Normal\">Good Job! Now Enter The Hospital</style>";
-                    trigger.SetActive(true);
-                    break;    
-            }
-        }
-
-        if(gc.numZombiesKilled() >= zombiesToKill && !mainObj)
-        {
-            mainObj = true;
-            objectiveComplete();
         }
     }
-
     public void objectiveComplete()
     {
         objectiveFlag++;
     }
 
-    public void tutorialComplete()
-    {
-        tutorial.currObjective++;
-        tutorial.objectiveFinished = true;
-        tutorial.tutorialNext = true;
-    }
-
-
-    public void gunAttack()
-    {
-        if(weapon.bulletShot <= 5)
-            text = "<style=\"Normal\">Use gun attack 5 times: ("+ weapon.bulletShot + "/5)</style>";
-        if(weapon.bulletShot == 5)
-            {
-                text = "<style=\"Normal\">               Completed </style>";
-                tutorialComplete();
-            }
-    }
-
-    public void normalAttack()
-    {
-        if(weapon.meleeCount <= 5)
-            text = "<style=\"Normal\">Use normal attack 5 times: ("+ weapon.meleeCount + "/5)</style>";
-        if(weapon.meleeCount == 5)
-            {
-                text = "<style=\"Normal\">               Completed </style>";
-                tutorialComplete();
-            }
-    }
-
-    public void grenadeAttack()
-    {
-        text = "<style=\"Normal\">Throw grenade 2 times: ("+ weapon.grenadeThrew + "/2)</style>";
-        if(weapon.grenadeThrew == 2)
-            tutorialComplete();
-    }
-
-
-    public void enemySpawned()
-    {
-        objectiveComplete();
-    }
-
-    /*
-    public void healthKit()
-    {
-        objectiveComplete();
-    }
-
-
-    public void enterHospital()
-    {
-        objectiveComplete();
-    }
-    */
-
-    
 
 
 }

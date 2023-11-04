@@ -84,12 +84,10 @@ public class PlayerController : MonoBehaviour
         //Health
         currHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
-        if(Time.timeScale != 0)
-        {
-            playerControls.Enable();
-            playerControls.Controls.Fire.started += ctx => StartFiring();
-            playerControls.Controls.Fire.canceled += ctx => StopFiring();
-        }
+
+        playerControls.Enable();
+        playerControls.Controls.Fire.started += ctx => StartFiring();
+        playerControls.Controls.Fire.canceled += ctx => StopFiring();
     }
     private void OnDisable()
     {
@@ -204,10 +202,7 @@ public class PlayerController : MonoBehaviour
 
     public void Melee()
     {
-        if(Time.timeScale != 0)
-            {   
-                weapon.Melee();
-            }
+       weapon.Melee();
     }
 
     public void TakeDamage(int damage)
