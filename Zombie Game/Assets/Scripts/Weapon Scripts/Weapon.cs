@@ -79,7 +79,7 @@ public class Weapon : MonoBehaviour
 
     public void Fire()
     {
-        if(Time.time > lastShootTime + fireRate)
+        if(Time.time > lastShootTime + fireRate && Time.timeScale != 0 )
         {
             StartCoroutine(DoFlash(0.1f));
             gunshot.Play();
