@@ -9,8 +9,8 @@ public class Grenade : MonoBehaviour
     public float explosionDamage = 10f;
     public GameObject explosionEffect;
 
-    float countdown;
-    bool hasExploded = false;
+    public float countdown;
+    public bool hasExploded = false;
     void Start()
     {
         countdown = delay;

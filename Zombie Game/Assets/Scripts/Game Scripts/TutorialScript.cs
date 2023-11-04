@@ -56,7 +56,7 @@ public class TutorialScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      if(tutorialNext && objectiveFinished && currObjective < 2)
+      if(tutorialNext && objectiveFinished && currObjective < 3)
         {
           StartCoroutine(tutorialStart());
         }
@@ -83,12 +83,13 @@ public class TutorialScript : MonoBehaviour
               go.weapon.meleeCount = 0;
               break;
             case 2:
+              yield return new WaitForSeconds(1);
               popup.PopUp(tutorialList[2], 0);
+              yield return new WaitForSeconds(1);
               go.weapon.grenadeThrew = 0;
               go.objectiveFlag++;
               break;
         }
-      yield return new WaitForSeconds(2);
     }
 
    public void nextTutorial()

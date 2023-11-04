@@ -24,7 +24,7 @@ public class ObjectiveController_Stage1 : MonoBehaviour
     [SerializeField]
     private TutorialScript tutorial;
 
-    /*private bool mainObj = false;*/
+    private bool objectiveCheck;
     public int objectiveFlag = 0;
     [SerializeField]
     private PopupSystem popup; /*Leave this here for now*/
@@ -60,7 +60,7 @@ public class ObjectiveController_Stage1 : MonoBehaviour
             mainObj = true;
             objectiveComplete();
         }*/
-        if(tutorial.tutorialNext == false || tutorial.currObjective > 1)
+        if(tutorial.tutorialNext == false || tutorial.currObjective > 2)
         {
             switch (objectiveFlag)
             {
@@ -68,12 +68,15 @@ public class ObjectiveController_Stage1 : MonoBehaviour
                     gunAttack();
                     break;
                 case 2: 
-                    normalAttack();
+                    meleeAttack();
                     break;
                 case 3:
-                    text = "<style=\"Normal\">Zombies Approach! Clear the Area to get inside! (" + gc.numZombiesKilled() + "/" + zombiesToKill + ")</style>";
+                    grenadeAttack();
                     break;
                 case 4:
+                    text = "<style=\"Normal\">Zombies Approach! Clear the Area to get inside! (" + gc.numZombiesKilled() + "/" + zombiesToKill + ")</style>";
+                    break;
+                case 5:
                     text = "<style=\"Normal\">Good Job! Now Enter The Hospital</style>";
                     trigger.SetActive(true);
                     break;    
@@ -102,31 +105,47 @@ public class ObjectiveController_Stage1 : MonoBehaviour
 
     public void gunAttack()
     {
-        if(weapon.bulletShot <= 5)
-            text = "<style=\"Normal\">Use gun attack 5 times: ("+ weapon.bulletShot + "/5)</style>";
-        if(weapon.bulletShot == 5)
+        if(weapon.bulletShot < 5)
             {
-                text = "<style=\"Normal\">               Completed </style>";
+                objectiveCheck = false;
+                text = "<style=\"Normal\">Use gun attack 5 times: ("+ weapon.bulletShot + "/5)</style>";
+            }
+        if(weapon.bulletShot == 5 && objectiveCheck == false)
+            {
+                objectiveCheck = true;
+                text = "<style=\"Normal\">          Completed </style>";
                 tutorialComplete();
             }
     }
 
-    public void normalAttack()
+    public void meleeAttack()
     {
-        if(weapon.meleeCount <= 5)
-            text = "<style=\"Normal\">Use normal attack 5 times: ("+ weapon.meleeCount + "/5)</style>";
-        if(weapon.meleeCount == 5)
+        if(weapon.meleeCount < 5)
             {
-                text = "<style=\"Normal\">               Completed </style>";
+                objectiveCheck = false;
+                text = "<style=\"Normal\">Use melee attack 5 times: ("+ weapon.meleeCount + "/5)</style>";
+            }
+        if(weapon.meleeCount == 5 && objectiveCheck == false)
+            {
+                objectiveCheck = true;
+                text = "<style=\"Normal\">          Completed </style>";
                 tutorialComplete();
             }
     }
 
     public void grenadeAttack()
     {
-        text = "<style=\"Normal\">Throw grenade 2 times: ("+ weapon.grenadeThrew + "/2)</style>";
-        if(weapon.grenadeThrew == 2)
-            tutorialComplete();
+        if(weapon.grenadeThrew < 5)
+            {   
+                objectiveCheck = false;
+                text = "<style=\"Normal\">Throw grenade 2 times: ("+ weapon.grenadeThrew + "/2)</style>";
+            }
+        if(weapon.grenadeThrew == 2 && objectiveCheck == false)
+             {
+                objectiveCheck = true;
+                text = "<style=\"Normal\">          Completed </style>";
+                tutorialComplete();
+            }
     }
 
 

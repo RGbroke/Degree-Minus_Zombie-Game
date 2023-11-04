@@ -105,6 +105,7 @@ public class Weapon : MonoBehaviour
         Transform firePoint = muzzle.transform;
         GameObject grenade = Instantiate(grenadePrefab, firePoint.position, firePoint.rotation);
         grenade.GetComponent<Rigidbody2D>().AddForce(firePoint.up * fireForce, ForceMode2D.Impulse);
+        grenadeThrew++;
     }
 
     IEnumerator DoFlash(float flashrate)
