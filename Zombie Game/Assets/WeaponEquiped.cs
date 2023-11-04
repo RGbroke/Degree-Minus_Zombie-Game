@@ -21,9 +21,6 @@ public class WeaponEquiped : MonoBehaviour
     private UnityEngine.UI.Image weapon3_Display;
 
     [SerializeField]
-    private Weapon currentGun;
-
-    [SerializeField]
     private Animator switchVisual;
 
     private List<GameObject> weapons = new List<GameObject>();
@@ -88,13 +85,13 @@ public class WeaponEquiped : MonoBehaviour
     
     public void nextWeapon()
     {
-        if (weapons.Count <= 0)
-            return;
+        if(weapons.Count > 0)
+        {
+            equiped = (equiped + 1) % weapons.Count;
+            updateWindow();
+        }
 
-        equiped = (equiped + 1) % weapons.Count;
         windowPos = (windowPos + 1) % 3;
-        currentGun.WeaponChanged();
-        updateWindow();
         switchVisual.SetTrigger("Next");
     }
 
@@ -107,13 +104,12 @@ public class WeaponEquiped : MonoBehaviour
     }
     public void prevWeapon()
     {
-        if (weapons.Count <= 0)
-            return;
-
-        equiped = (equiped + weapons.Count - 1) % weapons.Count;
+        if (weapons.Count > 0)
+        {
+            equiped = (equiped + weapons.Count - 1) % weapons.Count;
+            updateWindow();
+        }
         windowPos = (windowPos + 2) % 3;
-        currentGun.WeaponChanged();
-        updateWindow();
         switchVisual.SetTrigger("Prev");
     }
 

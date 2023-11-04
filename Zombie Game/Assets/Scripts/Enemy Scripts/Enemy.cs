@@ -8,33 +8,24 @@ using UnityEngine.EventSystems;
 
 public class Enemy : MonoBehaviour
 {
-    //Targeting
-    PlayerController player;
     private Transform target;
-    NavMeshAgent agent;
-
-    //System
-    public GameController gc;
-    public Dialogue dialogue;
-
-    //Sprite
-    public SpriteRenderer sprite;
-    public Animator animator;
+    private float health;
     private Color defaultColor;
 
-    //Stats
-    public GameObject healthBar;
-    public float maxHealth = 3f;
-    private float health;
     public float speed;
+    public float maxHealth = 3f;
+    public Animator animator;
     bool isColliding = false;
+    PlayerController player;
 
-    //Audio
+    public GameController gc;
+    public Dialogue dialogue;
+    public SpriteRenderer sprite;
+    public GameObject healthBar;
+
     public AudioSource zombieAttackNoise;
 
-    //PowerUpDrop
-    public GameObject healthDrop;
-    public float ZombiesToKill = 20f;
+    NavMeshAgent agent;
 
     public IEnumerator FlashRed()
     {
@@ -77,10 +68,7 @@ public class Enemy : MonoBehaviour
 
         if (health <= 0)
         {
-            if (gc.numZombiesKilled() % 20 == 0)
-            {
-                Instantiate(healthDrop, transform.position, transform.rotation);
-            }
+            gc.gainScore();
             Destroy(this.gameObject);
         }
         else
@@ -108,4 +96,5 @@ public class Enemy : MonoBehaviour
             playerComponent.TakeDamage(1);
         }
     }
+ 
 }
