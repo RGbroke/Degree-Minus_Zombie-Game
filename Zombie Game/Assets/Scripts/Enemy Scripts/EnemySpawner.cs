@@ -20,7 +20,7 @@ public class EnemySpawner : MonoBehaviour
     void Update()
     {
         spawnTime -= Time.deltaTime;
-        if (spawnTime <= 0 && isActive)
+        if (spawnTime <= 0 && isActive && gc.numActiveZombies() < gc.getMaxZombies())
         {
             spawnZombie();
             spawnTime = UnityEngine.Random.Range(spawnDelayMin, spawnDelayMax);

@@ -50,6 +50,10 @@ public class EnemyChaser : MonoBehaviour
             new WaitForSeconds(1f);
         }
 
+        float distance = Vector3.Distance(this.transform.position, target.transform.position);
+        checkDistance();
+        if (gc.secondZombie == true)
+            resumeTimer();
     }
 
     public void TakeDamage(float damageAmount)
@@ -59,7 +63,6 @@ public class EnemyChaser : MonoBehaviour
 
         if (health <= 0)
         {
-            gc.gainScore();
             Destroy(this.gameObject);
         }
         if(speed > 1)
@@ -88,5 +91,31 @@ public class EnemyChaser : MonoBehaviour
         }
     }
 
+    public void checkDistance()
+    {
+        float distance = Vector3.Distance(this.transform.position, target.transform.position);
+        if (distance <= 12 && gc.secondZombie != true)
+            seen();
+    }
 
+    public void resumeTimer()
+    {
+        if (Input.GetMouseButtonDown(1))
+        {
+            Time.timeScale = 1;
+            Debug.Log(gc.secondZombie);
+        }
+    }
+
+    private void seen()
+    {
+        gc.secondZombieSeen();
+	dialogue.index++;
+        Time.timeScale = 0;
+    }
+
+    void OnDestroy()
+    {
+        gc.zombieKilled();
+    }
 }
