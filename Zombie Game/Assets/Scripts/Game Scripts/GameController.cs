@@ -8,10 +8,14 @@ public class GameController : MonoBehaviour
     public GameOver GameOverScreen;
     public static int zombiesKilled = 0;
     public static int activeZombies = 0;
-    public int maxZombies = 100;
-    public bool firstZombie = false;
-    public bool secondZombie = false;
 
+    
+    [SerializeField] private PopupSystem popup;
+    [SerializeField] private TutorialScript tutorial;
+    public int maxZombies = 100;
+
+
+    
     public void Start()
     {
         zombiesKilled = 0;
@@ -25,10 +29,16 @@ public class GameController : MonoBehaviour
 
     public void Update()
     {
+
+
         if(player.getHealth() <= 0)
         {
             player.healthBar.setActive(false);
             GameOver();
+        }
+        if(Input.GetKeyDown(KeyCode.G) && Time.timeScale == 0)
+        {
+            tutorialResume();
         }
     }
     public void zombieKilled()
@@ -57,13 +67,9 @@ public class GameController : MonoBehaviour
         return zombiesKilled;
     }
 
-    public void firstZombieSeen()
+    public void tutorialResume()
     {
-        firstZombie = true;
-    }
-
-    public void secondZombieSeen()
-    {
-        secondZombie = true;
+        popup.animator.SetTrigger("close");
+        Time.timeScale = 1;
     }
 }

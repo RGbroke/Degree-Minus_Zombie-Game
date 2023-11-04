@@ -8,6 +8,12 @@ using UnityEngine.InputSystem;
 
 public class Weapon : MonoBehaviour
 {
+
+    //Attack trackers
+    public int bulletShot;
+    public int grenadeThrew;
+    public int meleeCount;
+    
     //Bullet & Grenade
     public GameObject bulletPrefab;
     public GameObject grenadePrefab;
@@ -16,7 +22,6 @@ public class Weapon : MonoBehaviour
     public GameObject muzzle;
     public AudioSource gunshot;
     public Sprite FlashSprite;
-    public float FlashSpeed = 0.01f;
 
     //Weapon Control
     public WeaponEquiped weaponControl;
@@ -76,9 +81,10 @@ public class Weapon : MonoBehaviour
     {
         if(Time.time > lastShootTime + fireRate)
         {
-            StartCoroutine(DoFlash(FlashSpeed));
+            StartCoroutine(DoFlash(0.1f));
             gunshot.Play();
             lastShootTime = Time.time;
+            bulletShot++;
             for (int i = 0; i < amtBullet; i++)
             {
                 Transform firePoint = muzzle.transform;
@@ -116,6 +122,7 @@ public class Weapon : MonoBehaviour
         if(meleeBlocked)
             return;
         animator.SetTrigger("Attack");
+        meleeCount++;
         IsAttacking = true;
         meleeBlocked = true;
         StartCoroutine(MeleeDelay());
