@@ -58,8 +58,6 @@ public class Enemy : MonoBehaviour
     {
         agent.SetDestination(target.position);
 
-        //transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-
         animator.SetFloat("Horizontal", target.position.x - transform.position.x);
         animator.SetFloat("Speed", speed);
 
@@ -70,10 +68,6 @@ public class Enemy : MonoBehaviour
             new WaitForSeconds(1f);
         }
 
-       /* float distance = Vector3.Distance(this.transform.position, target.transform.position);
-        checkDistance();
-        if (gc.firstZombie == true)
-            resumeTimer();*/
     }
 
     public void TakeDamage(float damageAmount)
@@ -114,35 +108,4 @@ public class Enemy : MonoBehaviour
             playerComponent.TakeDamage(1);
         }
     }
-
-    void OnDestroy()
-    {
-        gc.zombieKilled();
-    }
-    /*
-    public void checkDistance()
-    {
-        float distance = Vector3.Distance(this.transform.position, target.transform.position);
-        if (distance <= 10 && gc.firstZombie != true)
-            seen();
-    }
-
-    public void resumeTimer()
-    {
-        if (Input.GetMouseButtonDown(1))
-        {
-            Time.timeScale = 1;
-            Debug.Log(gc.firstZombie);
-        }
-    }
-
-    private void seen()
-    {
-        //gc.firstZombieSeen();
-	    //dialogue.index++;
-	    //Debug.Log(dialogue.index);
-        //Time.timeScale = 0;
-    }
-    */
-
 }

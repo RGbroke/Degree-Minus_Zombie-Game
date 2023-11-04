@@ -15,20 +15,6 @@ public class Weapon : MonoBehaviour
     //Muzzle Flash
     public GameObject muzzle;
     public AudioSource gunshot;
-    public Sprite FlashSprite;
-    public float FlashSpeed = 0.01f;
-
-    //Weapon Control
-    public WeaponEquiped weaponControl;
-
-    //Gun Stats
-    private float amtBullet = 1f;
-    private float destroyTime = 0.5f;
-    private float bulletSpeed = 30f;
-    private float fireRate = 0.3f;
-    private float bulletDamage = 1f;
-    private float spread = 0.05f;
-    public bool automatic = false;
 
     //Timer
     private static float lastShootTime;
@@ -79,17 +65,6 @@ public class Weapon : MonoBehaviour
             StartCoroutine(DoFlash(FlashSpeed));
             gunshot.Play();
             lastShootTime = Time.time;
-            for (int i = 0; i < amtBullet; i++)
-            {
-                Transform firePoint = muzzle.transform;
-                GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-                Rigidbody2D bulletrb = bullet.GetComponent<Rigidbody2D>();
-                Vector2 dir = firePoint.up;
-                Vector2 pdir = Vector2.Perpendicular(dir) * Random.Range(-spread, spread);
-                bulletrb.velocity = (dir + pdir) * bulletSpeed;
-                bullet.GetComponent<Bullet>().damage = bulletDamage;
-                Destroy(bullet, destroyTime);
-            }
         }
     }
 
@@ -116,6 +91,7 @@ public class Weapon : MonoBehaviour
         if(meleeBlocked)
             return;
         animator.SetTrigger("Attack");
+        meleeCount++;
         IsAttacking = true;
         meleeBlocked = true;
         StartCoroutine(MeleeDelay());
