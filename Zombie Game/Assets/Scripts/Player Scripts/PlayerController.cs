@@ -81,10 +81,12 @@ public class PlayerController : MonoBehaviour
         //Health
         currHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
-
-        playerControls.Enable();
-        playerControls.Controls.Fire.started += ctx => StartFiring();
-        playerControls.Controls.Fire.canceled += ctx => StopFiring();
+        if(Time.timeScale != 0)
+        {
+            playerControls.Enable();
+            playerControls.Controls.Fire.started += ctx => StartFiring();
+            playerControls.Controls.Fire.canceled += ctx => StopFiring();
+        }
     }
     private void OnDisable()
     {
@@ -179,7 +181,10 @@ public class PlayerController : MonoBehaviour
     }
     private void Fire()
     {
-        weapon.Fire(bulletSpeed, fireRate);
+        if(Time.timeScale != 0)
+            {   
+                weapon.Fire(bulletSpeed, fireRate);
+            }
     }
     public void Grenade()
     {
@@ -192,7 +197,10 @@ public class PlayerController : MonoBehaviour
     }
     public void Melee()
     {
-       weapon.Melee();
+        if(Time.timeScale != 0)
+            {   
+                weapon.Melee();
+            }
     }
 
     public void TakeDamage(int damage)

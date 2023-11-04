@@ -11,16 +11,16 @@ public class Weapon : MonoBehaviour
     public Transform firePoint;
     public GameObject muzzle;
     public AudioSource gunshot;
-
-    private static float lastShootTime;
+    public float lastShootTime;
     public Sprite FlashSprite;
     private bool meleeBlocked;
     public SpriteRenderer weaponSprite;
-
+    public int bulletShot;
+    public int grenadeThrew;
+    public int meleeCount;
     public Transform circleOrigin;
     public GameObject meleePoint;
     public float bulletDamage = 1f;
-
     public Animator animator;
     public bool IsAttacking { get; private set; }
 
@@ -42,6 +42,7 @@ public class Weapon : MonoBehaviour
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
             bullet.GetComponent<Rigidbody2D>().AddForce(firePoint.up * fireForce, ForceMode2D.Impulse);
             bullet.GetComponent<Bullet>().damage = bulletDamage;
+            bulletShot++;
         }
     }
 
@@ -67,6 +68,7 @@ public class Weapon : MonoBehaviour
         if(meleeBlocked)
             return;
         animator.SetTrigger("Attack");
+        meleeCount++;
         IsAttacking = true;
         meleeBlocked = true;
         StartCoroutine(MeleeDelay());
