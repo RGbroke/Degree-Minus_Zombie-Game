@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
     public AudioSource gunshotEnd;
 
     //Grenade
-    [SerializeField] private float grenadeSpeed = 20f;
+    [SerializeField] private float grenadeSpeed = 5f;
     [SerializeField] private float grenadeCooldown;
     private float currGrenadeCooldown = 0;
 
@@ -192,12 +192,21 @@ public class PlayerController : MonoBehaviour
         Cursor.SetCursor(cursorTexture, cursorHotspot, CursorMode.Auto);
     }
     
+    public void Reload(InputAction.CallbackContext context)
+    {
+        
+        if (!context.started || weapon.isReloading)
+            return;
+
+        Debug.Log("RELOAD");
+        weapon.reload();
+    }
   
     public void Grenade()
     {
         if (currGrenadeCooldown <= 0)
         {
-            weapon.ThrowGrenade(grenadeSpeed / 4);
+            weapon.ThrowGrenade(grenadeSpeed);
             currGrenadeCooldown = grenadeCooldown;
         }
         

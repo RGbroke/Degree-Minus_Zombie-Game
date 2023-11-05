@@ -33,6 +33,24 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Melee",
+                    "type": "Button",
+                    "id": "47f3225f-5b4c-43ff-a685-d6e93e1dde2c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Reload",
+                    "type": "Button",
+                    "id": "c64331e2-513e-4b6a-9d9c-7f12def31560",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Grenade",
                     "type": "Button",
                     "id": "ee93c5c9-2574-42a0-a900-5b0947d1960d",
@@ -45,15 +63,6 @@
                     "name": "Pause",
                     "type": "Button",
                     "id": "c41ccb61-a0ce-409b-8c03-36a8848a2daa",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Melee",
-                    "type": "Button",
-                    "id": "47f3225f-5b4c-43ff-a685-d6e93e1dde2c",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -345,17 +354,6 @@
                 },
                 {
                     "name": "",
-                    "id": "b96433b0-4101-464e-83da-229f72ee8c26",
-                    "path": "<Mouse>/rightButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Melee",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "5685b159-b876-4fcc-bea0-76c0c9da8a07",
                     "path": "<Keyboard>/e",
                     "interactions": "",
@@ -373,6 +371,28 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "PrevWeapon",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "60519aec-2742-4249-a26b-41702f9a7ef1",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Reload",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b96433b0-4101-464e-83da-229f72ee8c26",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Melee",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

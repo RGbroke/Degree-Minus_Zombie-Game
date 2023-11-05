@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
@@ -21,6 +22,12 @@ public class WeaponEquiped : MonoBehaviour
     private UnityEngine.UI.Image weapon3_Display;
 
     [SerializeField]
+    private Animator reloadVisual;
+
+    [SerializeField]
+    private TextMeshProUGUI ammoDisplay;
+
+    [SerializeField]
     private Weapon currentGun;
 
     [SerializeField]
@@ -36,8 +43,33 @@ public class WeaponEquiped : MonoBehaviour
             return;
 
         weapons.Add(startingWeapon);
+        currentGun.WeaponChanged();
         updateWindow();
+        updateAmmoDisplay();
     }
+
+    public void updateAmmoDisplay()
+    {
+        int numBullets = getEquiped().GetComponent<Gun>().getNumBullets();
+        int ammoCapacity = getEquiped().GetComponent<Gun>().getMagSize();
+        ammoDisplay.text = numBullets + "/" + ammoCapacity;
+
+        if (numBullets <= 0)
+        {
+            reloadVisual.SetTrigger("NeedToReload");
+        }
+    }
+    public void reloading()
+    {
+        reloadVisual.SetTrigger("Reloading");
+    }
+    public void doneReloading()
+    {
+        Debug.Log("DONE!");
+        updateAmmoDisplay();
+        reloadVisual.SetTrigger("ReloadFinished");
+    }
+
 
     private void updateWindow()
     {
@@ -55,19 +87,17 @@ public class WeaponEquiped : MonoBehaviour
                 break;
         }
     }
-
     private void setWeaponWindow(UnityEngine.UI.Image prev, UnityEngine.UI.Image equip, UnityEngine.UI.Image next)
     {
-        equip.sprite = getEquiped().GetComponent<SpriteRenderer>().sprite;
-        equip.color = getEquiped().GetComponent<SpriteRenderer>().color;
-        next.sprite = getNextWeapon().GetComponent<SpriteRenderer>().sprite;
-        next.color = getNextWeapon().GetComponent<SpriteRenderer>().color;
         prev.sprite = getPrevWeapon().GetComponent<SpriteRenderer>().sprite;
         prev.color = getPrevWeapon().GetComponent<SpriteRenderer>().color;
+
+        equip.sprite = getEquiped().GetComponent<SpriteRenderer>().sprite;
+        equip.color = getEquiped().GetComponent<SpriteRenderer>().color;
+
+        next.sprite = getNextWeapon().GetComponent<SpriteRenderer>().sprite;
+        next.color = getNextWeapon().GetComponent<SpriteRenderer>().color;
     }
-
-
-
     public void addWeapon(GameObject newWeapon)
     {
         if (!newWeapon)
@@ -75,8 +105,9 @@ public class WeaponEquiped : MonoBehaviour
 
         weapons.Add(newWeapon);
         updateWindow();
-    }
 
+        UnityEngine.Debug.Log("Weapon Equiped " + equiped);
+    }
     public void nextWeapon(InputAction.CallbackContext context)
     {
         if (!context.started)
@@ -95,7 +126,9 @@ public class WeaponEquiped : MonoBehaviour
         windowPos = (windowPos + 1) % 3;
         currentGun.WeaponChanged();
         updateWindow();
+        updateAmmoDisplay();
         switchVisual.SetTrigger("Next");
+        UnityEngine.Debug.Log("Weapon Equiped " + equiped);
     }
 
     public void prevWeapon(InputAction.CallbackContext context)
@@ -114,7 +147,9 @@ public class WeaponEquiped : MonoBehaviour
         windowPos = (windowPos + 2) % 3;
         currentGun.WeaponChanged();
         updateWindow();
+        updateAmmoDisplay();
         switchVisual.SetTrigger("Prev");
+        UnityEngine.Debug.Log("Weapon Equiped " + equiped);
     }
 
     public GameObject getPrevWeapon()

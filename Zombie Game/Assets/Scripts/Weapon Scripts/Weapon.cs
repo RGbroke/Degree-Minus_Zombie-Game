@@ -1,10 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.Audio;
-using TMPro;
-using UnityEngine.InputSystem;
 
 public class Weapon : MonoBehaviour
 {
@@ -35,6 +30,13 @@ public class Weapon : MonoBehaviour
     private float spread = 0.05f;
     public bool automatic = false;
 
+    //Ammo
+    private float reloadTime;
+    private float reloadProgress;
+    private int magazineSize;
+    private int currAmmo;
+    public bool isReloading;
+
     //Timer
     private static float lastShootTime;
 
@@ -45,20 +47,15 @@ public class Weapon : MonoBehaviour
     public bool IsAttacking { get; private set; }
     public GameObject meleePoint;
     public Animator animator;
-    private void Start()
-    {
-        WeaponChanged();
-    }
+
     public void ResetIsAttacking()
     {
         IsAttacking = false;
     }
-
-    public void WeaponChanged(InputAction.CallbackContext context)
+    public void updateAmmoStats()
     {
-        if (!context.started)
-            return;
-        WeaponChanged();
+        weaponControl.getEquiped().GetComponent<Gun>().setNumBullets(currAmmo);
+        weaponControl.updateAmmoDisplay();
     }
 
     public void WeaponChanged()
@@ -68,6 +65,7 @@ public class Weapon : MonoBehaviour
         if (!newGun) //Exit if the current equiped gun is null
             return;
 
+        //Reinitialize these values for the new gun being equiped.
         amtBullet = newGun.getNumBulletsPerShot();
         destroyTime = newGun.getBulletLifespan();
         bulletSpeed = newGun.getBulletSpeed();
@@ -75,16 +73,21 @@ public class Weapon : MonoBehaviour
         bulletDamage = newGun.getBulletDamage();
         spread = newGun.getSpread();
         automatic = newGun.isAutomatic();
+        reloadTime = newGun.getReloadTime();
+        magazineSize = newGun.getMagSize();
+        currAmmo = newGun.getNumBullets();
     }
 
     public void Fire()
     {
-        if(Time.time > lastShootTime + fireRate && Time.timeScale != 0 )
+        if(Time.time > lastShootTime + fireRate && Time.timeScale != 0 && currAmmo > 0 && !isReloading)
         {
             StartCoroutine(DoFlash(0.1f));
             gunshot.Play();
             lastShootTime = Time.time;
             bulletShot++;
+            currAmmo--;
+            updateAmmoStats();
             for (int i = 0; i < amtBullet; i++)
             {
                 Transform firePoint = muzzle.transform;
@@ -97,6 +100,30 @@ public class Weapon : MonoBehaviour
                 Destroy(bullet, destroyTime);
             }
         }
+    }
+
+    void Update()
+    {
+        if (!isReloading)
+            return;
+
+        reloadProgress += Time.deltaTime;
+
+        if(reloadProgress >= reloadTime)
+        {
+            currAmmo = magazineSize;
+            updateAmmoStats();
+            isReloading = false;
+            reloadProgress = 0;
+            weaponControl.doneReloading();
+        }
+    }
+
+    public void reload()
+    {
+        weaponControl.reloading();
+        isReloading = true;
+        reloadProgress = 0;
     }
 
     public void ThrowGrenade(float fireForce)
