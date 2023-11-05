@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Security.Cryptography.X509Certificates;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Audio;
@@ -30,7 +32,10 @@ public class Enemy : MonoBehaviour
     bool isColliding = false;
 
     //Audio
-    public AudioSource zombieAttackNoise;
+    public AudioSource zombieNoise;
+    public AudioClip zombieAttackNoise1;
+    public AudioClip zombieAttackNoise2;
+    public AudioClip zombieAttackNoise3;
 
     //PowerUpDrop
     public GameObject healthDrop;
@@ -63,11 +68,9 @@ public class Enemy : MonoBehaviour
 
         if (isColliding)
         {
-            zombieAttackNoise.Play();
             player.TakeDamage(1);
             new WaitForSeconds(1f);
         }
-
     }
 
     public void TakeDamage(float damageAmount)
@@ -96,6 +99,20 @@ public class Enemy : MonoBehaviour
             isColliding = true;
             animator.SetBool("isColliding", true);
             player = playerComponent;
+            int attackNoise = Random.Range(1, 3);
+            switch (attackNoise)
+            {
+                case 1:
+                    zombieNoise.clip = zombieAttackNoise1;
+                    break;
+                case 2:
+                    zombieNoise.clip = zombieAttackNoise2;
+                    break;
+                case 3:
+                    zombieNoise.clip = zombieAttackNoise3;
+                    break;
+            }
+            zombieNoise.Play();
         }
     }
 

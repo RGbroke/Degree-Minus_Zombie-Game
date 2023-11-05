@@ -9,7 +9,6 @@ public class GameController : MonoBehaviour
     public static int zombiesKilled = 0;
     public static int activeZombies = 0;
 
-    
     [SerializeField] private PopupSystem popup;
     [SerializeField] private TutorialScript tutorial;
     public int maxZombies = 100;
@@ -29,8 +28,6 @@ public class GameController : MonoBehaviour
 
     public void Update()
     {
-
-
         if(player.getHealth() <= 0)
         {
             player.healthBar.setActive(false);
@@ -41,6 +38,7 @@ public class GameController : MonoBehaviour
             tutorialResume();
         }
     }
+
     public void zombieKilled()
     {
         zombiesKilled++;

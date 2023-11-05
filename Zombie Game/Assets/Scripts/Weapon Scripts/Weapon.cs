@@ -3,20 +3,21 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-
     //Attack trackers
     public int bulletShot;
     public int grenadeThrew;
     public int meleeCount;
     
-    //Bullet & Grenade
-    public GameObject bulletPrefab;
+    //Grenade
+    private GameObject bulletPrefab;
     public GameObject grenadePrefab;
 
-    //Muzzle Flash
+    //Weapon Cospetics
     public GameObject muzzle;
     public AudioSource gunshot;
     public Sprite FlashSprite;
+    private Sprite bulletSprite;
+    private float bulletScale;
 
     //Weapon Control
     public WeaponEquiped weaponControl;
@@ -76,6 +77,9 @@ public class Weapon : MonoBehaviour
             return;
 
         //Reinitialize these values for the new gun being equiped.
+        bulletPrefab = newGun.getProjectilePrefab();
+        bulletSprite = newGun.getBulletSprite();
+        bulletScale = newGun.getBulletScale();
         amtBullet = newGun.getNumBulletsPerShot();
         destroyTime = newGun.getBulletLifespan();
         bulletSpeed = newGun.getBulletSpeed();
@@ -102,12 +106,18 @@ public class Weapon : MonoBehaviour
             {
                 Transform firePoint = muzzle.transform;
                 GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+                bullet.GetComponent<SpriteRenderer>().sprite = bulletSprite;
+                bullet.GetComponent<Transform>().localScale = new Vector3(bulletScale, bulletScale, 1);
                 Rigidbody2D bulletrb = bullet.GetComponent<Rigidbody2D>();
                 Vector2 dir = firePoint.up;
                 Vector2 pdir = Vector2.Perpendicular(dir) * Random.Range(-spread, spread);
                 bulletrb.velocity = (dir + pdir) * bulletSpeed;
-                bullet.GetComponent<Bullet>().damage = bulletDamage;
-                Destroy(bullet, destroyTime);
+
+                if (bullet.GetComponent<Bullet>())
+                {
+                    bullet.GetComponent<Bullet>().damage = bulletDamage;
+                    Destroy(bullet, destroyTime);
+                }
             }
         }
     }
