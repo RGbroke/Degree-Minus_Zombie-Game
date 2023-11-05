@@ -37,6 +37,10 @@ public class Weapon : MonoBehaviour
     private int currAmmo;
     public bool isReloading;
 
+    //Grenades
+    private int grenades;
+    public int grenadeCapacity;
+
     //Timer
     private static float lastShootTime;
 
@@ -47,6 +51,12 @@ public class Weapon : MonoBehaviour
     public bool IsAttacking { get; private set; }
     public GameObject meleePoint;
     public Animator animator;
+
+    private void Start()
+    {
+        grenades = grenadeCapacity;
+        weaponControl.updateGrenadeDisplay(grenades, grenadeCapacity);
+    }
 
     public void ResetIsAttacking()
     {
@@ -119,8 +129,21 @@ public class Weapon : MonoBehaviour
         }
     }
 
+    public void cancelReload()
+    {
+        weaponControl.doneReloading();
+        isReloading = false;
+        reloadProgress = 0;
+    }
+
     public void reload()
     {
+        if (currAmmo == magazineSize)
+        {
+            Debug.Log("Full Ammo");
+            return;
+        }
+            
         weaponControl.reloading();
         isReloading = true;
         reloadProgress = 0;
@@ -128,6 +151,12 @@ public class Weapon : MonoBehaviour
 
     public void ThrowGrenade(float fireForce)
     {
+        if (grenades <= 0)
+            return;
+
+        grenades--;
+        weaponControl.updateGrenadeDisplay(grenades, grenadeCapacity);
+        weaponControl.grenadeUsed(grenades);
         lastShootTime = Time.time;
         Transform firePoint = muzzle.transform;
         GameObject grenade = Instantiate(grenadePrefab, firePoint.position, firePoint.rotation);

@@ -25,7 +25,13 @@ public class WeaponEquiped : MonoBehaviour
     private Animator reloadVisual;
 
     [SerializeField]
+    private Animator grenadeVisual;
+
+    [SerializeField]
     private TextMeshProUGUI ammoDisplay;
+
+    [SerializeField]
+    private TextMeshProUGUI grenadeDisplay;
 
     [SerializeField]
     private Weapon currentGun;
@@ -47,17 +53,22 @@ public class WeaponEquiped : MonoBehaviour
         updateWindow();
         updateAmmoDisplay();
     }
+    public void grenadeUsed(int grenadesLeft)
+    {
+        grenadeVisual.SetTrigger("GrenadeUsed");
+    }
+    public void updateGrenadeDisplay(int grenadesLeft, int grenadeCapacity)
+    {
+        grenadeVisual.SetBool("GrenadesLeft", grenadesLeft > 0);
+        grenadeDisplay.text = grenadesLeft + "/" + grenadeCapacity;
+    }
 
     public void updateAmmoDisplay()
     {
         int numBullets = getEquiped().GetComponent<Gun>().getNumBullets();
         int ammoCapacity = getEquiped().GetComponent<Gun>().getMagSize();
         ammoDisplay.text = numBullets + "/" + ammoCapacity;
-
-        if (numBullets <= 0)
-        {
-            reloadVisual.SetTrigger("NeedToReload");
-        }
+        reloadVisual.SetBool("NeedToReload", numBullets <= 0);
     }
     public void reloading()
     {
@@ -89,11 +100,11 @@ public class WeaponEquiped : MonoBehaviour
     }
     private void setWeaponWindow(UnityEngine.UI.Image prev, UnityEngine.UI.Image equip, UnityEngine.UI.Image next)
     {
-        prev.sprite = getPrevWeapon().GetComponent<SpriteRenderer>().sprite;
-        prev.color = getPrevWeapon().GetComponent<SpriteRenderer>().color;
-
         equip.sprite = getEquiped().GetComponent<SpriteRenderer>().sprite;
         equip.color = getEquiped().GetComponent<SpriteRenderer>().color;
+
+        prev.sprite = getPrevWeapon().GetComponent<SpriteRenderer>().sprite;
+        prev.color = getPrevWeapon().GetComponent<SpriteRenderer>().color;
 
         next.sprite = getNextWeapon().GetComponent<SpriteRenderer>().sprite;
         next.color = getNextWeapon().GetComponent<SpriteRenderer>().color;

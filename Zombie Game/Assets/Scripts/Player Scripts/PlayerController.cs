@@ -194,12 +194,19 @@ public class PlayerController : MonoBehaviour
     
     public void Reload(InputAction.CallbackContext context)
     {
-        
         if (!context.started || weapon.isReloading)
             return;
 
         Debug.Log("RELOAD");
         weapon.reload();
+    }
+    public void cancelReload(InputAction.CallbackContext context)
+    {
+        if (!context.started || !weapon.isReloading)
+            return;
+
+        Debug.Log("Reload Cancelled");
+        weapon.cancelReload();
     }
   
     public void Grenade()

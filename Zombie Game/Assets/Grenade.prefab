@@ -162,6 +162,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 1
-  blastRadius: 5
-  explosionDamage: 10
+  blastRadius: 10
+  explosionDamage: 2
   explosionEffect: {fileID: 5944421643467250230, guid: 6ab47198ed36c2a4c90ba3e4b09b818a, type: 3}
+  countdown: 0
+  hasExploded: 0
