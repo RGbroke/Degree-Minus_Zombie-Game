@@ -1009,7 +1009,7 @@ MonoBehaviour:
   bulletDamage: 2.5
   spread: 0.005
   automatic: 0
-  reloadTime: 2.5
+  reloadTime: 1.5
   magSize: 20
   numBullets: 20
   bulletDrag: 0
@@ -63640,19 +63640,23 @@ PrefabInstance:
       objectReference: {fileID: 143875688}
     - target: {fileID: 960330135498867237, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: spread
-      value: 0.001
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 960330135498867237, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: magSize
-      value: 10
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 960330135498867237, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
+      propertyPath: bulletDrag
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 960330135498867237, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: numBullets
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 960330135498867237, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: reloadTime
-      value: 2.5
+      value: 2.75
       objectReference: {fileID: 0}
     - target: {fileID: 960330135498867237, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: bulletScale
@@ -63660,11 +63664,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 960330135498867237, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: bulletSpeed
-      value: 50
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 960330135498867237, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: bulletDamage
-      value: 10
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 960330135498867237, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: bulletLifespan
@@ -63680,11 +63684,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 960330135498867237, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: numBulletsPerShot
-      value: 1
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2160495205690713783, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
+      propertyPath: m_Radius
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 3663779001497210144, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: m_Name
       value: WeaponPickup
+      objectReference: {fileID: 0}
+    - target: {fileID: 4092379455604903503, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4092379455604903503, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4092379455604903503, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -63717,7 +63733,7 @@ PrefabInstance:
     - target: {fileID: 5919229342913341913, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 884352256, guid: 82477d555ddba5a4fb55fd1bc9ae20f4, type: 3}
+      objectReference: {fileID: 21300000, guid: 651981b258faa524abc28046512b6f43, type: 3}
     - target: {fileID: 5919229342913341913, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: m_Color.b
       value: 0.015797434
@@ -63779,6 +63795,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7474171260025911023, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 651981b258faa524abc28046512b6f43, type: 3}
+    - target: {fileID: 7474171260025911023, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: m_Color.b
       value: 0.015686275
       objectReference: {fileID: 0}
@@ -63792,7 +63812,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7533914147751966972, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: m_Name
-      value: SniperRifle
+      value: Shotgun
       objectReference: {fileID: 0}
     - target: {fileID: 7533914147751966972, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: m_IsActive
@@ -73520,7 +73540,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 960330135498867237, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: reloadTime
-      value: 2.75
+      value: 2.25
       objectReference: {fileID: 0}
     - target: {fileID: 960330135498867237, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: bulletScale
@@ -73556,11 +73576,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2160495205690713783, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: m_Radius
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3663779001497210144, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: m_Name
       value: WeaponPickup3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4092379455604903503, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4092379455604903503, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4092379455604903503, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -73593,18 +73621,18 @@ PrefabInstance:
     - target: {fileID: 5919229342913341913, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300126, guid: 7ab74e659e1f0a34d9cfec21c478fc12, type: 3}
+      objectReference: {fileID: 21300000, guid: 5d6006550b625d449a2e7e2c778930e1, type: 3}
     - target: {fileID: 5919229342913341913, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5919229342913341913, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5919229342913341913, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: m_Color.r
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6154684914361512811, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -73655,16 +73683,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7474171260025911023, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5d6006550b625d449a2e7e2c778930e1, type: 3}
+    - target: {fileID: 7474171260025911023, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7474171260025911023, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7474171260025911023, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: m_Color.r
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7533914147751966972, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: m_Name
@@ -83048,11 +83080,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2160495205690713783, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: m_Radius
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3663779001497210144, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: m_Name
       value: WeaponPickup2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4092379455604903503, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4092379455604903503, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4092379455604903503, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -83085,14 +83125,14 @@ PrefabInstance:
     - target: {fileID: 5919229342913341913, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 78614962, guid: 91cf364428a32894f99b7dbc8bc479d9, type: 3}
+      objectReference: {fileID: 21300000, guid: a3bed5103657c42428b300e2f5409baa, type: 3}
     - target: {fileID: 5919229342913341913, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5919229342913341913, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5919229342913341913, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: m_Color.r
@@ -83147,12 +83187,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7474171260025911023, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a3bed5103657c42428b300e2f5409baa, type: 3}
+    - target: {fileID: 7474171260025911023, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7474171260025911023, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7474171260025911023, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: m_Color.r
