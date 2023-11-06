@@ -8,6 +8,7 @@ public class Grenade : MonoBehaviour
     public float blastRadius = 4f;
     public float explosionDamage = 10f;
     public GameObject explosionEffect;
+    public bool detonateOnTouch = false;
 
     public float countdown;
     public bool hasExploded = false;
@@ -29,7 +30,6 @@ public class Grenade : MonoBehaviour
     }
     void Explode()
     {
-
         //Explosion Effect
         GameObject explosion = Instantiate(explosionEffect, transform.position, transform.rotation); //Istantiates an explosion
         explosion.transform.up = Vector3.up;
@@ -59,5 +59,13 @@ public class Grenade : MonoBehaviour
 
         //Grenade Removal
         Destroy(gameObject);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (!detonateOnTouch)
+            return;
+
+        Explode();
     }
 }

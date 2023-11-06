@@ -13,17 +13,17 @@ public class Gun : MonoBehaviour
     public float bulletDamage;
     public float spread;
     public bool automatic;
-
-    //Gun Stats, must update from weapon script
     public float reloadTime;
     public int magSize;
     public int numBullets;
+    public float bulletDrag;
 
     //Gun Cosmetics (TBD)
     public GameObject projectilePrefab; //Type of projectile the gun shoots
     public Sprite weaponInHand; //Sprite for rendering the gun in the player's hand
     public Sprite bulletSprite; //Sprite for bullet. ONLY add if nonrifle bullet (ie buckshot)
     public float bulletScale = -1;
+
     public AudioSource gunshotSound; //Sound played on each fire
     public AudioSource gunshotTrail; //Can be null, ONLY applies when automatic is true
 
@@ -66,6 +66,10 @@ public class Gun : MonoBehaviour
     {
         return numBullets;
     }
+    public float getBulletDrag()
+    {
+        return bulletDrag;
+    }
 
     public GameObject getProjectilePrefab()
     {
@@ -96,5 +100,7 @@ public class Gun : MonoBehaviour
     {
         numBullets = bullets;
     }
+
+    
 
 }

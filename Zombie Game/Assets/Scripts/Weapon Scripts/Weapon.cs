@@ -34,6 +34,7 @@ public class Weapon : MonoBehaviour
     //Ammo
     private float reloadTime;
     private float reloadProgress;
+    private float bulletDrag;
     private int magazineSize;
     private int currAmmo;
     public bool isReloading;
@@ -41,6 +42,7 @@ public class Weapon : MonoBehaviour
     //Grenades
     private int grenades;
     public int grenadeCapacity;
+
 
     //Timer
     private static float lastShootTime;
@@ -80,6 +82,7 @@ public class Weapon : MonoBehaviour
         bulletPrefab = newGun.getProjectilePrefab();
         bulletSprite = newGun.getBulletSprite();
         bulletScale = newGun.getBulletScale();
+        bulletDrag = newGun.getBulletDrag();
         amtBullet = newGun.getNumBulletsPerShot();
         destroyTime = newGun.getBulletLifespan();
         bulletSpeed = newGun.getBulletSpeed();
@@ -112,11 +115,16 @@ public class Weapon : MonoBehaviour
                 Vector2 dir = firePoint.up;
                 Vector2 pdir = Vector2.Perpendicular(dir) * Random.Range(-spread, spread);
                 bulletrb.velocity = (dir + pdir) * bulletSpeed;
+                bulletrb.drag = bulletDrag;
 
                 if (bullet.GetComponent<Bullet>())
                 {
                     bullet.GetComponent<Bullet>().damage = bulletDamage;
                     Destroy(bullet, destroyTime);
+                }
+                else if(bullet.GetComponent<Grenade>())
+                {
+                    bullet.GetComponent<Grenade>().detonateOnTouch = true;
                 }
             }
         }

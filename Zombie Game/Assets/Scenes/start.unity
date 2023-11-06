@@ -130218,12 +130218,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 237417023}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -1, w: 0}
-  m_LocalPosition: {x: 347.7, y: 15.4, z: -0.8072175}
-  m_LocalScale: {x: 6.6666665, y: 6.6666665, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -66.130486, y: -3.3528595, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1722748452}
+  m_Father: {fileID: 994391297}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &237417025
 SpriteRenderer:
@@ -130291,14 +130291,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numBulletsPerShot: 1
   bulletLifespan: 3
-  bulletSpeed: 25
-  timeBetweenShots: 0.25
-  bulletDamage: 1
+  bulletSpeed: 30
+  timeBetweenShots: 0.1
+  bulletDamage: 2.5
   spread: 0.005
   automatic: 0
   reloadTime: 2.5
-  magSize: 9
-  numBullets: 9
+  magSize: 20
+  numBullets: 20
+  bulletDrag: 0
   projectilePrefab: {fileID: 918000483746761494, guid: ca2142017356c69498558b5b3b8834fa, type: 3}
   weaponInHand: {fileID: 0}
   bulletSprite: {fileID: 0}
@@ -130740,12 +130741,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 478566777}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -1, w: 0}
-  m_LocalPosition: {x: 347.7, y: -3.8, z: -0.8072175}
-  m_LocalScale: {x: 6.6666665, y: 6.6666665, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -66.130486, y: -3.2728596, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1722748452}
+  m_Father: {fileID: 776325159}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &478566779
 SpriteRenderer:
@@ -130813,7 +130814,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numBulletsPerShot: 1
   bulletLifespan: 5
-  bulletSpeed: 20
+  bulletSpeed: 15
   timeBetweenShots: 0.5
   bulletDamage: 0
   spread: 0
@@ -130821,6 +130822,7 @@ MonoBehaviour:
   reloadTime: 5
   magSize: 6
   numBullets: 6
+  bulletDrag: 1
   projectilePrefab: {fileID: 7041855262765582583, guid: c0cf9bb22d6d0b148b719c68d7fe27a7, type: 3}
   weaponInHand: {fileID: 0}
   bulletSprite: {fileID: 21300000, guid: 9dc1b9c3404458a4dae48ade9dd80671, type: 3}
@@ -131855,7 +131857,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 259a3a163190d5849944a9e9813fe32b, type: 3}
     - target: {fileID: 1742496746694104854, guid: 04bc8e035d2bbae44b14779d10fdf09f, type: 3}
       propertyPath: maxHealth
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1742496746694104854, guid: 04bc8e035d2bbae44b14779d10fdf09f, type: 3}
       propertyPath: healthDrop
@@ -131887,7 +131889,19 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 7d4da90722287a34f951d9688431a104, type: 3}
     - target: {fileID: 5520941748989082254, guid: 04bc8e035d2bbae44b14779d10fdf09f, type: 3}
       propertyPath: m_Speed
-      value: 8
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5520941748989082254, guid: 04bc8e035d2bbae44b14779d10fdf09f, type: 3}
+      propertyPath: m_AutoBraking
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5520941748989082254, guid: 04bc8e035d2bbae44b14779d10fdf09f, type: 3}
+      propertyPath: m_Acceleration
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5520941748989082254, guid: 04bc8e035d2bbae44b14779d10fdf09f, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 360
       objectReference: {fileID: 0}
     - target: {fileID: 7162416127034130355, guid: 04bc8e035d2bbae44b14779d10fdf09f, type: 3}
       propertyPath: m_Pitch
@@ -132277,6 +132291,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 478566778}
   - {fileID: 1716060082}
   - {fileID: 212008931}
   m_Father: {fileID: 1740097699}
@@ -132475,7 +132490,7 @@ GameObject:
   - component: {fileID: 963343614}
   - component: {fileID: 963343613}
   m_Layer: 0
-  m_Name: Dragon's Breath
+  m_Name: Dragon's Breath (Starting Weapon)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -132489,12 +132504,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963343610}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 347.24, y: 36.17, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
+  m_LocalPosition: {x: -51.8385, y: -5.508, z: 0}
+  m_LocalScale: {x: 0.45000002, y: 0.45000002, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1722748452}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &963343613
 SpriteRenderer:
@@ -132560,20 +132575,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f8cc33592471da4ab950652cec00cca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numBulletsPerShot: 9
+  numBulletsPerShot: 12
   bulletLifespan: 1
   bulletSpeed: 30
   timeBetweenShots: 0.2
-  bulletDamage: 1
-  spread: 0.3
+  bulletDamage: 2.5
+  spread: 0.6
   automatic: 1
   reloadTime: 1
   magSize: 120
   numBullets: 120
+  bulletDrag: 3
   projectilePrefab: {fileID: 918000483746761494, guid: ca2142017356c69498558b5b3b8834fa, type: 3}
   weaponInHand: {fileID: 0}
-  bulletSprite: {fileID: 21300000, guid: 1bf92e7e8f5461e4da544bc68c874f50, type: 3}
-  bulletScale: 3
+  bulletSprite: {fileID: 0}
+  bulletScale: -1
   gunshotSound: {fileID: 0}
   gunshotTrail: {fileID: 0}
 --- !u!1 &980295446
@@ -132738,6 +132754,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 237417024}
   - {fileID: 541723376}
   - {fileID: 1034261611}
   m_Father: {fileID: 1740097699}
@@ -137053,7 +137070,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: 5f246984315f9be4dbd36832710298f8, type: 2}
   m_audioClip: {fileID: 8300000, guid: 110c47291813de3418787d071b417385, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -143305,7 +143322,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2115788589608772105, guid: e8b062e4ea524dc43bcb6a2adf8140a3, type: 3}
       propertyPath: damageRate
-      value: 0.1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 2115788589608772105, guid: e8b062e4ea524dc43bcb6a2adf8140a3, type: 3}
       propertyPath: bulletSpeed
@@ -143605,23 +143622,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 849283748143769478, guid: e8b062e4ea524dc43bcb6a2adf8140a3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 963343611}
-    - targetCorrespondingSourceObject: {fileID: 849283748143769478, guid: e8b062e4ea524dc43bcb6a2adf8140a3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 237417024}
-    - targetCorrespondingSourceObject: {fileID: 849283748143769478, guid: e8b062e4ea524dc43bcb6a2adf8140a3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 478566778}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8b062e4ea524dc43bcb6a2adf8140a3, type: 3}
---- !u!4 &1722748452 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 849283748143769478, guid: e8b062e4ea524dc43bcb6a2adf8140a3, type: 3}
-  m_PrefabInstance: {fileID: 1722748451}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1740097698
 GameObject:
   m_ObjectHideFlags: 0
@@ -144663,7 +144666,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: 5f246984315f9be4dbd36832710298f8, type: 2}
   m_audioClip: {fileID: 8300000, guid: caa260f3fc0b9e243af72a797eaa3cec, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 0.05
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -146497,6 +146500,7 @@ SceneRoots:
   - {fileID: 571784345}
   - {fileID: 196732907}
   - {fileID: 1722748451}
+  - {fileID: 963343611}
   - {fileID: 1424809151}
   - {fileID: 6811499580310305120}
   - {fileID: 1740097699}
