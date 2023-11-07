@@ -125,6 +125,7 @@ public class Weapon : MonoBehaviour
                 else if(bullet.GetComponent<Grenade>())
                 {
                     bullet.GetComponent<Grenade>().detonateOnTouch = true;
+                    bullet.GetComponent<Grenade>().explosionDamage = bulletDamage;
                 }
             }
         }

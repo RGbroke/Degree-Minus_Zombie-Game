@@ -43,7 +43,7 @@ public class FirstBoss : MonoBehaviour
 
     //PowerUpDrop
     //public GameObject healthDrop;
-    private bool stopPickUp = false;
+    //private bool stopPickUp = false;
 
     public IEnumerator FlashRed()
     {
