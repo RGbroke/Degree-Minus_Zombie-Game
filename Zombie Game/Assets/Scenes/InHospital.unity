@@ -88572,6 +88572,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 892582351}
     m_Modifications:
     - target: {fileID: 34378666215559768, guid: bd193abd36fe73745961d8d27735dc5b, type: 3}
+      propertyPath: m_Size.x
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 34378666215559768, guid: bd193abd36fe73745961d8d27735dc5b, type: 3}
+      propertyPath: m_Size.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 34378666215559768, guid: bd193abd36fe73745961d8d27735dc5b, type: 3}
       propertyPath: m_Direction
       value: 1
       objectReference: {fileID: 0}
@@ -88626,6 +88634,10 @@ PrefabInstance:
     - target: {fileID: 6993505545295158280, guid: bd193abd36fe73745961d8d27735dc5b, type: 3}
       propertyPath: m_Color.g
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7463146244641748167, guid: bd193abd36fe73745961d8d27735dc5b, type: 3}
+      propertyPath: m_Mass
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7463146244641748167, guid: bd193abd36fe73745961d8d27735dc5b, type: 3}
       propertyPath: m_Constraints
