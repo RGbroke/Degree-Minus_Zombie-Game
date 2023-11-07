@@ -131798,7 +131798,7 @@ PrefabInstance:
     - target: {fileID: -5311733966333165441, guid: 04bc8e035d2bbae44b14779d10fdf09f, type: 3}
       propertyPath: healthDrop
       value: 
-      objectReference: {fileID: 1340562998}
+      objectReference: {fileID: 0}
     - target: {fileID: 258107748855629486, guid: 04bc8e035d2bbae44b14779d10fdf09f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1000
@@ -131862,7 +131862,7 @@ PrefabInstance:
     - target: {fileID: 1742496746694104854, guid: 04bc8e035d2bbae44b14779d10fdf09f, type: 3}
       propertyPath: healthDrop
       value: 
-      objectReference: {fileID: 1340562998}
+      objectReference: {fileID: 3948647394299110574, guid: d268366105919cf4686ab1f7157ab816, type: 3}
     - target: {fileID: 1742496746694104854, guid: 04bc8e035d2bbae44b14779d10fdf09f, type: 3}
       propertyPath: zombieNoise
       value: 
@@ -132576,16 +132576,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numBulletsPerShot: 12
-  bulletLifespan: 1
-  bulletSpeed: 30
-  timeBetweenShots: 0.2
-  bulletDamage: 2.5
-  spread: 0.6
+  bulletLifespan: 0.4
+  bulletSpeed: 50
+  timeBetweenShots: 0.1
+  bulletDamage: 1
+  spread: 0.2
   automatic: 1
   reloadTime: 1
   magSize: 120
   numBullets: 120
-  bulletDrag: 3
+  bulletDrag: 0
   projectilePrefab: {fileID: 918000483746761494, guid: ca2142017356c69498558b5b3b8834fa, type: 3}
   weaponInHand: {fileID: 0}
   bulletSprite: {fileID: 0}
@@ -140028,11 +140028,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &1340562998 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3948647394299110574, guid: d268366105919cf4686ab1f7157ab816, type: 3}
-  m_PrefabInstance: {fileID: 849385370815202518}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1388379029
 GameObject:
   m_ObjectHideFlags: 0
@@ -143654,7 +143649,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1851429336}
   - {fileID: 994391297}
   - {fileID: 776325159}
   m_Father: {fileID: 0}
@@ -144175,11 +144169,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 434561487}
   toActivate: {fileID: 2015846618}
---- !u!4 &1851429336 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2813964374014556595, guid: d268366105919cf4686ab1f7157ab816, type: 3}
-  m_PrefabInstance: {fileID: 849385370815202518}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1881230207
 GameObject:
   m_ObjectHideFlags: 0
@@ -146246,75 +146235,6 @@ Transform:
   - {fileID: 2015846620}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &849385370815202518
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1740097699}
-    m_Modifications:
-    - target: {fileID: 2813964374014556595, guid: d268366105919cf4686ab1f7157ab816, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2813964374014556595, guid: d268366105919cf4686ab1f7157ab816, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2813964374014556595, guid: d268366105919cf4686ab1f7157ab816, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -82.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2813964374014556595, guid: d268366105919cf4686ab1f7157ab816, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.06
-      objectReference: {fileID: 0}
-    - target: {fileID: 2813964374014556595, guid: d268366105919cf4686ab1f7157ab816, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.8072175
-      objectReference: {fileID: 0}
-    - target: {fileID: 2813964374014556595, guid: d268366105919cf4686ab1f7157ab816, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2813964374014556595, guid: d268366105919cf4686ab1f7157ab816, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2813964374014556595, guid: d268366105919cf4686ab1f7157ab816, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2813964374014556595, guid: d268366105919cf4686ab1f7157ab816, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2813964374014556595, guid: d268366105919cf4686ab1f7157ab816, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2813964374014556595, guid: d268366105919cf4686ab1f7157ab816, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2813964374014556595, guid: d268366105919cf4686ab1f7157ab816, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3948647394299110574, guid: d268366105919cf4686ab1f7157ab816, type: 3}
-      propertyPath: m_Name
-      value: HealthPickUp
-      objectReference: {fileID: 0}
-    - target: {fileID: 6015479377466182946, guid: d268366105919cf4686ab1f7157ab816, type: 3}
-      propertyPath: healAmount
-      value: 20
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d268366105919cf4686ab1f7157ab816, type: 3}
 --- !u!1001 &6811499580310305120
 PrefabInstance:
   m_ObjectHideFlags: 0
