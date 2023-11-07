@@ -88554,6 +88554,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8032907701748969656, guid: 2e1b9bfe0ef19fb4aa0e5a46e55b2b3e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032907701748969656, guid: 2e1b9bfe0ef19fb4aa0e5a46e55b2b3e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 9112080431936416570, guid: 2e1b9bfe0ef19fb4aa0e5a46e55b2b3e, type: 3}
       propertyPath: m_Name
       value: AttackPoints
@@ -88593,7 +88601,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5856796066709682380, guid: bd193abd36fe73745961d8d27735dc5b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5856796066709682380, guid: bd193abd36fe73745961d8d27735dc5b, type: 3}
       propertyPath: m_TagString
