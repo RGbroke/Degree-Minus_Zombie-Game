@@ -10,7 +10,7 @@ public class EnemyProjectile : MonoBehaviour
     private Rigidbody2D rb;
     public GameObject pool;
 
-    public float destroyTime = 5f;
+    public float destroyTime = 0.1f;
     public float acidDuration = 5f;
     public int acidDamage = 1;
 
@@ -18,12 +18,22 @@ public class EnemyProjectile : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         rb.isKinematic = true;
-        Destroy(gameObject, destroyTime);
+        //Destroy(gameObject, destroyTime);
+        StartCoroutine(spawnAcid());
     }
 
     private void FixedUpdate()
     {
         rb.velocity = transform.up * speed;
+    }
+
+    public IEnumerator spawnAcid()
+    {
+        yield return new WaitForSeconds(destroyTime);
+        GameObject acidPool = Instantiate(pool, transform.position, Quaternion.Euler(0, 0, 0));
+        acidPool.GetComponent<acidPool>().damage = acidDamage;
+        Destroy(acidPool, acidDuration);
+        Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -40,6 +50,7 @@ public class EnemyProjectile : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
     /*
     // NOTE * MAKE SURE ALL ENEMIES CONTAIN SUBSTRING "ENEMY"
     private void OnCollisionEnter2D(Collision2D collision)

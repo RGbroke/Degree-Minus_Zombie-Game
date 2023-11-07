@@ -40,6 +40,7 @@ public class Enemy : MonoBehaviour
     //PowerUpDrop
     public GameObject healthDrop;
     public float ZombiesToKill = 20f;
+    private bool stopPickUp = false;
 
     public IEnumerator FlashRed()
     {
@@ -80,8 +81,9 @@ public class Enemy : MonoBehaviour
 
         if (health <= 0)
         {
-            if (gc.numZombiesKilled() % 20 == 0)
+            if (gc.numZombiesKilled() % 20 == 0 && !stopPickUp)
             {
+                stopPickUp = true;
                 Instantiate(healthDrop, transform.position, transform.rotation);
             }
             Destroy(this.gameObject);
