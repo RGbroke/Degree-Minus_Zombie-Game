@@ -113,7 +113,7 @@ public class ObjectiveController_Stage1 : MonoBehaviour
         if(weapon.bulletShot == 5 && objectiveCheck == false)
             {
                 objectiveCheck = true;
-                text = "<style=\"Normal\">          Completed </style>";
+                text = "<style=\"Normal\">Completed </style>";
                 tutorialComplete();
             }
     }
@@ -128,7 +128,7 @@ public class ObjectiveController_Stage1 : MonoBehaviour
         if(weapon.meleeCount == 5 && objectiveCheck == false)
             {
                 objectiveCheck = true;
-                text = "<style=\"Normal\">          Completed </style>";
+                text = "<style=\"Normal\">Completed </style>";
                 tutorialComplete();
             }
     }
@@ -143,7 +143,7 @@ public class ObjectiveController_Stage1 : MonoBehaviour
         if(weapon.grenadeThrew == 2 && objectiveCheck == false)
              {
                 objectiveCheck = true;
-                text = "<style=\"Normal\">          Completed </style>";
+                text = "<style=\"Normal\">Completed </style>";
                 tutorialComplete();
             }
     }
