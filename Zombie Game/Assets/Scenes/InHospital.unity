@@ -11962,6 +11962,16 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+  - first: {x: 0, y: 0, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   - first: {x: 1, y: 0, z: 0}
     second:
       serializedVersion: 2
@@ -63014,7 +63024,7 @@ Tilemap:
       m_AllTileFlags: 1073741825
   m_AnimatedTiles: {}
   m_TileAssetArray:
-  - m_RefCount: 4831
+  - m_RefCount: 4832
     m_Data: {fileID: 11400000, guid: efa7dbc2b51fbb944abc90b2b8ba426d, type: 2}
   - m_RefCount: 47
     m_Data: {fileID: 11400000, guid: 1ab16eeaf131811429e7ab7ccd6f18b4, type: 2}
@@ -63055,7 +63065,7 @@ Tilemap:
   - m_RefCount: 136
     m_Data: {fileID: 11400000, guid: 964302a140ec03a4da4bb593458ec075, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 4831
+  - m_RefCount: 4832
     m_Data: {fileID: -1142960365, guid: ce298c2ab1c088f46b8e1ba5f52f2d70, type: 3}
   - m_RefCount: 47
     m_Data: {fileID: -1914623764, guid: 2005fa9ffc15e9447a1b2a8b646a31f7, type: 3}
@@ -63096,7 +63106,7 @@ Tilemap:
   - m_RefCount: 136
     m_Data: {fileID: -420162064, guid: 2005fa9ffc15e9447a1b2a8b646a31f7, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 5234
+  - m_RefCount: 5235
     m_Data:
       e00: 1
       e01: 0
@@ -63151,7 +63161,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 6053
+  - m_RefCount: 6054
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -63664,7 +63674,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 960330135498867237, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: bulletSpeed
-      value: 25
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 960330135498867237, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: bulletDamage
@@ -63680,7 +63690,7 @@ PrefabInstance:
       objectReference: {fileID: 918000483746761494, guid: ca2142017356c69498558b5b3b8834fa, type: 3}
     - target: {fileID: 960330135498867237, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: timeBetweenShots
-      value: 1.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 960330135498867237, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: numBulletsPerShot
@@ -73788,7 +73798,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 5
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.00018310547, y: 0.00012212992, z: 0}
   m_MaxChunkCount: 16
