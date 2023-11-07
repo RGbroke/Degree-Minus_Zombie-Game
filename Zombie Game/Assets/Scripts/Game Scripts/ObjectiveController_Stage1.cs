@@ -11,7 +11,6 @@ public class ObjectiveController_Stage1 : MonoBehaviour
     private PlayerController pc;
     [SerializeField]
     private GameController gc;
-
     [SerializeField]
     private TextMeshProUGUI objectiveDisplay;
 
@@ -23,8 +22,10 @@ public class ObjectiveController_Stage1 : MonoBehaviour
 
     [SerializeField]
     private TutorialScript tutorial;
-
-    private bool objectiveCheck;
+    [SerializeField]
+    private GameObject activator;
+    
+    public bool objectiveCheck;
     public int objectiveFlag = 0;
     [SerializeField]
     private PopupSystem popup; /*Leave this here for now*/
@@ -38,6 +39,8 @@ public class ObjectiveController_Stage1 : MonoBehaviour
     
     private bool mainObj = false;
     private string text;
+   
+
     private void Update()
     {
         objectiveDisplay.text = "<style=\"Title\">Objective:</style>\n\n";
@@ -135,7 +138,7 @@ public class ObjectiveController_Stage1 : MonoBehaviour
 
     public void grenadeAttack()
     {
-        if(weapon.grenadeThrew < 5)
+        if(weapon.grenadeThrew < 2)
             {   
                 objectiveCheck = false;
                 text = "<style=\"Normal\">Throw grenade 2 times: ("+ weapon.grenadeThrew + "/2)</style>";
@@ -145,6 +148,7 @@ public class ObjectiveController_Stage1 : MonoBehaviour
                 objectiveCheck = true;
                 text = "<style=\"Normal\">Completed </style>";
                 tutorialComplete();
+                activator.SetActive(true);
             }
     }
 

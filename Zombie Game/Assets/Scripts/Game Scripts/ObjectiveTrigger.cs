@@ -13,6 +13,7 @@ public class ObjectiveTrigger : MonoBehaviour
         {
             return;
         }
-        objectiveController.objectiveComplete();
+            objectiveController.objectiveComplete();
+
     }
 }
