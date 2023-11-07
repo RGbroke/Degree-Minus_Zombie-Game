@@ -27,6 +27,7 @@ public class RangedEnemy : MonoBehaviour
     public Animator animator;
     private bool moveRight = false;
     [SerializeField] private float bulletSpeed;
+    private float attackDelay = 0.25f;
 
     private float health;
     public float maxHealth = 3f;
@@ -169,15 +170,8 @@ public class RangedEnemy : MonoBehaviour
     {
         if (timeToFire <= 0f)
         {
-            //animator.setFloat("Stop");
-            GameObject enemyProjectileObject = Instantiate(bulletPrefab, firingPoint.position, firingPoint.rotation);
-            EnemyProjectile enemyProjectile = enemyProjectileObject.GetComponent<EnemyProjectile>(); // Get the EnemyBullet component
-
-            if (enemyProjectile != null)
-            {
-                enemyProjectile.speed = bulletSpeed; // Set the speed using the EnemyBullet component
-                enemyProjectile.GetComponent<Rigidbody2D>().AddForce(firingPoint.up * enemyProjectile.speed, ForceMode2D.Impulse);
-            }
+            animator.SetBool("isAttacking", true);
+            StartCoroutine(AttackDelay());
 
             timeToFire = fireRate;
         }
@@ -185,6 +179,21 @@ public class RangedEnemy : MonoBehaviour
         {
             timeToFire -= Time.deltaTime;
         }
+    }
+
+    IEnumerator AttackDelay()
+    {
+        yield return new WaitForSeconds(attackDelay);
+
+        GameObject enemyProjectileObject = Instantiate(bulletPrefab, firingPoint.position, firingPoint.rotation);
+        EnemyProjectile enemyProjectile = enemyProjectileObject.GetComponent<EnemyProjectile>(); // Get the EnemyBullet component
+
+        if (enemyProjectile != null)
+        {
+            enemyProjectile.speed = bulletSpeed; // Set the speed using the EnemyBullet component
+            enemyProjectile.GetComponent<Rigidbody2D>().AddForce(firingPoint.up * enemyProjectile.speed, ForceMode2D.Impulse);
+        }
+        animator.SetBool("isAttacking", false);
     }
 
     private void FixedUpdate()
