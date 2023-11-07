@@ -54,7 +54,7 @@ public class RangedEnemy : MonoBehaviour
 
         if (health <= 0)
         {
-            if (gc.numZombiesKilled() % 20 == 0 && !stopPickUp)
+            if (gc.numZombiesKilled() % 20 == 0 && !stopPickUp && damageAmount < 5)
             {
                 stopPickUp = true;
                 Instantiate(healthDrop, transform.position, transform.rotation);
