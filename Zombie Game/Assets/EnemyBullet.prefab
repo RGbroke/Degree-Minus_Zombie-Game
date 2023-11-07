@@ -162,4 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  destroyTime: 5
+  pool: {fileID: 8973096332313670071, guid: 73b2515bd32ee3c4994532e91af40402, type: 3}
+  destroyTime: 0.3
+  acidDuration: 10
+  acidDamage: 1

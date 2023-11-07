@@ -8,8 +8,11 @@ public class EnemyProjectile : MonoBehaviour
     public float speed = 10f;
 
     private Rigidbody2D rb;
+    public GameObject pool;
 
     public float destroyTime = 5f;
+    public float acidDuration = 5f;
+    public int acidDamage = 1;
 
     private void Start()
     {
@@ -31,6 +34,9 @@ public class EnemyProjectile : MonoBehaviour
             {
                 playerComponent.TakeDamage(1);
             }
+            GameObject acidPool = Instantiate(pool, transform.position, Quaternion.Euler(0,0,0));
+            acidPool.GetComponent<acidPool>().damage = acidDamage;
+            Destroy(acidPool, acidDuration);
             Destroy(gameObject);
         }
     }

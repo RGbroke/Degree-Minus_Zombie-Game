@@ -122,7 +122,7 @@ public class Enemy : MonoBehaviour
         {
             isColliding = false;
             animator.SetBool("isColliding", false);
-            playerComponent.TakeDamage(1);
+            //playerComponent.TakeDamage(1);
         }
     }
 

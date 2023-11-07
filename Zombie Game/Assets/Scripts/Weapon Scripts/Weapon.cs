@@ -99,7 +99,7 @@ public class Weapon : MonoBehaviour
     {
         if(Time.time > lastShootTime + fireRate && Time.timeScale != 0 && currAmmo > 0 && !isReloading)
         {
-            StartCoroutine(DoFlash(0.1f));
+            StartCoroutine(DoFlash(0.02f));
             gunshot.Play();
             lastShootTime = Time.time;
             bulletShot++;
@@ -187,7 +187,7 @@ public class Weapon : MonoBehaviour
         var renderer = muzzle.GetComponent<SpriteRenderer>();
         var originalSprite = renderer.sprite;
         renderer.sprite = FlashSprite;
-        yield return new WaitForSeconds(flashrate); ;
+        yield return new WaitForSeconds(flashrate);
 
         renderer.sprite = originalSprite;
     }

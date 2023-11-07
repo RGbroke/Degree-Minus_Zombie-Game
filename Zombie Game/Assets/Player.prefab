@@ -232,8 +232,8 @@ GameObject:
   - component: {fileID: 8277614590128913956}
   - component: {fileID: 2639719991977007569}
   - component: {fileID: 5895310697153616963}
-  - component: {fileID: 5764626759682815456}
   - component: {fileID: 6844149218161349843}
+  - component: {fileID: 786244615892381370}
   m_Layer: 11
   m_Name: Player
   m_TagString: Player
@@ -476,6 +476,14 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 88c7d609-2ecb-45be-a805-5670124831ce
     m_ActionName: Player/PrevWeapon[/Keyboard/q]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c64331e2-513e-4b6a-9d9c-7f12def31560
+    m_ActionName: Player/Reload[/Keyboard/r]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ce00570c-7aa5-4b0f-a535-2b898a9c120a
+    m_ActionName: Player/Interact[/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -499,15 +507,14 @@ MonoBehaviour:
   moveSpeed: 6
   controller: {fileID: 8277614590128913956}
   pivot: {fileID: 8066613370844561859}
-  animator: {fileID: 2588117930869202780}
   weapon: {fileID: 814717445347588452}
-  bulletSpeed: 30
-  fireRate: 1
-  grenadeCooldown: 8
   gunshotEnd: {fileID: 2639719991977007569}
+  grenadeSpeed: 5
+  grenadeCooldown: 8
   damageRate: 0.5
   sprite: {fileID: 1557002769649977749}
   weaponSprite: {fileID: 5060037789874680870}
+  animator: {fileID: 2588117930869202780}
   cursorTexture: {fileID: 2800000, guid: 3b05a93d8c2ebcc43bb96735f61237c3, type: 3}
   cursorTextureShoot: {fileID: 2800000, guid: 943a9770bea270c40ac0d4d658a8126d, type: 3}
   meleeDelay: 0.3
@@ -650,41 +657,6 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_SortAtRoot: 0
---- !u!58 &5764626759682815456
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5536918832966046342}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 5120
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -5.321019}
-  serializedVersion: 2
-  m_Radius: 1.8909199
 --- !u!70 &6844149218161349843
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -720,6 +692,41 @@ CapsuleCollider2D:
   m_Offset: {x: -0.057764847, y: -0.69319165}
   m_Size: {x: 5.020626, y: 12.068079}
   m_Direction: 0
+--- !u!70 &786244615892381370
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5536918832966046342}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 5120
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0000066617145, y: -5.8825054}
+  m_Size: {x: 5.890495, y: 3.369416}
+  m_Direction: 1
 --- !u!1 &5973932773297106990
 GameObject:
   m_ObjectHideFlags: 0
@@ -821,22 +828,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7405240e3d412324cbe0ac7807e9c50c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 918000483746761494, guid: ca2142017356c69498558b5b3b8834fa, type: 3}
+  bulletShot: 0
+  grenadeThrew: 0
+  meleeCount: 0
   grenadePrefab: {fileID: 7041855262765582583, guid: c0cf9bb22d6d0b148b719c68d7fe27a7, type: 3}
-  firePoint: {fileID: 3613609573751268121}
   muzzle: {fileID: 3209006171535300335}
   gunshot: {fileID: 4751145713111198621}
   FlashSprite: {fileID: 21300000, guid: bfe72ec0a19efee40b681f2af46b996e, type: 3}
-  weaponSprite: {fileID: 5060037789874680870}
-  circleOrigin: {fileID: 3613609573751268121}
-  meleePoint: {fileID: 5536918832966046342}
-  bulletDamage: 1
-  animator: {fileID: 8357887399160669838}
+  weaponControl: {fileID: 0}
+  automatic: 0
+  isReloading: 0
+  grenadeCapacity: 0
   meleeDelay: 0.3
   meleeDamage: 0
   knockOutTime: 0
   meleeForce: 0
   meleeRadius: 0
+  meleePoint: {fileID: 5536918832966046342}
+  animator: {fileID: 8357887399160669838}
 --- !u!82 &4751145713111198621
 AudioSource:
   m_ObjectHideFlags: 0

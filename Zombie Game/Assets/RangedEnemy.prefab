@@ -278,10 +278,10 @@ GameObject:
   - component: {fileID: 7553674323923370063}
   - component: {fileID: 6392495385256375438}
   - component: {fileID: 1286219405140639863}
-  - component: {fileID: 2224930650944752087}
   - component: {fileID: -3232268577538416755}
   - component: {fileID: 8291270778727971325}
   - component: {fileID: 1865967085330976227}
+  - component: {fileID: 708050514766577737}
   m_Layer: 8
   m_Name: RangedEnemy
   m_TagString: RangedEnemy
@@ -519,7 +519,7 @@ MonoBehaviour:
   rotateSpeed: 0.5
   distanceToShoot: 12
   distanceToStop: 8
-  fireRate: 0.5
+  fireRate: 2
   firingPoint: {fileID: 6739939057642368551}
   bulletPrefab: {fileID: 3566689402830594846, guid: 04c6a45edf6caf14fa11e32e93bddbef, type: 3}
   animator: {fileID: 6392495385256375438}
@@ -530,41 +530,6 @@ MonoBehaviour:
   healthBar: {fileID: 1924780966808193331}
   healthDrop: {fileID: 3948647394299110574, guid: d268366105919cf4686ab1f7157ab816, type: 3}
   ZombiesToKill: 20
---- !u!58 &2224930650944752087
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8366717870760542248}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 5120
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.41630745, y: -6.0208235}
-  serializedVersion: 2
-  m_Radius: 1.8129511
 --- !u!70 &-3232268577538416755
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -667,3 +632,38 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+--- !u!70 &708050514766577737
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8366717870760542248}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 5120
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.47156546, y: -5.8945584}
+  m_Size: {x: 6.7394214, y: 3.438492}
+  m_Direction: 1
