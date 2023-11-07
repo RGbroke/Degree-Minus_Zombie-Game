@@ -146,7 +146,7 @@ public class ObjectiveController_Stage1 : MonoBehaviour
         if(weapon.grenadeThrew == 2 && objectiveCheck == false)
              {
                 objectiveCheck = true;
-                text = "<style=\"Normal\">Completed </style>";
+                text = "<style=\"Normal\">Tutorial Completed!\n Find the entrance to the hospital. </style>";
                 tutorialComplete();
                 activator.SetActive(true);
             }

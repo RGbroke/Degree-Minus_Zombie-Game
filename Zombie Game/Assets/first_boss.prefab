@@ -207,12 +207,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gc: {fileID: 0}
-  dialogue: {fileID: 0}
   sprite: {fileID: 0}
   healthBar: {fileID: 8171627569982400020}
   maxHealth: 3
   speed: 0
-  ZombiesToKill: 20
+  normalAttacks: {fileID: 0}
 --- !u!50 &7463146244641748167
 Rigidbody2D:
   serializedVersion: 4

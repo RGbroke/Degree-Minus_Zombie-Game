@@ -17,7 +17,6 @@ public class FirstBoss : MonoBehaviour
 
     //System
     public GameController gc;
-    public Dialogue dialogue;
 
     //Sprite
     public SpriteRenderer sprite;
@@ -31,6 +30,9 @@ public class FirstBoss : MonoBehaviour
     public float speed;
     bool isColliding = false;
 
+    //Attacks
+    [SerializeField]
+    private BearNormalAttacks normalAttacks;
     //Audio
     /*
     public AudioSource zombieNoise;
@@ -41,7 +43,6 @@ public class FirstBoss : MonoBehaviour
 
     //PowerUpDrop
     //public GameObject healthDrop;
-    public float ZombiesToKill = 20f;
     private bool stopPickUp = false;
 
     public IEnumerator FlashRed()
