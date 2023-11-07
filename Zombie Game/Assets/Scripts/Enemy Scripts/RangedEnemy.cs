@@ -105,7 +105,6 @@ public class RangedEnemy : MonoBehaviour
 
                 // Calculate the dot product of the agent's forward direction and its velocity
                 float dotProduct = Vector3.Dot(agentForward, agentVelocity);
-                Debug.Log(agentVelocity.x);
                 if (agentVelocity.x > 0) // Agent is moving to the right
                 {
                     moveRight = true;

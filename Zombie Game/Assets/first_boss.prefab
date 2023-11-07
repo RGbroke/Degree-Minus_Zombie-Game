@@ -208,6 +208,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gc: {fileID: 0}
   sprite: {fileID: 0}
+  animator: {fileID: 0}
   healthBar: {fileID: 8171627569982400020}
   maxHealth: 3
   speed: 0

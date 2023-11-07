@@ -20,7 +20,7 @@ public class FirstBoss : MonoBehaviour
 
     //Sprite
     public SpriteRenderer sprite;
-    //public Animator animator;
+    public Animator animator;
     private Color defaultColor;
 
     //Stats
@@ -67,14 +67,13 @@ public class FirstBoss : MonoBehaviour
     {
         agent.SetDestination(target.position);
 
-        /*
+        
         animator.SetFloat("Horizontal", target.position.x - transform.position.x);
         animator.SetFloat("Speed", speed);
-        */
+        
 
         if (isColliding)
         {
-            player.TakeDamage(1);
             new WaitForSeconds(1f);
         }
     }
@@ -106,7 +105,8 @@ public class FirstBoss : MonoBehaviour
         if (collision.gameObject.TryGetComponent<PlayerController>(out PlayerController playerComponent))
         {
             isColliding = true;
-            //animator.SetBool("isColliding", true);
+            animator.SetBool("isColliding", true);
+            normalAttacks.MeleeAttack();
             player = playerComponent;
             /*
             int attackNoise = Random.Range(1, 3);
@@ -132,7 +132,7 @@ public class FirstBoss : MonoBehaviour
         if (collision.gameObject.TryGetComponent<PlayerController>(out PlayerController playerComponent))
         {
             isColliding = false;
-            //animator.SetBool("isColliding", false);
+            animator.SetBool("isColliding", false);
             //playerComponent.TakeDamage(1);
         }
     }

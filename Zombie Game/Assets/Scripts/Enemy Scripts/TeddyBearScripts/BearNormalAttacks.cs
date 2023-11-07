@@ -17,7 +17,7 @@ public class BearNormalAttacks : MonoBehaviour
     public void MeleeAttack()
     {
         Collider2D[] hitTargets = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, hitTarget);
-        
+        Debug.Log("You have been hit");
         foreach(Collider2D target in hitTargets)
         {
             /*Include scripts for destroying objects later*/

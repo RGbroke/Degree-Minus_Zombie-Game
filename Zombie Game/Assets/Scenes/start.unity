@@ -131422,7 +131422,7 @@ MonoBehaviour:
   gc: {fileID: 571784347}
   objectiveDisplay: {fileID: 1884157257}
   trigger: {fileID: 1612696309}
-  zombiesToKill: 500
+  zombiesToKill: 20
   tutorial: {fileID: 571784350}
   activator: {fileID: 1805130350}
   objectiveCheck: 0
@@ -146625,6 +146625,10 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
+    - target: {fileID: 6857309426833411876, guid: 545fe6d1e2f3ef241b37600f9d28e46e, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6857309426833411876, guid: 545fe6d1e2f3ef241b37600f9d28e46e, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
