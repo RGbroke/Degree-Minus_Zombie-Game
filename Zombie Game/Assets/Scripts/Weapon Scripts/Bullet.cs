@@ -18,6 +18,10 @@ public class Bullet : MonoBehaviour
         {
             enemyComp.TakeDamage(damage);
         }
+        else if (collision.gameObject.TryGetComponent<FirstBoss>(out FirstBoss boss))
+        {
+            boss.TakeDamage(damage);
+        }
 
         Destroy(gameObject);
     }
