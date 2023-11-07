@@ -14,7 +14,6 @@ public class RangedEnemy : MonoBehaviour
     private Rigidbody2D rb;
     PlayerController player;
 
-
     public float distanceToShoot = 5f;
     public float distanceToStop = 3f;
 
@@ -24,7 +23,9 @@ public class RangedEnemy : MonoBehaviour
     public Transform firingPoint;
     public GameObject bulletPrefab;
 
+    // Animations
     public Animator animator;
+    private bool moveRight = false;
     [SerializeField] private float bulletSpeed;
 
     private float health;
@@ -94,19 +95,40 @@ public class RangedEnemy : MonoBehaviour
         }
         else
         {
-            // Calculate the direction vector from the enemy to the player.
-            Vector3 direction = (target.position - transform.position).normalized;
 
-            // Determine if the player is on the left or right side of the zombie.
-            float playerX = target.position.x;
-            float zombieX = transform.position.x;
-            bool playerIsOnLeft = playerX < zombieX;
+            //bool agentIsMovingLeft = agentVelocity.x < 0;
+            // Calculate movement direction for ranged enemy
+            if (agent.hasPath && agent.velocity.magnitude > 0)
+            {
+                Vector3 agentForward = agent.transform.forward; // Get the forward direction of the agent
+                Vector3 agentVelocity = agent.velocity.normalized; // Get the normalized velocity
+
+                // Calculate the dot product of the agent's forward direction and its velocity
+                float dotProduct = Vector3.Dot(agentForward, agentVelocity);
+                Debug.Log(agentVelocity.x);
+                if (agentVelocity.x > 0) // Agent is moving to the right
+                {
+                    moveRight = true;
+                    // Do something for right movement
+                }
+                else if (agentVelocity.x < 0) // Agent is moving to the left
+                {
+                    moveRight = false;
+                    // Do something for left movement
+                }
+            }
+            else
+            {
+                moveRight = target.position.x - transform.position.x > 0 ? true : false;
+            }
+
+            //bool playerIsOnLeft = agentIsMovingLeft;
 
             // Calculate an offset for the firing point based on the player's position.
-            float xOffset = playerIsOnLeft ? -1f : 1f;
+            float xOffset = !moveRight ? -1f : 1f;
 
             Vector3 firingPointOffset = new Vector3(xOffset, 0f, 0f);
-            animator.SetBool("playerIsRight", !playerIsOnLeft);
+            animator.SetBool("moveRight", moveRight);
             // Apply the offset to the firingPoint's position.
             firingPoint.position = transform.position + firingPointOffset;
 
@@ -148,6 +170,7 @@ public class RangedEnemy : MonoBehaviour
     {
         if (timeToFire <= 0f)
         {
+            //animator.setFloat("Stop");
             GameObject enemyProjectileObject = Instantiate(bulletPrefab, firingPoint.position, firingPoint.rotation);
             EnemyProjectile enemyProjectile = enemyProjectileObject.GetComponent<EnemyProjectile>(); // Get the EnemyBullet component
 
