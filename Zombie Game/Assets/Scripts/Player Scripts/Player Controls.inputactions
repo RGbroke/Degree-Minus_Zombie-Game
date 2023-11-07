@@ -375,7 +375,7 @@
                 {
                     "name": "",
                     "id": "5685b159-b876-4fcc-bea0-76c0c9da8a07",
-                    "path": "<Keyboard>/rightCtrl",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
@@ -386,7 +386,7 @@
                 {
                     "name": "",
                     "id": "5f87aec3-0d5d-4158-bfba-cdf413bf9c7f",
-                    "path": "<Keyboard>/leftCtrl",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
@@ -452,10 +452,21 @@
                 {
                     "name": "",
                     "id": "589dbaa2-d0d1-47a4-9bc1-c9a94f1a9163",
-                    "path": "<Keyboard>/e",
+                    "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c06614e2-efa7-4051-b987-14327d5024e6",
+                    "path": "<XInputController>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
                     "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false

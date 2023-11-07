@@ -97,7 +97,7 @@ public class Weapon : MonoBehaviour
 
     public void Fire()
     {
-        if(Time.time > lastShootTime + fireRate && Time.timeScale != 0 && currAmmo > 0 && !isReloading)
+        if (Time.time > lastShootTime + fireRate && Time.timeScale != 0 && currAmmo > 0 && !isReloading)
         {
             StartCoroutine(DoFlash(0.02f));
             gunshot.Play();
@@ -127,6 +127,9 @@ public class Weapon : MonoBehaviour
                     bullet.GetComponent<Grenade>().detonateOnTouch = true;
                 }
             }
+        }
+        else if(currAmmo <= 0 && !isReloading) {
+            reload();
         }
     }
 
