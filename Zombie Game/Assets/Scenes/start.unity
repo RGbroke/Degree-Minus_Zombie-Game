@@ -131424,6 +131424,8 @@ MonoBehaviour:
   trigger: {fileID: 1612696309}
   zombiesToKill: 500
   tutorial: {fileID: 571784350}
+  activator: {fileID: 1805130350}
+  objectiveCheck: 0
   objectiveFlag: 0
   popup: {fileID: 879500121}
   weapon: {fileID: 1282649111}
@@ -144141,11 +144143,11 @@ GameObject:
   - component: {fileID: 1805130363}
   m_Layer: 0
   m_Name: Activator
-  m_TagString: Untagged
+  m_TagString: Activator
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1805130351
 Transform:
   m_ObjectHideFlags: 0

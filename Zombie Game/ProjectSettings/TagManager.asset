@@ -9,6 +9,7 @@ TagManager:
   - RangedEnemy
   - Enemy
   - Object
+  - Activator
   layers:
   - Default
   - TransparentFX
