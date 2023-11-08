@@ -130818,7 +130818,7 @@ MonoBehaviour:
   bulletLifespan: 5
   bulletSpeed: 15
   timeBetweenShots: 0.5
-  bulletDamage: 0
+  bulletDamage: 4
   spread: 0
   automatic: 1
   reloadTime: 5
