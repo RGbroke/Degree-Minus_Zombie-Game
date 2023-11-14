@@ -52,7 +52,7 @@ public class Grenade : MonoBehaviour
             FirstBoss boss1 = collider.GetComponent<FirstBoss>();
             if (boss1)
             {
-                boss1.TakeDamage((int)explosionDamage);
+                boss1.TakeDamage(explosionDamage);
             }
 
         }

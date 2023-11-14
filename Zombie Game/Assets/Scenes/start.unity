@@ -130204,7 +130204,7 @@ GameObject:
   - component: {fileID: 237417026}
   - component: {fileID: 237417025}
   m_Layer: 0
-  m_Name: Pistol
+  m_Name: Pistol (Starting Weapon)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -130219,11 +130219,11 @@ Transform:
   m_GameObject: {fileID: 237417023}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -66.130486, y: -3.3528595, z: 0}
+  m_LocalPosition: {x: -51.907505, y: -2.3925002, z: -0.8072175}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 994391297}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &237417025
 SpriteRenderer:
@@ -130290,10 +130290,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numBulletsPerShot: 1
-  bulletLifespan: 3
-  bulletSpeed: 30
+  bulletLifespan: 2
+  bulletSpeed: 50
   timeBetweenShots: 0.1
-  bulletDamage: 2.5
+  bulletDamage: 12.5
   spread: 0.005
   automatic: 0
   reloadTime: 2.5
@@ -130818,13 +130818,13 @@ MonoBehaviour:
   bulletLifespan: 5
   bulletSpeed: 15
   timeBetweenShots: 0.5
-  bulletDamage: 4
+  bulletDamage: 10
   spread: 0
   automatic: 1
   reloadTime: 5
   magSize: 6
   numBullets: 6
-  bulletDrag: 1
+  bulletDrag: 1.5
   projectilePrefab: {fileID: 7041855262765582583, guid: c0cf9bb22d6d0b148b719c68d7fe27a7, type: 3}
   weaponInHand: {fileID: 0}
   bulletSprite: {fileID: 21300000, guid: 9dc1b9c3404458a4dae48ade9dd80671, type: 3}
@@ -131041,7 +131041,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1156367243, guid: fdba11d341b3d41488b496ccf74ed7af, type: 3}
+  m_Sprite: {fileID: -1762886822, guid: fdba11d341b3d41488b496ccf74ed7af, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -131074,7 +131074,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 434561487}
   interactionAlert: {fileID: 1034261610}
-  weapon: {fileID: 237417023}
+  weapon: {fileID: 963343610}
   weapons: {fileID: 251309345}
   actionReference: {fileID: -8271341944497395080, guid: 8b46156846fd99e45a5ebef9b05722da, type: 3}
 --- !u!58 &541723383
@@ -131861,7 +131861,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 259a3a163190d5849944a9e9813fe32b, type: 3}
     - target: {fileID: 1742496746694104854, guid: 04bc8e035d2bbae44b14779d10fdf09f, type: 3}
       propertyPath: maxHealth
-      value: 5
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1742496746694104854, guid: 04bc8e035d2bbae44b14779d10fdf09f, type: 3}
       propertyPath: healthDrop
@@ -132595,7 +132595,7 @@ GameObject:
   - component: {fileID: 963343614}
   - component: {fileID: 963343613}
   m_Layer: 0
-  m_Name: Dragon's Breath (Starting Weapon)
+  m_Name: Dragon's Breath Shotgun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -132610,11 +132610,11 @@ Transform:
   m_GameObject: {fileID: 963343610}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
-  m_LocalPosition: {x: -51.8385, y: -5.508, z: 0}
+  m_LocalPosition: {x: -66.06148, y: -6.468359, z: 0.8072175}
   m_LocalScale: {x: 0.45000002, y: 0.45000002, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 994391297}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &963343613
 SpriteRenderer:
@@ -132657,7 +132657,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7dc2ec3e576f831488d620f59a203185, type: 3}
+  m_Sprite: {fileID: -1762886822, guid: fdba11d341b3d41488b496ccf74ed7af, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -132682,15 +132682,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numBulletsPerShot: 12
   bulletLifespan: 0.4
-  bulletSpeed: 50
+  bulletSpeed: 30
   timeBetweenShots: 0.1
-  bulletDamage: 1
-  spread: 0.2
+  bulletDamage: 5
+  spread: 0.3
   automatic: 1
-  reloadTime: 1
+  reloadTime: 2.5
   magSize: 120
   numBullets: 120
-  bulletDrag: 0
+  bulletDrag: 0.05
   projectilePrefab: {fileID: 918000483746761494, guid: ca2142017356c69498558b5b3b8834fa, type: 3}
   weaponInHand: {fileID: 0}
   bulletSprite: {fileID: 0}
@@ -132859,7 +132859,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 237417024}
+  - {fileID: 963343611}
   - {fileID: 541723376}
   - {fileID: 1034261611}
   m_Father: {fileID: 1740097699}
@@ -143515,7 +143515,7 @@ PrefabInstance:
       objectReference: {fileID: 1266832039}
     - target: {fileID: 2115788589608772105, guid: e8b062e4ea524dc43bcb6a2adf8140a3, type: 3}
       propertyPath: maxHealth
-      value: 25
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2115788589608772105, guid: e8b062e4ea524dc43bcb6a2adf8140a3, type: 3}
       propertyPath: moveSpeed
@@ -146564,7 +146564,7 @@ PrefabInstance:
     - target: {fileID: 2549175043732610922, guid: 545fe6d1e2f3ef241b37600f9d28e46e, type: 3}
       propertyPath: startingWeapon
       value: 
-      objectReference: {fileID: 963343610}
+      objectReference: {fileID: 237417023}
     - target: {fileID: 4074478015410276803, guid: 545fe6d1e2f3ef241b37600f9d28e46e, type: 3}
       propertyPath: m_Name
       value: Canvas (UI)
@@ -146734,9 +146734,9 @@ SceneRoots:
   - {fileID: 571784345}
   - {fileID: 196732907}
   - {fileID: 1722748451}
-  - {fileID: 963343611}
   - {fileID: 1424809151}
   - {fileID: 6811499580310305120}
+  - {fileID: 237417024}
   - {fileID: 1740097699}
   - {fileID: 1388379030}
   - {fileID: 2143072959}
