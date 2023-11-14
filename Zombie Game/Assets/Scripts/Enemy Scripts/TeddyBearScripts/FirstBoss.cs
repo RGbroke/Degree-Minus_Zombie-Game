@@ -24,7 +24,7 @@ public class FirstBoss : MonoBehaviour
     private Color defaultColor;
 
     //Stats
-    public GameObject healthBar;
+    public HealthBar healthBar;
     public float maxHealth = 3f;
     private float health;
     public float speed;
@@ -60,6 +60,8 @@ public class FirstBoss : MonoBehaviour
 
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         health = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
+        healthBar.SetHealth(health);
         defaultColor = sprite.color;
     }
 
@@ -92,11 +94,13 @@ public class FirstBoss : MonoBehaviour
                 Instantiate(healthDrop, transform.position, transform.rotation);
             }
             */
+            healthBar.setActive(false);
             Destroy(this.gameObject);
         }
         else
         {
-            healthBar.transform.localScale = new Vector3(health / maxHealth, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
+            //healthBar.transform.localScale = new Vector3(health / maxHealth, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
+            healthBar.SetHealth(health);
         }
     }
 
