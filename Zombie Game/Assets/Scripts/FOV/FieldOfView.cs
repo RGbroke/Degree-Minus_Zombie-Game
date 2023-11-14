@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class FieldOfView : MonoBehaviour
@@ -92,5 +93,15 @@ public class FieldOfView : MonoBehaviour
     public void SetAimDirection(Vector3 aimDirection)
     {
         startingAngle = GetAngleFromVectorFloat(aimDirection) - fov / 2f;
+    }
+
+    public float currentFOV()
+    {
+        return fov;
+    }
+
+    public void setFOV(float newFOV)
+    {
+        this.fov = newFOV;
     }
 }
