@@ -191,7 +191,14 @@ public class Weapon : MonoBehaviour
         var renderer = muzzle.GetComponent<SpriteRenderer>();
         var originalSprite = renderer.sprite;
         renderer.sprite = FlashSprite;
+        float recoil = amtBullet * bulletDamage / 5;
+        if(recoil > 0.8f)
+        {
+            recoil = 0.8f;
+        }
+        transform.localPosition = transform.localPosition - new Vector3(recoil, 0, 0);
         yield return new WaitForSeconds(flashrate);
+        transform.localPosition = transform.localPosition + new Vector3(recoil, 0, 0);
 
         renderer.sprite = originalSprite;
     }

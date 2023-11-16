@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 
 public class fixFOV : MonoBehaviour
@@ -10,6 +11,8 @@ public class fixFOV : MonoBehaviour
     private flashlightDecay decayControl;
     [SerializeField]
     private FieldOfView fovControl;
+    [SerializeField]
+    private CinemachineVirtualCamera targetCamera;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -18,5 +21,7 @@ public class fixFOV : MonoBehaviour
 
         decayControl.setActiveDecay(false);
         fovControl.setFOV(360f);
+
+        targetCamera.m_Lens.OrthographicSize = 15;
     }
 }
