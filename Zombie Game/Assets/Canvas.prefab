@@ -2526,10 +2526,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Confirm (G)
+  m_text: Confirm (F)
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 741140fde0e60fb4b8cddbbb749eb075, type: 2}
-  m_sharedMaterial: {fileID: 995731083860010725, guid: 741140fde0e60fb4b8cddbbb749eb075, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
+  m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
+
 
 public class PopupSystem : MonoBehaviour
 {
@@ -9,17 +12,41 @@ public class PopupSystem : MonoBehaviour
     public Animator animator;
     public TMP_Text popUpText;
 
-    public void PopUp(string text, float time)
+    [SerializeField] private InputActionReference actionReference;
+
+    void Start()
     {
-        StartCoroutine(PoppingUp(text, time));
+        actionReference.action.performed += context =>
+        {
+            resume();
+        };
     }
 
-    IEnumerator PoppingUp(string text, float time)
+    public void PopUp(string text)
+    {
+        StartCoroutine(opening(text));
+    }
+
+    IEnumerator opening(string text)
     {
         popUpBox.SetActive(true);
         popUpText.text = text;
         animator.SetTrigger("pop");
         yield return new WaitForSeconds(1);
-        Time.timeScale = time;
+        pause();
+    }
+
+    public void pause()
+    {
+        Time.timeScale = 0f;
+    }
+
+    public void resume()
+    {
+        if (Time.timeScale != 0)
+            return;
+
+        animator.SetTrigger("close");
+        Time.timeScale = 1;
     }
 }
