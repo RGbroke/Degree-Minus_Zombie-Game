@@ -32,8 +32,9 @@ public class PopupSystem : MonoBehaviour
         popUpBox.SetActive(true);
         popUpText.text = text;
         animator.SetTrigger("pop");
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1f);
         pause();
+        
     }
 
     public void pause()

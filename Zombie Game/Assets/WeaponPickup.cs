@@ -11,6 +11,10 @@ public class WeaponPickup : MonoBehaviour
     [SerializeField] private WeaponEquiped weapons;
     [SerializeField] private InputActionReference actionReference;
 
+    [SerializeField] private PopupSystem notification;
+    [SerializeField] private string dialog;
+    [SerializeField] private bool dialogPlayed = false;
+
     private bool playerTouching = false;
     private void Start()
     {
@@ -26,6 +30,12 @@ public class WeaponPickup : MonoBehaviour
             return;
 
         playerHover();
+
+        if (dialogPlayed)
+            return;
+
+        dialogPlayed = true;
+        notification.PopUp(dialog);
     }
 
     private void OnTriggerExit2D(Collider2D collision)

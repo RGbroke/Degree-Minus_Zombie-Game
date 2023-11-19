@@ -9,9 +9,12 @@ public class batteryPickup : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject interactionAlert;
     [SerializeField] private InputActionReference actionReference;
+    [SerializeField] private ObjectiveController_Stage2 objectiveControl;
 
     [SerializeField] private flashlightDecay fovDecayControl;
+    private static bool dialogPlayed = false;
     private bool playerTouching = false;
+    
 
     private void Start()
     {
@@ -27,6 +30,12 @@ public class batteryPickup : MonoBehaviour
             return;
 
         playerHover();
+
+        if (dialogPlayed)
+            return;
+
+        objectiveControl.alertPlayer("AH PERFECT! A battery!");
+        dialogPlayed = true;
     }
 
     private void OnTriggerExit2D(Collider2D collision)

@@ -7,19 +7,19 @@ using UnityEngine;
 
 public class flashlightDecay : MonoBehaviour
 {
-    [SerializeField] private float fovDecayPerSecond = 1f;
+    [SerializeField] private float fovDecayPerSecond = 0.5f;
     [SerializeField] private float secondsPerPause = 30f;
     [SerializeField] private FieldOfView fovControl;
 
     private CancellationTokenSource cancellationToken;
     private float originalFOV;
     private float currentFOV;
-    private bool[] activeDecay = { false, true };
+    private bool[] activeDecay = { true, true };
 
     private void Start()
     {
-        originalFOV = fovControl.currentFOV();
-        pauseDecay(secondsPerPause);
+        currentFOV = originalFOV = fovControl.currentFOV();
+        flashlightToggle(false);
     }
 
     // Update is called once per frame
@@ -40,6 +40,7 @@ public class flashlightDecay : MonoBehaviour
     public void flashlightToggle(bool isOn)
     {
         activeDecay[1] = isOn;
+
         if (isOn)
             fovControl.setFOV(currentFOV);
         else
