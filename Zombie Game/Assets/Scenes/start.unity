@@ -131359,8 +131359,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1504935871}
   GameOverScreen: {fileID: 1026654365}
-  popup: {fileID: 879500121}
-  tutorial: {fileID: 571784350}
   maxZombies: 100
 --- !u!114 &571784348
 MonoBehaviour:
@@ -131418,7 +131416,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a44ca5f951af9e64c84d6c953830754d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pc: {fileID: 0}
+  pc: {fileID: 1504935871}
   gc: {fileID: 571784347}
   objectiveDisplay: {fileID: 1884157257}
   trigger: {fileID: 1612696309}
@@ -131427,7 +131425,6 @@ MonoBehaviour:
   activator: {fileID: 1805130350}
   objectiveCheck: 0
   objectiveFlag: 0
-  popup: {fileID: 879500121}
   weapon: {fileID: 1282649111}
   gunAttackCount: 0
   normalAttackCount: 0
@@ -146649,18 +146646,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -1.9663
       objectReference: {fileID: 0}
-    - target: {fileID: 8791951991234042783, guid: 545fe6d1e2f3ef241b37600f9d28e46e, type: 3}
-      propertyPath: m_fontAsset
+    - target: {fileID: 9161053671935762570, guid: 545fe6d1e2f3ef241b37600f9d28e46e, type: 3}
+      propertyPath: actionReference
       value: 
-      objectReference: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
-    - target: {fileID: 8791951991234042783, guid: 545fe6d1e2f3ef241b37600f9d28e46e, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
-    - target: {fileID: 8791951991234042783, guid: 545fe6d1e2f3ef241b37600f9d28e46e, type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
-      objectReference: {fileID: 0}
+      objectReference: {fileID: -8271341944497395080, guid: 8b46156846fd99e45a5ebef9b05722da, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

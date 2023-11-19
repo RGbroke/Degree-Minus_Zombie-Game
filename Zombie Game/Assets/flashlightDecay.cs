@@ -13,6 +13,7 @@ public class flashlightDecay : MonoBehaviour
 
     private CancellationTokenSource cancellationToken;
     private float originalFOV;
+    private float currentFOV;
     private bool[] activeDecay = { false, true };
 
     private void Start()
@@ -25,17 +26,24 @@ public class flashlightDecay : MonoBehaviour
     private void Update()
     {
         if (!activeDecay[0] || !activeDecay[1])
-        {
             return;
-        }
 
-        float newFOV = fovControl.currentFOV() - Time.deltaTime * fovDecayPerSecond;
-        if (newFOV <= 0)
+        currentFOV = fovControl.currentFOV() - Time.deltaTime * fovDecayPerSecond;
+        if (currentFOV <= 0)
         {
             activeDecay[0] = false;
-            newFOV = 0f;
+            currentFOV = 0f;
         }
-        fovControl.setFOV(newFOV);
+        fovControl.setFOV(currentFOV);
+    }
+
+    public void flashlightToggle(bool isOn)
+    {
+        activeDecay[1] = isOn;
+        if (isOn)
+            fovControl.setFOV(currentFOV);
+        else
+            fovControl.setFOV(0);
     }
 
     public void setActiveDecay(bool isActive)
