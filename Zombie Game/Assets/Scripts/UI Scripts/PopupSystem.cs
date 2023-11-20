@@ -9,7 +9,6 @@ using UnityEngine.InputSystem;
 public class PopupSystem : MonoBehaviour
 {
     public GameObject popUpBox;
-    public Animator animator;
     public TMP_Text popUpText;
 
     [SerializeField] private InputActionReference actionReference;
@@ -21,6 +20,10 @@ public class PopupSystem : MonoBehaviour
             resume();
         };
     }
+    private void OnDisable()
+    {
+        actionReference.action.Dispose();
+    }
 
     public void PopUp(string text)
     {
@@ -31,7 +34,7 @@ public class PopupSystem : MonoBehaviour
     {
         popUpBox.SetActive(true);
         popUpText.text = text;
-        animator.SetTrigger("pop");
+        this.GetComponent<Animator>().SetTrigger("pop");
         yield return new WaitForSeconds(1f);
         pause();
         
@@ -47,7 +50,7 @@ public class PopupSystem : MonoBehaviour
         if (Time.timeScale != 0)
             return;
 
-        animator.SetTrigger("close");
+        this.GetComponent<Animator>().SetTrigger("close");
         Time.timeScale = 1;
     }
 }
