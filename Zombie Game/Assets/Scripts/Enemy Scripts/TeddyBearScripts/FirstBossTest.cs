@@ -17,6 +17,7 @@ public class FirstBossTest : MonoBehaviour
     public float distanceToShoot = 5f;
     public float distanceToStop = 3f;
     private float attackDelay = 0.25f;
+    public HealthBar healthBar;
     private float health;
     public float maxHealth = 3f;
     public float fireRate;
@@ -53,7 +54,12 @@ public class FirstBossTest : MonoBehaviour
 
         if (health <= 0)
         {
+            healthBar.setActive(false);
             Destroy(this.gameObject);
+        }
+        else
+        {
+            healthBar.SetHealth(health);
         }
        
     }
@@ -70,7 +76,8 @@ public class FirstBossTest : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody2D>();
         timeToFire = 0f;
         health = maxHealth;
-
+        healthBar.SetMaxHealth(maxHealth);
+        healthBar.SetHealth(health);
     }
 
 

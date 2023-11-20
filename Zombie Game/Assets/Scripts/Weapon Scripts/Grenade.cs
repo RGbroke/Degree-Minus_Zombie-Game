@@ -54,6 +54,12 @@ public class Grenade : MonoBehaviour
             {
                 boss1.TakeDamage(explosionDamage);
             }
+            /*TEMP FIX REMOVE LATER*/
+            FirstBossTest boss1TEST = collider.GetComponent<FirstBossTest>();
+            if (boss1TEST)
+            {
+                boss1TEST.TakeDamage(explosionDamage);
+            }
 
         }
 

@@ -31,11 +31,10 @@ public class WeaponPickup : MonoBehaviour
 
         playerHover();
 
-        if (dialogPlayed)
+        if (dialogPlayed || !notification)
             return;
 
-        dialogPlayed = true;
-        notification.PopUp(dialog);
+        dialogPopup(dialog);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -44,6 +43,12 @@ public class WeaponPickup : MonoBehaviour
             return;
 
         playerHover();
+    }
+
+    private void dialogPopup(string dialog)
+    {
+        dialogPlayed = true;
+        notification.PopUp(dialog);
     }
 
     private void playerHover()

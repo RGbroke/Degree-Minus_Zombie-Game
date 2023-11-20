@@ -943,7 +943,7 @@ Transform:
   m_GameObject: {fileID: 191643792}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.8, y: 45.1, z: -10}
+  m_LocalPosition: {x: 0.89, y: -19.67, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -66289,6 +66289,7 @@ MonoBehaviour:
   rotateSpeed: 2
   distanceToShoot: 15
   distanceToStop: 10
+  healthBar: {fileID: 84229074}
   maxHealth: 5000
   fireRate: 2
   bulletSpeed: 20
@@ -66479,19 +66480,19 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: f9155a724ffb1e54dbbff86f29426926, type: 3}
     - target: {fileID: 4547954236673071636, guid: 545fe6d1e2f3ef241b37600f9d28e46e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4547954236673071636, guid: 545fe6d1e2f3ef241b37600f9d28e46e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1910233435}
+      objectReference: {fileID: 1632792654}
     - target: {fileID: 4547954236673071636, guid: 545fe6d1e2f3ef241b37600f9d28e46e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetActive
+      value: resume
       objectReference: {fileID: 0}
     - target: {fileID: 4547954236673071636, guid: 545fe6d1e2f3ef241b37600f9d28e46e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
+      value: PopupSystem, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4620721715224571386, guid: 545fe6d1e2f3ef241b37600f9d28e46e, type: 3}
       propertyPath: m_Colors.m_SelectedColor.b
@@ -66687,7 +66688,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9161053671935762570, guid: 545fe6d1e2f3ef241b37600f9d28e46e, type: 3}
   m_PrefabInstance: {fileID: 1632792650}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1910233435}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d21ef958a3ade3a4db020751d791cc8a, type: 3}
@@ -75931,7 +75932,7 @@ Transform:
   m_GameObject: {fileID: 1789956103}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.8, y: 45.1, z: -10}
+  m_LocalPosition: {x: 0.89, y: -19.67, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -86015,11 +86016,11 @@ PrefabInstance:
       objectReference: {fileID: 939082106}
     - target: {fileID: 8587156484053763485, guid: e8b062e4ea524dc43bcb6a2adf8140a3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.8
+      value: 0.89
       objectReference: {fileID: 0}
     - target: {fileID: 8587156484053763485, guid: e8b062e4ea524dc43bcb6a2adf8140a3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 45.1
+      value: -19.67
       objectReference: {fileID: 0}
     - target: {fileID: 8587156484053763485, guid: e8b062e4ea524dc43bcb6a2adf8140a3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -86317,11 +86318,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7405240e3d412324cbe0ac7807e9c50c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1910233435 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7549229784824161710, guid: 545fe6d1e2f3ef241b37600f9d28e46e, type: 3}
-  m_PrefabInstance: {fileID: 1632792650}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1916911052
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -91134,7 +91130,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5856796066709682380, guid: bd193abd36fe73745961d8d27735dc5b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5856796066709682380, guid: bd193abd36fe73745961d8d27735dc5b, type: 3}
       propertyPath: m_TagString

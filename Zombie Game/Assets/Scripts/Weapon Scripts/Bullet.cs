@@ -22,6 +22,13 @@ public class Bullet : MonoBehaviour
         {
             boss.TakeDamage(damage);
         }
+        /*REMOVE LATER*/
+        else if (collision.gameObject.TryGetComponent<FirstBossTest>(out FirstBossTest bossTest))
+        {
+            bossTest.TakeDamage(damage); /*TEMPORARY FIX*/
+        }
+
+
 
         Destroy(gameObject);
     }

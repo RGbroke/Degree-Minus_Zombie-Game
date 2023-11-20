@@ -33,17 +33,6 @@ public class FirstBoss : MonoBehaviour
     //Attacks
     [SerializeField]
     private BearNormalAttacks normalAttacks;
-    //Audio
-    /*
-    public AudioSource zombieNoise;
-    public AudioClip zombieAttackNoise1;
-    public AudioClip zombieAttackNoise2;
-    public AudioClip zombieAttackNoise3;
-    */
-
-    //PowerUpDrop
-    //public GameObject healthDrop;
-    //private bool stopPickUp = false;
 
     public IEnumerator FlashRed()
     {
