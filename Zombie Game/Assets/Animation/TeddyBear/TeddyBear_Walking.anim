@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TeddyBear_Attack_Left
+  m_Name: TeddyBear_Walking
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,13 +21,11 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 21300000, guid: 420355d84f1dddd40a35ec63fb636569, type: 3}
-    - time: 0.16666667
-      value: {fileID: 21300000, guid: 60bc465698c029e44b55383800f3dc2b, type: 3}
+      value: {fileID: 21300000, guid: fb70c39c5ed4e294a9409bf614fdc139, type: 3}
     - time: 0.33333334
-      value: {fileID: 21300000, guid: 50488297df686504e8e0a69784edfb39, type: 3}
-    - time: 0.53333336
-      value: {fileID: 21300000, guid: 76057cbc320858b46959ab97c125b2a6, type: 3}
+      value: {fileID: 21300000, guid: a533a6d5f01426249a37a15823345076, type: 3}
+    - time: 0.6666667
+      value: {fileID: 21300000, guid: fb70c39c5ed4e294a9409bf614fdc139, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -50,16 +48,15 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 420355d84f1dddd40a35ec63fb636569, type: 3}
-    - {fileID: 21300000, guid: 60bc465698c029e44b55383800f3dc2b, type: 3}
-    - {fileID: 21300000, guid: 50488297df686504e8e0a69784edfb39, type: 3}
-    - {fileID: 21300000, guid: 76057cbc320858b46959ab97c125b2a6, type: 3}
+    - {fileID: 21300000, guid: fb70c39c5ed4e294a9409bf614fdc139, type: 3}
+    - {fileID: 21300000, guid: a533a6d5f01426249a37a15823345076, type: 3}
+    - {fileID: 21300000, guid: fb70c39c5ed4e294a9409bf614fdc139, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.55
+    m_StopTime: 0.68333334
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
