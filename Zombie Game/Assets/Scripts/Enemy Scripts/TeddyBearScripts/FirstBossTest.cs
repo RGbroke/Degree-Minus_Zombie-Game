@@ -26,6 +26,18 @@ public class FirstBossTest : MonoBehaviour
     public Transform firingPoint;
     public GameObject bulletPrefab;
 
+    //Range Attacks
+    private bool isRangeAttacking; 
+
+    //Melee Attacks
+    public Transform attackPoint;
+    public LayerMask hitTarget;
+    public float attackRange = 3f;
+    public int attackDamage = 5;
+    float meleeAttackDelay = 0;
+    private bool isMeleeAttacking;
+
+
     // Animations
     public Animator animator;
     private bool moveRight = false;
@@ -78,6 +90,8 @@ public class FirstBossTest : MonoBehaviour
         health = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
         healthBar.SetHealth(health);
+        isMeleeAttacking = false;
+        isRangeAttacking = false;
     }
 
 
@@ -139,7 +153,7 @@ public class FirstBossTest : MonoBehaviour
                 Flip();
             }
 
-            if (!(Vector2.Distance(target.position, transform.position) <= distanceToShoot))
+            if (!(Vector2.Distance(target.position, transform.position) <= distanceToStop))
             {
                 agent.SetDestination(target.position);
                 animator.SetFloat("Speed", speed);
@@ -151,10 +165,21 @@ public class FirstBossTest : MonoBehaviour
 
         }
 
-        if (target != null && Vector2.Distance(target.position, transform.position) <= distanceToShoot)
+        if (target != null && Vector2.Distance(target.position, transform.position) <= distanceToShoot && timeToFire <= 0f && !isMeleeAttacking)
         {
+            isRangeAttacking = true;
+            animator.SetBool("isSpitting", true);
             Shoot();
         }
+        else if (target != null && timeToFire >= 0f && Vector2.Distance(target.position, transform.position) <= distanceToStop && meleeAttackDelay >= 4 && !isRangeAttacking)
+        {
+            isMeleeAttacking = true;
+            meleeAttackDelay = 0;
+            animator.SetBool("isColliding", true);
+        }
+
+        meleeAttackDelay += Time.deltaTime;
+        timeToFire -= Time.deltaTime;
 
         //transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
     }
@@ -171,16 +196,8 @@ public class FirstBossTest : MonoBehaviour
     //Shooting projectile
     private void Shoot()
     {
-        if (timeToFire <= 0f)
-        {
-            animator.SetBool("isSpitting", true);
-            StartCoroutine(AttackDelay());
-            timeToFire = fireRate;
-        }
-        else
-        {
-            timeToFire -= Time.deltaTime;
-        }
+        StartCoroutine(AttackDelay());
+        timeToFire = fireRate;
     }
 
 
@@ -214,6 +231,7 @@ public class FirstBossTest : MonoBehaviour
             enemyProjectile.GetComponent<Rigidbody2D>().AddForce(firingPoint.up * enemyProjectile.speed, ForceMode2D.Impulse);
         }
         animator.SetBool("isSpitting", false);
+        isRangeAttacking = false;
     }
 
     private Quaternion flipCoordinate(Quaternion q)
@@ -235,6 +253,21 @@ public class FirstBossTest : MonoBehaviour
             }
         }
     }
+
+    IEnumerator MeleeAttack()
+    {
+        animator.SetBool("isColliding", true);
+        Collider2D[] hitTargets = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, hitTarget);
+        foreach(Collider2D target in hitTargets)
+        {
+            /*Include scripts for destroying objects later*/
+            target.GetComponent<PlayerController>().TakeDamage(attackDamage);
+        }
+        animator.SetBool("isColliding", false);
+        yield return new WaitForSeconds(1f);
+        isMeleeAttacking = false;
+    }   
+
 
     private void GetTarget()
     {
@@ -259,8 +292,9 @@ public class FirstBossTest : MonoBehaviour
             playerComponent.TakeDamage(1);
         }
     }
-    void OnDestroy()
+ 
+    void OnDrawGizmosSelected()
     {
-        gc.zombieKilled();
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 }
