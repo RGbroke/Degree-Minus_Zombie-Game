@@ -12,15 +12,7 @@ public class ObjectiveController_Stage2 : MonoBehaviour
     [SerializeField] private PopupSystem notification;
     [SerializeField] private TextMeshProUGUI objectiveDisplay;
 
-    private string[] dialog =
-    {
-        "Its dark.. need to use my flashlight. Eats up batteries like nothing else, so I'll have find batteries if I want to keep using it",
-        "Oh God! What the hell is that thing?",
-        "Hmm interesting, a key"
-    };
-
-    private float weaponsDiscovered = 0;
-    private List<string> objectives = new List<string>();
+    private Dictionary<string,Objective> objectives = new Dictionary<string, Objective>();
 
     void Start()
     {
@@ -37,22 +29,46 @@ public class ObjectiveController_Stage2 : MonoBehaviour
         notification.PopUp(dialog);
     }
 
-    public void addObjective(string objective)
+    public void addObjective(string objectiveTag, Objective objective)
     {
-        objectives.Add(objective);
+        objectives.Add(objectiveTag, objective);
+    }
+
+    public void removeObjective(string objectiveTag)
+    {
+        objectives.Remove(objectiveTag);
+    }
+
+    public Objective getObjective(string objectiveTag)
+    {
+        if (!objectives.ContainsKey(objectiveTag))
+            return null;
+
+        return objectives[objectiveTag];
     }
 
     private void stageIntro()
     {
         alertPlayer("Crap, the experimental weapons broke. Might be a stretch, but maybe there'll be something I can use in here");
-        addObjective("Optional: Discover new weapons");
+        addObjective("discoverWeapons", new Objective("Optional: Discover new weapons", 3));
     }
 
     private void printObjectives()
     {
-        string toDisplay = "<style=\"Title\">Objective:</style>\n\n";
-        foreach (string objective in objectives) {
-            toDisplay += "<style=\"Normal\">"+ objective +"</style>\n\n";
+        string toDisplay = "<style=\"Title\">Objectives:</style>\n\n";
+        foreach (KeyValuePair<string, Objective> objective in objectives)
+        { 
+            if (objective.Value.isObjectiveComplete()) 
+            { 
+                toDisplay += "<style=\"Complete\">" + objective.Value.getDescription() + "</style>\n\n";
+                if(objective.Value.reduceTime(Time.deltaTime) < 0)
+                {
+                    removeObjective(objective.Key);
+                    break;
+                }
+                continue;
+            }
+            toDisplay += "<style=\"Normal\">"+ objective.Value.getDescription() + "</style>\n\n";
         }
         objectiveDisplay.text = toDisplay;
     }

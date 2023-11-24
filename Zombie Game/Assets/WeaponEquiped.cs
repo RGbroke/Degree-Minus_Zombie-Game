@@ -76,7 +76,6 @@ public class WeaponEquiped : MonoBehaviour
     }
     public void doneReloading()
     {
-        Debug.Log("DONE!");
         updateAmmoDisplay();
         reloadVisual.SetTrigger("ReloadFinished");
     }
@@ -139,7 +138,6 @@ public class WeaponEquiped : MonoBehaviour
         updateWindow();
         updateAmmoDisplay();
         switchVisual.SetTrigger("Next");
-        UnityEngine.Debug.Log("Weapon Equiped " + equiped);
     }
 
     public void prevWeapon(InputAction.CallbackContext context)
@@ -160,7 +158,6 @@ public class WeaponEquiped : MonoBehaviour
         updateWindow();
         updateAmmoDisplay();
         switchVisual.SetTrigger("Prev");
-        UnityEngine.Debug.Log("Weapon Equiped " + equiped);
     }
 
     public GameObject getPrevWeapon()
