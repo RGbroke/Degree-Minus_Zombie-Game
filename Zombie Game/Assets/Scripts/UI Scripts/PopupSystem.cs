@@ -47,7 +47,7 @@ public class PopupSystem : MonoBehaviour
 
     public void resume()
     {
-        if (Time.timeScale != 0)
+        if (Time.timeScale != 0 || !this)
             return;
 
         this.GetComponent<Animator>().SetTrigger("close");

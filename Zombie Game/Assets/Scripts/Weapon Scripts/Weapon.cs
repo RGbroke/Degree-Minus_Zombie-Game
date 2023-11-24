@@ -162,7 +162,6 @@ public class Weapon : MonoBehaviour
     {
         if (currAmmo == magazineSize)
         {
-            Debug.Log("Full Ammo");
             return;
         }
             

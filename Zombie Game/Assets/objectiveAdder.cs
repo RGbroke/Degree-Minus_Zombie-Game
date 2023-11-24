@@ -6,7 +6,9 @@ public class objectiveAdder : MonoBehaviour
 {
     [SerializeField] private ObjectiveController_Stage2 objectiveControl;
     [SerializeField] private string dialogOnCollision;
-    [SerializeField] private string objective;
+    [SerializeField] private string objectiveTag;
+    [SerializeField] private string objectiveDescriptor;
+    [SerializeField] private int stepsToComplete;
     private bool played = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -15,7 +17,7 @@ public class objectiveAdder : MonoBehaviour
             return;
 
         objectiveControl.alertPlayer(dialogOnCollision);
-        objectiveControl.addObjective(objective);
+        objectiveControl.addObjective(objectiveTag, new Objective(objectiveDescriptor, stepsToComplete));
         played = true;
     }
 }
