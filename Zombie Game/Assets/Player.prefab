@@ -27,7 +27,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 20, y: 20, z: 1}
+  m_LocalScale: {x: 35, y: 35, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8587156484053763485}
@@ -461,7 +461,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -469,21 +469,81 @@ MonoBehaviour:
     m_ActionId: 47f3225f-5b4c-43ff-a685-d6e93e1dde2c
     m_ActionName: Player/Melee[/Mouse/rightButton]
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: ff87b206-5011-4dbf-b2ab-76485556da8b
-    m_ActionName: Player/NextWeapon[/Keyboard/e]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 88c7d609-2ecb-45be-a805-5670124831ce
-    m_ActionName: Player/PrevWeapon[/Keyboard/q]
-  - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2115788589608772105}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: Reload
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: c64331e2-513e-4b6a-9d9c-7f12def31560
     m_ActionName: Player/Reload[/Keyboard/r]
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: ce00570c-7aa5-4b0f-a535-2b898a9c120a
     m_ActionName: Player/Interact[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: WeaponEquiped, Assembly-CSharp
+        m_MethodName: nextWeapon
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2115788589608772105}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: cancelReload
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: ff87b206-5011-4dbf-b2ab-76485556da8b
+    m_ActionName: Player/NextWeapon[/Keyboard/rightCtrl]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: WeaponEquiped, Assembly-CSharp
+        m_MethodName: prevWeapon
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2115788589608772105}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: cancelReload
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 88c7d609-2ecb-45be-a805-5670124831ce
+    m_ActionName: Player/PrevWeapon[/Keyboard/leftCtrl]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -502,15 +562,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 0}
-  maxHealth: 15
+  maxHealth: 25
   currHealth: 0
-  moveSpeed: 6
+  moveSpeed: 5
   controller: {fileID: 8277614590128913956}
   pivot: {fileID: 8066613370844561859}
   weapon: {fileID: 814717445347588452}
   gunshotEnd: {fileID: 2639719991977007569}
-  grenadeSpeed: 5
-  grenadeCooldown: 8
+  grenadeSpeed: 6
+  grenadeCooldown: 2
   damageRate: 0.5
   sprite: {fileID: 1557002769649977749}
   weaponSprite: {fileID: 5060037789874680870}
@@ -569,7 +629,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 1.647152
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -838,7 +898,7 @@ MonoBehaviour:
   weaponControl: {fileID: 0}
   automatic: 0
   isReloading: 0
-  grenadeCapacity: 0
+  grenadeCapacity: 4
   meleeDelay: 0.3
   meleeDamage: 0
   knockOutTime: 0

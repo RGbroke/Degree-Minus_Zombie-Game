@@ -185,6 +185,9 @@ MonoBehaviour:
   weapon: {fileID: 7533914147751966972}
   weapons: {fileID: 0}
   actionReference: {fileID: -8271341944497395080, guid: 8b46156846fd99e45a5ebef9b05722da, type: 3}
+  notification: {fileID: 0}
+  dialog: 
+  dialogPlayed: 0
 --- !u!1 &7533914147751966972
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,6 +243,7 @@ MonoBehaviour:
   reloadTime: 0
   magSize: 0
   numBullets: 0
+  bulletDrag: 0
   projectilePrefab: {fileID: 0}
   weaponInHand: {fileID: 0}
   bulletSprite: {fileID: 0}
