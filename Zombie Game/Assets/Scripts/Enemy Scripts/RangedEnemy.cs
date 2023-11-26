@@ -196,21 +196,7 @@ public class RangedEnemy : MonoBehaviour
         animator.SetBool("isAttacking", false);
     }
 
-    private void FixedUpdate()
-    {
-        if (target != null)
-        {
-            if (Vector2.Distance(target.position, transform.position) >= distanceToStop)
-            {
-                rb.velocity = transform.up * speed;
-            }
-            else
-            {
-                rb.velocity = Vector2.zero;
-            }
-        }
-    }
-
+ 
     private void GetTarget()
     {
         if (GameObject.FindGameObjectWithTag("Player"))

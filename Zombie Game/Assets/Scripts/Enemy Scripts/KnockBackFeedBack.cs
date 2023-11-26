@@ -9,7 +9,7 @@ public class KnockBackFeedBack : MonoBehaviour
     private Rigidbody2D rb2d;
 
     [HideInInspector]
-    public float strength, delay;
+    public float strength = 3f, delay = 0.25f;
 
     public UnityEvent OnBegin, OnDone;
 
@@ -18,7 +18,7 @@ public class KnockBackFeedBack : MonoBehaviour
         StopAllCoroutines();
         OnBegin?.Invoke();
         Vector2 direction = (transform.position - sender.transform.position).normalized;
-        rb2d.AddForce(direction * strength, ForceMode2D.Impulse);
+        rb2d.AddForce(direction * strength, ForceMode2D.Force);
         StartCoroutine(Reset());
     }
 

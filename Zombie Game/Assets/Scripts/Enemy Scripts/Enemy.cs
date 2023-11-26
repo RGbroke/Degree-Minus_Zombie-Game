@@ -17,7 +17,6 @@ public class Enemy : MonoBehaviour
 
     //System
     public GameController gc;
-    public Dialogue dialogue;
 
     //Sprite
     public SpriteRenderer sprite;

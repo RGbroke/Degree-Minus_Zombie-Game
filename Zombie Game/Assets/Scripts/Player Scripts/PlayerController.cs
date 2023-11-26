@@ -116,6 +116,7 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
+        
         currGrenadeCooldown -= Time.deltaTime;
         //Movement/Control handling
 
@@ -245,5 +246,12 @@ public class PlayerController : MonoBehaviour
     public float getHealth()
     {
         return currHealth;
+    }
+
+    public void KnockBack(Vector2 direction)
+    {
+        Debug.Log(direction);
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        rb.AddForce(direction * 10000f, ForceMode2D.Force);
     }
 }
