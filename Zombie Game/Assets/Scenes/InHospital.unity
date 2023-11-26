@@ -86486,19 +86486,19 @@ PrefabInstance:
     - target: {fileID: 1865967085330976227, guid: 4a25e842cd0452544a35ac9f6567b980, type: 3}
       propertyPath: OnDone.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1551240774}
+      objectReference: {fileID: 0}
     - target: {fileID: 1865967085330976227, guid: 4a25e842cd0452544a35ac9f6567b980, type: 3}
       propertyPath: OnDone.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1551240776}
+      objectReference: {fileID: 0}
     - target: {fileID: 1865967085330976227, guid: 4a25e842cd0452544a35ac9f6567b980, type: 3}
       propertyPath: OnBegin.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1551240774}
+      objectReference: {fileID: 0}
     - target: {fileID: 1865967085330976227, guid: 4a25e842cd0452544a35ac9f6567b980, type: 3}
       propertyPath: OnBegin.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1551240776}
+      objectReference: {fileID: 0}
     - target: {fileID: 1865967085330976227, guid: 4a25e842cd0452544a35ac9f6567b980, type: 3}
       propertyPath: OnDone.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
