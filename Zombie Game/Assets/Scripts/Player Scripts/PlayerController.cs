@@ -198,7 +198,6 @@ public class PlayerController : MonoBehaviour
         if (!context.started || weapon.isReloading)
             return;
 
-        Debug.Log("RELOAD");
         weapon.reload();
     }
     public void cancelReload(InputAction.CallbackContext context)
@@ -206,7 +205,6 @@ public class PlayerController : MonoBehaviour
         if (!context.started || !weapon.isReloading)
             return;
 
-        Debug.Log("Reload Cancelled");
         weapon.cancelReload();
     }
   

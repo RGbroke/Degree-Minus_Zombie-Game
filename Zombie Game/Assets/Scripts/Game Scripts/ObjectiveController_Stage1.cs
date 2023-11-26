@@ -13,6 +13,8 @@ public class ObjectiveController_Stage1 : MonoBehaviour
     private GameController gc;
     [SerializeField]
     private TextMeshProUGUI objectiveDisplay;
+    [SerializeField] 
+    private PopupSystem popup;
 
     [SerializeField]
     private GameObject trigger;
@@ -39,6 +41,8 @@ public class ObjectiveController_Stage1 : MonoBehaviour
     private bool mainObj = false;
     private string text;
    
+    private bool missionPopup = false;
+    private bool missionCompletePopup = false;
 
     private void Update()
     {
@@ -59,10 +63,20 @@ public class ObjectiveController_Stage1 : MonoBehaviour
                     grenadeAttack();
                     break;
                 case 4:
-                    text = "<style=\"Normal\">Zombies Approach! Clear the Area to get inside! (" + gc.numZombiesKilled() + "/" + zombiesToKill + ")</style>";
+                    if (!missionPopup)
+                    {
+                        popup.PopUp("That doesn't sound good... Looks like I'll have to kill as many zombies as I can before I enter. This many zombies trailing me in such a tight space would be a death sentence");
+                        missionPopup = true;
+                    }
+                    text = "<style=\"Normal\">Zombies Approach! Clear the Area to get inside! (" + gc.numZombiesKilled() + "/???)</style>";
                     break;
                 case 5:
-                    text = "<style=\"Normal\">Good Job! Now Enter The Hospital</style>";
+                    if (!missionCompletePopup)
+                    {
+                        popup.PopUp("What the hell!? I've killed damn near a thousand and there's still more! Looks like I'll just have to get in and take my chances with baracading the door.");
+                        missionCompletePopup = true;
+                    }
+                    text = "<style=\"Normal\">There are just too many! Just get into the Hospital</style>";
                     trigger.SetActive(true);
                     break;    
             }
@@ -93,7 +107,7 @@ public class ObjectiveController_Stage1 : MonoBehaviour
         if(weapon.bulletShot < 5)
             {
                 objectiveCheck = false;
-                text = "<style=\"Normal\">Use gun attack 5 times: ("+ weapon.bulletShot + "/5)</style>";
+                text = "<style=\"Normal\">Fire your gun 5 times: ("+ weapon.bulletShot + "/5)</style>";
             }
         if(weapon.bulletShot == 5 && objectiveCheck == false)
             {
@@ -105,12 +119,12 @@ public class ObjectiveController_Stage1 : MonoBehaviour
 
     public void meleeAttack()
     {
-        if(weapon.meleeCount < 5)
+        if(weapon.meleeCount < 3)
             {
                 objectiveCheck = false;
-                text = "<style=\"Normal\">Use melee attack 5 times: ("+ weapon.meleeCount + "/5)</style>";
+                text = "<style=\"Normal\">Use a melee attack 3 times: ("+ weapon.meleeCount + "/3)</style>";
             }
-        if(weapon.meleeCount == 5 && objectiveCheck == false)
+        if(weapon.meleeCount == 3 && objectiveCheck == false)
             {
                 objectiveCheck = true;
                 text = "<style=\"Normal\">Completed </style>";
@@ -123,7 +137,7 @@ public class ObjectiveController_Stage1 : MonoBehaviour
         if(weapon.grenadeThrew < 2)
             {   
                 objectiveCheck = false;
-                text = "<style=\"Normal\">Throw grenade 2 times: ("+ weapon.grenadeThrew + "/2)</style>";
+                text = "<style=\"Normal\">Throw a grenade 2 times: ("+ weapon.grenadeThrew + "/2)</style>";
             }
         if(weapon.grenadeThrew == 2 && objectiveCheck == false)
              {

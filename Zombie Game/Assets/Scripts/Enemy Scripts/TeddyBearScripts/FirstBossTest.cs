@@ -49,6 +49,8 @@ public class FirstBossTest : MonoBehaviour
     public GameController gc;
     UnityEngine.AI.NavMeshAgent agent;
 
+    //Objective Control
+    public ObjectiveController_Stage2 objectiveControl;
  
 
     //Flashing Red when Hit
@@ -292,5 +294,10 @@ public class FirstBossTest : MonoBehaviour
     void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+    }
+
+    private void OnDestroy()
+    {
+        objectiveControl.getObjective("boss").completeObjective();
     }
 }

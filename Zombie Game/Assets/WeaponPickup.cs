@@ -62,6 +62,7 @@ public class WeaponPickup : MonoBehaviour
         if (!playerTouching)
             return;
 
+        weapon.SetActive(true);
         weapons.addWeapon(weapon);
         gameObject.SetActive(false);
     }

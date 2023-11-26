@@ -58,6 +58,7 @@ public class batteryPickup : MonoBehaviour
             return;
 
         fovDecayControl.batteryObtained();
+        objectiveControl.getObjective("battery").progressObjective();
         this.gameObject.SetActive(false);
     }
 }

@@ -40,9 +40,9 @@ public class TutorialScript : MonoBehaviour
         objectiveList.Add(("Pick up HP kit", 3));
         objectiveList.Add(("Eliminate 2 zombies", 4));
         objectiveList.Add(("Eliminate all zombies", 5));*/
-        tutorialList.Add("Each weapon has a different normal attack.\nPress/Hold Left-Mouse button to fire, manage ammo wisely.");
-        tutorialList.Add("When enemy approaches, use Right-Mouse Button to attack.");
-        tutorialList.Add("Grenade can be thrown at interval, dealing massive area of effect damage.\n Press Spacebar to throw a grenade at the front.");
+        tutorialList.Add("Each weapon has a different attack.\nPress/Hold Left-Mouse button (Or Right Trigger) to fire, manage your ammo wisely.");
+        tutorialList.Add("When enemies get too close, use the Right-Mouse Button (Or Right Bumper) to do a melee attack.");
+        tutorialList.Add("Grenade can be thrown once every 2 seconds, dealing massive area of effect damage.\n Press the Spacebar (Or Left Trigger) to throw a grenade.");
         /*tutorialList.Add("Health bar can be seen at the bottom of the screen. The soldier will die when the bar is depleted.");
         tutorialList.Add("You have been damaged, however, random HP kits can be found to restore HP.\nPick up an HP kit to restore HP.");*/
         tutorialList.Add("An enemy has been spotted!!!\nEach enemy can have different health, attack, and speed. Be on guard!");

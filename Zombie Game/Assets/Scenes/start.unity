@@ -130818,7 +130818,7 @@ MonoBehaviour:
   bulletLifespan: 5
   bulletSpeed: 15
   timeBetweenShots: 0.5
-  bulletDamage: 10
+  bulletDamage: 20
   spread: 0
   automatic: 1
   reloadTime: 5
@@ -131077,6 +131077,10 @@ MonoBehaviour:
   weapon: {fileID: 963343610}
   weapons: {fileID: 251309345}
   actionReference: {fileID: -8271341944497395080, guid: 8b46156846fd99e45a5ebef9b05722da, type: 3}
+  notification: {fileID: 879500121}
+  dialog: Heh. New weapon RnD has cooked up. An automatic shotgun with dragon's breath
+    rounds. Should make mince meat of any zombies in my way
+  dialogPlayed: 0
 --- !u!58 &541723383
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -131359,7 +131363,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1504935871}
   GameOverScreen: {fileID: 1026654365}
-  maxZombies: 100
+  maxZombies: 1000
 --- !u!114 &571784348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131419,8 +131423,9 @@ MonoBehaviour:
   pc: {fileID: 1504935871}
   gc: {fileID: 571784347}
   objectiveDisplay: {fileID: 1884157257}
+  popup: {fileID: 879500121}
   trigger: {fileID: 1612696309}
-  zombiesToKill: 20
+  zombiesToKill: 100
   tutorial: {fileID: 571784350}
   activator: {fileID: 1805130350}
   objectiveCheck: 0
@@ -143383,6 +143388,10 @@ MonoBehaviour:
   weapon: {fileID: 478566777}
   weapons: {fileID: 251309345}
   actionReference: {fileID: -8271341944497395080, guid: 8b46156846fd99e45a5ebef9b05722da, type: 3}
+  notification: {fileID: 879500121}
+  dialog: Classic! A grenade launcher. Should make quick work or large crowds of
+    zombies.
+  dialogPlayed: 0
 --- !u!212 &1716060084
 SpriteRenderer:
   m_ObjectHideFlags: 0
