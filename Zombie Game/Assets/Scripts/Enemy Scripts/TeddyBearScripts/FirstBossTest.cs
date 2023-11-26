@@ -14,20 +14,21 @@ public class FirstBossTest : MonoBehaviour
     public float rotateSpeed = 0.0025f;
     private Rigidbody2D rb;
     PlayerController player;
-    public float distanceToShoot = 5f;
-    public float distanceToStop = 3f;
-    private float attackDelay = 0.25f;
     public HealthBar healthBar;
     private float health;
     public float maxHealth = 3f;
-    public float fireRate;
-    private float timeToFire;
     [SerializeField] private float bulletSpeed;
-    public Transform firingPoint;
-    public GameObject bulletPrefab;
+    public float knockbackForce = 100f;
 
     //Range Attacks
-    private bool isRangeAttacking; 
+    public bool isRangeAttacking; 
+    public float distanceToShoot = 5f;
+    public float distanceToStop = 3f;
+    private float attackDelay = 0.25f;
+    public float fireRate;
+    private float timeToFire;
+    public Transform firingPoint;
+    public GameObject bulletPrefab;
 
     //Melee Attacks
     public Transform attackPoint;
@@ -35,7 +36,7 @@ public class FirstBossTest : MonoBehaviour
     public float attackRange = 3f;
     public int attackDamage = 5;
     float meleeAttackDelay = 0;
-    private bool isMeleeAttacking;
+    public bool isMeleeAttacking;
 
 
     // Animations
@@ -256,19 +257,7 @@ public class FirstBossTest : MonoBehaviour
         }
     }
 
-    IEnumerator MeleeAttack()
-    {
-        animator.SetBool("isColliding", true);
-        Collider2D[] hitTargets = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, hitTarget);
-        foreach(Collider2D target in hitTargets)
-        {
-            /*Include scripts for destroying objects later*/
-            target.GetComponent<PlayerController>().TakeDamage(attackDamage);
-        }
-        animator.SetBool("isColliding", false);
-        yield return new WaitForSeconds(1f);
-        isMeleeAttacking = false;
-    }   
+  
 
 
     private void GetTarget()
@@ -280,10 +269,17 @@ public class FirstBossTest : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
-    {
+    {       
+        Collider2D collider = collision.collider;
         if (collision.gameObject.TryGetComponent<PlayerController>(out PlayerController playerComponent))
         {
             player = playerComponent;
+
+            /*Knocking Back Effect*/
+            /*Vector2 direction = (collider.transform.position - transform.position).normalized;
+            Vector2 knockback = direction * 10f;
+            player.KnockBack(knockback);*/
+        
         }
     }
 

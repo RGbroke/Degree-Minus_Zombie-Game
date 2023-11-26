@@ -99,7 +99,6 @@ public class FirstBoss : MonoBehaviour
         {
             isColliding = true;
             animator.SetBool("isColliding", true);
-            normalAttacks.MeleeAttack();
             player = playerComponent;
             /*
             int attackNoise = Random.Range(1, 3);

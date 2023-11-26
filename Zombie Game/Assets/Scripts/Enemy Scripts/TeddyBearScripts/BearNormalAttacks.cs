@@ -8,21 +8,28 @@ public class BearNormalAttacks : MonoBehaviour
     public Transform firingPoint;
     public LayerMask hitTarget;
     public GameObject puddlePrefab;
-
+    private FirstBossTest parent;
 
     public float attackRange = 3f;
     public int attackDamage = 5;
 
-
-    public void MeleeAttack()
+    void Awake()
     {
+        parent = gameObject.GetComponent<FirstBossTest>();
+    }
+
+    public IEnumerator MeleeAttack()
+    {
+        Debug.Log("Test");
         Collider2D[] hitTargets = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, hitTarget);
-        Debug.Log("You have been hit");
         foreach(Collider2D target in hitTargets)
         {
             /*Include scripts for destroying objects later*/
             target.GetComponent<PlayerController>().TakeDamage(attackDamage);
         }
+        parent.animator.SetBool("isColliding", false);
+        yield return new WaitForSeconds(1f);
+        parent.isMeleeAttacking = false;
     }   
 
     public IEnumerator RangeAttack(float bulletSpeed)
