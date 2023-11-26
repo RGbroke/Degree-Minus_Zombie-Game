@@ -299,5 +299,6 @@ public class FirstBossTest : MonoBehaviour
     private void OnDestroy()
     {
         objectiveControl.getObjective("boss").completeObjective();
+        objectiveControl.bossKilled();
     }
 }

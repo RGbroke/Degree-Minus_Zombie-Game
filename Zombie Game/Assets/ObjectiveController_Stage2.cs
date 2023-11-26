@@ -11,8 +11,13 @@ public class ObjectiveController_Stage2 : MonoBehaviour
 {
     [SerializeField] private PopupSystem notification;
     [SerializeField] private TextMeshProUGUI objectiveDisplay;
+    [SerializeField] private GameObject key;
+    [SerializeField] private GameObject carpetInteraction;
+    [SerializeField] private GameObject levelSwitch;
+
 
     private Dictionary<string,Objective> objectives = new Dictionary<string, Objective>();
+
 
     void Start()
     {
@@ -23,6 +28,21 @@ public class ObjectiveController_Stage2 : MonoBehaviour
     {
         printObjectives();
     }
+
+    public void bossKilled()
+    {
+        key.SetActive(true);
+    }
+    public void keyObtained()
+    {
+        carpetInteraction.SetActive(true);
+    }
+    public void carpetMoved()
+    {
+        levelSwitch.SetActive(true);
+    }
+
+
 
     public void alertPlayer(string dialog)
     {
@@ -49,7 +69,7 @@ public class ObjectiveController_Stage2 : MonoBehaviour
 
     private void stageIntro()
     {
-        alertPlayer("Crap, the experimental weapons broke. Might be a stretch, but maybe there'll be something I can use in here");
+        alertPlayer("Phew.. that was close. Don't wanna stick around to see if the door will hold. Had to ditch the heavy equipment so I'll have to make due");
         addObjective("discoverWeapons", new Objective("Optional: Discover new weapons", 3));
     }
 
@@ -59,13 +79,12 @@ public class ObjectiveController_Stage2 : MonoBehaviour
         foreach (KeyValuePair<string, Objective> objective in objectives)
         { 
             if (objective.Value.isObjectiveComplete()) 
-            { 
-                toDisplay += "<style=\"Complete\">" + objective.Value.getDescription() + "</style>\n\n";
-                if(objective.Value.reduceTime(Time.deltaTime) < 0)
+            {
+                if (objective.Value.reduceTime(Time.deltaTime) < 0)
                 {
-                    removeObjective(objective.Key);
-                    break;
+                    continue;
                 }
+                toDisplay += "<style=\"Complete\">" + objective.Value.getDescription() + "</style>\n\n";
                 continue;
             }
             toDisplay += "<style=\"Normal\">"+ objective.Value.getDescription() + "</style>\n\n";

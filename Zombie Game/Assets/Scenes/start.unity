@@ -130296,9 +130296,9 @@ MonoBehaviour:
   bulletDamage: 12.5
   spread: 0.005
   automatic: 0
-  reloadTime: 2.5
-  magSize: 20
-  numBullets: 20
+  reloadTime: 1.25
+  magSize: 13
+  numBullets: 13
   bulletDrag: 0
   projectilePrefab: {fileID: 918000483746761494, guid: ca2142017356c69498558b5b3b8834fa, type: 3}
   weaponInHand: {fileID: 0}
@@ -131425,7 +131425,7 @@ MonoBehaviour:
   objectiveDisplay: {fileID: 1884157257}
   popup: {fileID: 879500121}
   trigger: {fileID: 1612696309}
-  zombiesToKill: 100
+  zombiesToKill: 999
   tutorial: {fileID: 571784350}
   activator: {fileID: 1805130350}
   objectiveCheck: 0
