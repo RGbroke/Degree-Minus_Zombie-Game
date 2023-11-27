@@ -45,9 +45,10 @@ public class WeaponPickup : MonoBehaviour
         if (collision.gameObject.name != player.name)
             return;
 
-        if(notification.currentlyDisplayed)
-            return;
         playerHover();
+
+        if (notification.currentlyDisplayed)
+            return;
     }
 
     private void dialogPopup(string dialog)
