@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 2888267342504810340}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.08, y: 8.57, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3, y: 1.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 4757194482526292918}
   m_Layer: 8
   m_Name: katanabossL1
-  m_TagString: Untagged
+  m_TagString: KatanaBoss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -476,8 +476,8 @@ Transform:
   m_GameObject: {fileID: 5306018554973604436}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 67.99, y: 90.80073, z: -0.019251935}
-  m_LocalScale: {x: 0.45562997, y: 0.1575, z: 1}
+  m_LocalPosition: {x: -6.5, y: 5.5, z: -0.019251935}
+  m_LocalScale: {x: 4.446675, y: 1.0098193, z: 11.657365}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4669604447072005504}
@@ -510,7 +510,7 @@ Transform:
   m_GameObject: {fileID: 7809347111195324016}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.08, y: 8.57, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3, y: 1.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

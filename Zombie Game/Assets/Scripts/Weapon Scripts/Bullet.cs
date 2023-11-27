@@ -10,6 +10,7 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log("asdf");
         if(collision.gameObject.TryGetComponent<Enemy>(out Enemy enemyComponent))
         {
             enemyComponent.TakeDamage(damage);
@@ -21,6 +22,11 @@ public class Bullet : MonoBehaviour
         else if (collision.gameObject.TryGetComponent<FirstBoss>(out FirstBoss boss))
         {
             boss.TakeDamage(damage);
+        }
+        else if (collision.gameObject.TryGetComponent<KatanaBoss>(out KatanaBoss kboss))
+        {
+            kboss.TakeDamage(damage);
+            Debug.Log("2hi");
         }
         /*REMOVE LATER*/
         else if (collision.gameObject.TryGetComponent<FirstBossTest>(out FirstBossTest bossTest))

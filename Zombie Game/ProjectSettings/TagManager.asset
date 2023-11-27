@@ -12,6 +12,7 @@ TagManager:
   - Activator
   - FirstBoss
   - Wall
+  - KatanaBoss
   layers:
   - Default
   - TransparentFX

@@ -70302,6 +70302,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1249947756}
     m_Modifications:
+    - target: {fileID: 2888267342504810340, guid: c5f581fcf5d7ab040b0d4dd21c50dcda, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3070054470535112488, guid: c5f581fcf5d7ab040b0d4dd21c50dcda, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3070054470535112488, guid: c5f581fcf5d7ab040b0d4dd21c50dcda, type: 3}
       propertyPath: m_MaskInteraction
       value: 0
@@ -70316,23 +70324,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3191386677809645789, guid: c5f581fcf5d7ab040b0d4dd21c50dcda, type: 3}
       propertyPath: m_TagString
-      value: Enemy
+      value: KatanaBoss
+      objectReference: {fileID: 0}
+    - target: {fileID: 3315085609971353377, guid: c5f581fcf5d7ab040b0d4dd21c50dcda, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5306018554973604436, guid: c5f581fcf5d7ab040b0d4dd21c50dcda, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5621346258185821426, guid: c5f581fcf5d7ab040b0d4dd21c50dcda, type: 3}
       propertyPath: gc
       value: 
       objectReference: {fileID: 1689334608}
     - target: {fileID: 5621346258185821426, guid: c5f581fcf5d7ab040b0d4dd21c50dcda, type: 3}
+      propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5621346258185821426, guid: c5f581fcf5d7ab040b0d4dd21c50dcda, type: 3}
       propertyPath: sprite
       value: 
       objectReference: {fileID: 1193117695}
     - target: {fileID: 6385795902992796133, guid: c5f581fcf5d7ab040b0d4dd21c50dcda, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -80.2
+      value: -99.4
       objectReference: {fileID: 0}
     - target: {fileID: 6385795902992796133, guid: c5f581fcf5d7ab040b0d4dd21c50dcda, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -90.4
+      value: -103.69
       objectReference: {fileID: 0}
     - target: {fileID: 6385795902992796133, guid: c5f581fcf5d7ab040b0d4dd21c50dcda, type: 3}
       propertyPath: m_LocalPosition.z
@@ -70366,13 +70386,28 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7679243991484650251, guid: c5f581fcf5d7ab040b0d4dd21c50dcda, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7679243991484650251, guid: c5f581fcf5d7ab040b0d4dd21c50dcda, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7809347111195324016, guid: c5f581fcf5d7ab040b0d4dd21c50dcda, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3191386677809645789, guid: c5f581fcf5d7ab040b0d4dd21c50dcda, type: 3}
-      insertIndex: -1
+      insertIndex: 3
       addedObject: {fileID: 1193117696}
+    - targetCorrespondingSourceObject: {fileID: 3191386677809645789, guid: c5f581fcf5d7ab040b0d4dd21c50dcda, type: 3}
+      insertIndex: 4
+      addedObject: {fileID: 1193117702}
   m_SourcePrefab: {fileID: 100100000, guid: c5f581fcf5d7ab040b0d4dd21c50dcda, type: 3}
 --- !u!4 &1193117694 stripped
 Transform:
@@ -70394,7 +70429,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 7.065
-  m_Speed: 3.5
+  m_Speed: 1
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -70406,6 +70441,33 @@ NavMeshAgent:
   m_BaseOffset: 7.065
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!50 &1193117702
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149503501}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1000
+  m_LinearDrag: 15
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &1249947755
 GameObject:
   m_ObjectHideFlags: 0
@@ -70415,7 +70477,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1249947756}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Zombies
   m_TagString: Untagged
   m_Icon: {fileID: 0}
