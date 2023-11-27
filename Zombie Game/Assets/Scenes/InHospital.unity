@@ -212,6 +212,7 @@ GameObject:
   - component: {fileID: 62175487}
   - component: {fileID: 62175491}
   - component: {fileID: 62175492}
+  - component: {fileID: 62175493}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: Untagged
@@ -338,6 +339,20 @@ MonoBehaviour:
   objectiveTag: boss
   objectiveDescriptor: Kill The Boss!
   stepsToComplete: 0
+--- !u!114 &62175493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62175484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9669ed1762146d74292bda9a48e3bd6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectiveControl: {fileID: 191643799}
+  objectiveTag: Explore
 --- !u!1 &84229072
 GameObject:
   m_ObjectHideFlags: 0
@@ -1119,7 +1134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectiveControl: {fileID: 191643799}
   dialogOnCollision: What's going on...!?
-  objectiveTag: null
+  objectiveTag: Explore
   objectiveDescriptor: Explore The Room
   stepsToComplete: 0
 --- !u!114 &248393980
@@ -94969,6 +94984,10 @@ PrefabInstance:
     - target: {fileID: 1504377949836375168, guid: fb123fdf15b294a4c8381d77fb8cbe66, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5408381638107092127, guid: fb123fdf15b294a4c8381d77fb8cbe66, type: 3}
+      propertyPath: numBulletsPerShot
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
