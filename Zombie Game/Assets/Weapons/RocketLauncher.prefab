@@ -50,10 +50,10 @@ MonoBehaviour:
   bulletLifespan: 5
   bulletSpeed: 30
   timeBetweenShots: 1
-  bulletDamage: 300
+  bulletDamage: 200
   spread: 0.025
   automatic: 0
-  reloadTime: 5
+  reloadTime: 3
   magSize: 1
   numBullets: 1
   bulletDrag: 0
@@ -61,8 +61,8 @@ MonoBehaviour:
   weaponInHand: {fileID: 0}
   bulletSprite: {fileID: 21300000, guid: b6509a56a3119da478cce884454e2666, type: 3}
   bulletScale: 1
-  gunshotSound: {fileID: 0}
-  gunshotTrail: {fileID: 0}
+  gunshotSound: {fileID: 8300000, guid: 2cd8f79d804f23647989d83bdd11e1e0, type: 3}
+  reloadSound: {fileID: 8300000, guid: 38af7e18c812bdd4f9c566d724fbecf4, type: 3}
 --- !u!212 &4973876778128807727
 SpriteRenderer:
   m_ObjectHideFlags: 0

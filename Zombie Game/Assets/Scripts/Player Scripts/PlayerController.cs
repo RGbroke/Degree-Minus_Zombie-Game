@@ -31,9 +31,6 @@ public class PlayerController : MonoBehaviour
     private bool fire;
     private bool automatic;
 
-    //Weapon SFX
-    public AudioSource gunshotEnd;
-
     //Grenade
     [SerializeField] private float grenadeSpeed = 5f;
     [SerializeField] private float grenadeCooldown;
@@ -189,7 +186,6 @@ public class PlayerController : MonoBehaviour
     private void StopFiring()
     {
         fire = false;
-        gunshotEnd.Play();
         Cursor.SetCursor(cursorTexture, cursorHotspot, CursorMode.Auto);
     }
     

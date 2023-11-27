@@ -69526,9 +69526,17 @@ PrefabInstance:
       value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 960330135498867237, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
+      propertyPath: reloadSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 49040f24966294147b6048b45fb4308e, type: 3}
+    - target: {fileID: 960330135498867237, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: bulletDamage
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 960330135498867237, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
+      propertyPath: gunshotSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 3592254cca9c9e941b2831e3a8eeb675, type: 3}
     - target: {fileID: 960330135498867237, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: bulletLifespan
       value: 1
@@ -79801,6 +79809,10 @@ PrefabInstance:
       value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 960330135498867237, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
+      propertyPath: reloadSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 38af7e18c812bdd4f9c566d724fbecf4, type: 3}
+    - target: {fileID: 960330135498867237, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: bulletDamage
       value: 4
       objectReference: {fileID: 0}
@@ -79808,6 +79820,10 @@ PrefabInstance:
       propertyPath: bulletSprite
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 960330135498867237, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
+      propertyPath: gunshotSound
+      value: 
+      objectReference: {fileID: 8300000, guid: b5770e711a08c1843b2701ae251c6d05, type: 3}
     - target: {fileID: 960330135498867237, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: bulletLifespan
       value: 2.5
@@ -89502,6 +89518,10 @@ PrefabInstance:
       value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 960330135498867237, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
+      propertyPath: reloadSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 38af7e18c812bdd4f9c566d724fbecf4, type: 3}
+    - target: {fileID: 960330135498867237, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: bulletDamage
       value: 300
       objectReference: {fileID: 0}
@@ -89509,6 +89529,10 @@ PrefabInstance:
       propertyPath: bulletSprite
       value: 
       objectReference: {fileID: 21300000, guid: b6509a56a3119da478cce884454e2666, type: 3}
+    - target: {fileID: 960330135498867237, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
+      propertyPath: gunshotSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 2cd8f79d804f23647989d83bdd11e1e0, type: 3}
     - target: {fileID: 960330135498867237, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: bulletLifespan
       value: 5
@@ -89684,6 +89708,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 814717445347588452, guid: e8b062e4ea524dc43bcb6a2adf8140a3, type: 3}
+      propertyPath: soundPlayer
+      value: 
+      objectReference: {fileID: 1896301702}
+    - target: {fileID: 814717445347588452, guid: e8b062e4ea524dc43bcb6a2adf8140a3, type: 3}
       propertyPath: weaponControl
       value: 
       objectReference: {fileID: 143875688}
@@ -89767,6 +89795,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7405240e3d412324cbe0ac7807e9c50c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &1896301702 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4751145713111198621, guid: e8b062e4ea524dc43bcb6a2adf8140a3, type: 3}
+  m_PrefabInstance: {fileID: 1896301700}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1916911052
 PrefabInstance:
   m_ObjectHideFlags: 0

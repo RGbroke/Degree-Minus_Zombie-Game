@@ -13,4 +13,8 @@ public class ChapterSelect : MonoBehaviour
     {
         SceneManager.LoadScene("InHospital");
     }
+    public void loadChapter3()
+    {
+        SceneManager.LoadScene("Basement");
+    }
 }
