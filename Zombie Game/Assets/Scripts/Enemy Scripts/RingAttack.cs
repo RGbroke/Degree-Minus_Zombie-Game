@@ -21,6 +21,7 @@ public class RingAttack : MonoBehaviour
     public float ringFireRate;
     private float ringTimeToFire;
 
+    private GameObject parent;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +33,7 @@ public class RingAttack : MonoBehaviour
 
             firingPoints[i].rotation = Quaternion.Euler(0, 0, 90 - i * 45);
         }
+        parent = transform.parent.gameObject;
     }
 
     // Update is called once per frame

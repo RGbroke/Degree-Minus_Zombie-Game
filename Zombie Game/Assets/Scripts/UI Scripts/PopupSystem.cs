@@ -10,11 +10,14 @@ public class PopupSystem : MonoBehaviour
 {
     public GameObject popUpBox;
     public TMP_Text popUpText;
+    public bool currentlyDisplayed;
 
     [SerializeField] private InputActionReference actionReference;
 
     void Start()
     {
+        currentlyDisplayed = false;
+
         actionReference.action.performed += context =>
         {
             resume();
@@ -32,6 +35,7 @@ public class PopupSystem : MonoBehaviour
 
     IEnumerator opening(string text)
     {
+        currentlyDisplayed = true;
         popUpBox.SetActive(true);
         popUpText.text = text;
         this.GetComponent<Animator>().SetTrigger("pop");
@@ -52,5 +56,10 @@ public class PopupSystem : MonoBehaviour
 
         this.GetComponent<Animator>().SetTrigger("close");
         Time.timeScale = 1;
+    }
+
+    void setDisplayToClosed()
+    {
+        currentlyDisplayed = false;
     }
 }

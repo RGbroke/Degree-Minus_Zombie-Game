@@ -16,7 +16,7 @@ public class ObjectiveController_Stage2 : MonoBehaviour
     [SerializeField] private GameObject levelSwitch;
 
 
-    private Dictionary<string,Objective> objectives = new Dictionary<string, Objective>();
+    public Dictionary<string,Objective> objectives = new Dictionary<string, Objective>();
 
 
     void Start()

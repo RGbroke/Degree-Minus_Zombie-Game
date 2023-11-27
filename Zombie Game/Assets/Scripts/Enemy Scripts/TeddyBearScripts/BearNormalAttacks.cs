@@ -4,14 +4,21 @@ using UnityEngine;
 
 public class BearNormalAttacks : MonoBehaviour
 {
-    public Transform attackPoint;
-    public Transform firingPoint;
-    public LayerMask hitTarget;
-    public GameObject puddlePrefab;
+   
+    //Assets
+    public GameObject bulletPrefab;
     private FirstBossTest parent;
 
-    public float attackRange = 3f;
+     //Melee Attacks
+    public Transform attackPoint;
+    public LayerMask hitTarget;
+    public float attackRange;
     public int attackDamage = 5;
+
+    //Range Attacks
+    public float fireRate = 2f;
+    [SerializeField] private float bulletSpeed;
+    public float attackDelay = 0.25f;
 
     void Awake()
     {
@@ -30,18 +37,43 @@ public class BearNormalAttacks : MonoBehaviour
         parent.animator.SetBool("isColliding", false);
         yield return new WaitForSeconds(1f);
         parent.isMeleeAttacking = false;
+        parent.gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().isStopped = false;
     }   
 
-    public IEnumerator RangeAttack(float bulletSpeed)
+    private void RangeAttack()
+    {
+        StartCoroutine(RangeAttackDelay());
+        parent.timeToFire = fireRate;
+    }
+
+    public IEnumerator RangeAttackDelay()
     { 
-        yield return new WaitForSeconds(0.5f);
-        GameObject enemyProjectileObject = Instantiate(puddlePrefab, firingPoint.position, firingPoint.rotation);
-        EnemyProjectile enemyProjectile = enemyProjectileObject.GetComponent<EnemyProjectile>(); 
+        Debug.Log("Range Attacking");
+        yield return new WaitForSeconds(attackDelay);
+        GameObject enemyProjectileObject;
+        if(parent.facingRight)
+            {
+                enemyProjectileObject = Instantiate(bulletPrefab, parent.firingPoint.position, parent.firingPoint.rotation);
+            }
+        else
+            {
+                enemyProjectileObject = Instantiate(bulletPrefab, parent.firingPoint.position, flipCoordinate(parent.firingPoint.rotation));
+            }
+        EnemyProjectile enemyProjectile = enemyProjectileObject.GetComponent<EnemyProjectile>(); // Get the EnemyBullet component
+
         if (enemyProjectile != null)
         {
             enemyProjectile.speed = bulletSpeed; 
-            enemyProjectile.GetComponent<Rigidbody2D>().AddForce(firingPoint.up * enemyProjectile.speed, ForceMode2D.Impulse);
+            enemyProjectile.GetComponent<Rigidbody2D>().AddForce(parent.firingPoint.up * enemyProjectile.speed, ForceMode2D.Impulse);
         }
+        parent.animator.SetBool("isSpitting", false);
+        parent.isRangeAttacking = false;
+        parent.gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().isStopped = false;
+    }
+
+    private Quaternion flipCoordinate(Quaternion q)
+    {
+        return new Quaternion(-q.x, -q.y, -q.z, q.w);
     }
 
     void OnDrawGizmosSelected()

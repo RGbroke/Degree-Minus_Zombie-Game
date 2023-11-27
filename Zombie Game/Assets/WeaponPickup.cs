@@ -26,6 +26,9 @@ public class WeaponPickup : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if(notification.currentlyDisplayed)
+            return;
+
         if(collision.gameObject.name != player.name)
             return;
 
@@ -42,6 +45,8 @@ public class WeaponPickup : MonoBehaviour
         if (collision.gameObject.name != player.name)
             return;
 
+        if(notification.currentlyDisplayed)
+            return;
         playerHover();
     }
 

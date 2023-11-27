@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
@@ -24,14 +25,12 @@ public class FirstBossTest : MonoBehaviour
     public bool isRangeAttacking; 
     public float distanceToShoot = 5f;
     public float distanceToStop = 3f;
-    private float attackDelay = 0.25f;
     public float fireRate;
-    private float timeToFire;
+    public float timeToFire;
     public Transform firingPoint;
     public GameObject bulletPrefab;
 
     //Melee Attacks
-    public Transform attackPoint;
     public LayerMask hitTarget;
     public float attackRange = 3f;
     public int attackDamage = 5;
@@ -41,16 +40,16 @@ public class FirstBossTest : MonoBehaviour
 
     // Animations
     public Animator animator;
-    private bool moveRight = false;
-    private bool facingRight = true;
+    public bool moveRight = false;
+    public bool facingRight = true;
 
     //UI + Sprites + System
     public SpriteRenderer sprite;
     public GameController gc;
     UnityEngine.AI.NavMeshAgent agent;
+    public bool SecondPhase;
+    [SerializeField] private ObjectiveController_Stage2 objectiveControl;
 
-    //Objective Control
-    public ObjectiveController_Stage2 objectiveControl;
  
 
     //Flashing Red when Hit
@@ -95,11 +94,15 @@ public class FirstBossTest : MonoBehaviour
         healthBar.SetHealth(health);
         isMeleeAttacking = false;
         isRangeAttacking = false;
+        SecondPhase = false;
+        gameObject.transform.GetChild(1).gameObject.SetActive(false);
     }
 
 
     private void Update()
     {
+        if(objectiveControl.objectives.ContainsKey("boss"))
+        {
         if (!target)
         {
             GetTarget();
@@ -156,7 +159,7 @@ public class FirstBossTest : MonoBehaviour
                 Flip();
             }
 
-            if (!(Vector2.Distance(target.position, transform.position) <= distanceToStop))
+            if (!(Vector2.Distance(target.position, transform.position) <= distanceToStop) && !isRangeAttacking && !isMeleeAttacking)
             {
                 agent.SetDestination(target.position);
                 animator.SetFloat("Speed", speed);
@@ -165,24 +168,45 @@ public class FirstBossTest : MonoBehaviour
             {
                 animator.SetFloat("Speed", 0);
             }
-
         }
 
-        if (target != null && Vector2.Distance(target.position, transform.position) <= distanceToShoot && timeToFire <= 0f && !isMeleeAttacking)
+        
+        if (target != null && Vector2.Distance(target.position, transform.position) <= distanceToStop && meleeAttackDelay >= 4 && !isRangeAttacking)
         {
-            isRangeAttacking = true;
-            animator.SetBool("isSpitting", true);
-            Shoot();
-        }
-        else if (target != null && timeToFire >= 0f && Vector2.Distance(target.position, transform.position) <= distanceToStop && meleeAttackDelay >= 4 && !isRangeAttacking)
-        {
+            agent.SetDestination(transform.position);
+            gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().isStopped = true;
             isMeleeAttacking = true;
             meleeAttackDelay = 0;
             animator.SetBool("isColliding", true);
         }
+        else if (target != null && Vector2.Distance(target.position, transform.position) <= distanceToShoot && timeToFire <= 0f && !isMeleeAttacking)
+        {
+            agent.SetDestination(transform.position);
+            gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().isStopped = true;
+            isRangeAttacking = true;
+            animator.SetBool("isSpitting", true);
+        }
 
+        //Adjusting speed of attacks depending on distance based off y-axis
+        double distance = transform.position.y - target.position.y;
         meleeAttackDelay += Time.deltaTime;
-        timeToFire -= Time.deltaTime;
+
+        Debug.Log(Math.Abs(distance));
+        if(Math.Abs(distance) >= 5)
+            {
+                timeToFire -= Time.deltaTime * 2;
+            }
+        else
+            {
+                timeToFire -= Time.deltaTime;
+            }
+
+        if(health <= 1500)
+        {
+            SecondPhase = true;
+            gameObject.transform.GetChild(1).gameObject.SetActive(true);
+        }
+        }
 
         //transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
     }
@@ -196,14 +220,6 @@ public class FirstBossTest : MonoBehaviour
     }
 
 
-    //Shooting projectile
-    private void Shoot()
-    {
-        StartCoroutine(AttackDelay());
-        timeToFire = fireRate;
-    }
-
-
     //Sprite Flip
     private void Flip()
     {
@@ -214,48 +230,8 @@ public class FirstBossTest : MonoBehaviour
         firingPoint.position = localScale;
     }
 
-    IEnumerator AttackDelay()
-    {
-        yield return new WaitForSeconds(attackDelay);
-        GameObject enemyProjectileObject;
-        if(facingRight)
-            {
-                enemyProjectileObject = Instantiate(bulletPrefab, firingPoint.position, firingPoint.rotation);
-            }
-        else
-            {
-                enemyProjectileObject = Instantiate(bulletPrefab, firingPoint.position, flipCoordinate(firingPoint.rotation));
-            }
-        EnemyProjectile enemyProjectile = enemyProjectileObject.GetComponent<EnemyProjectile>(); // Get the EnemyBullet component
 
-        if (enemyProjectile != null)
-        {
-            enemyProjectile.speed = bulletSpeed; // Set the speed using the EnemyBullet component
-            enemyProjectile.GetComponent<Rigidbody2D>().AddForce(firingPoint.up * enemyProjectile.speed, ForceMode2D.Impulse);
-        }
-        animator.SetBool("isSpitting", false);
-        isRangeAttacking = false;
-    }
-
-    private Quaternion flipCoordinate(Quaternion q)
-    {
-        return new Quaternion(-q.x, -q.y, -q.z, q.w);
-    }
-
-    private void FixedUpdate()
-    {
-        if (target != null)
-        {
-            if (Vector2.Distance(target.position, transform.position) >= distanceToStop)
-            {
-                rb.velocity = transform.up * speed;
-            }
-            else
-            {
-                rb.velocity = Vector2.zero;
-            }
-        }
-    }
+    
 
   
 
@@ -283,18 +259,8 @@ public class FirstBossTest : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.TryGetComponent<PlayerController>(out PlayerController playerComponent))
-        {
-            playerComponent.TakeDamage(1);
-        }
-    }
  
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
-    }
+  
 
     private void OnDestroy()
     {
