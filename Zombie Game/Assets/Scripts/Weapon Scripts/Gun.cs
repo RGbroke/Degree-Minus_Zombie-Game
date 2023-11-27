@@ -24,8 +24,8 @@ public class Gun : MonoBehaviour
     public Sprite bulletSprite; //Sprite for bullet. ONLY add if nonrifle bullet (ie buckshot)
     public float bulletScale = -1;
 
-    public AudioSource gunshotSound; //Sound played on each fire
-    public AudioSource gunshotTrail; //Can be null, ONLY applies when automatic is true
+    public AudioClip gunshotSound; //Sound played on each fire
+    public AudioClip reloadSound;
 
     public float getNumBulletsPerShot()
     {
@@ -91,6 +91,16 @@ public class Gun : MonoBehaviour
 
         return bulletScale;
     }
+
+    public AudioClip getGunshotSoundEffect()
+    {
+        return gunshotSound;
+    }
+    public AudioClip getReloadSoundEffect()
+    {
+        return reloadSound;
+    }
+
 
     public void setMagSize(int size)
     {

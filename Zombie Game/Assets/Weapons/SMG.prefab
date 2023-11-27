@@ -61,8 +61,8 @@ MonoBehaviour:
   weaponInHand: {fileID: 0}
   bulletSprite: {fileID: 0}
   bulletScale: -1
-  gunshotSound: {fileID: 0}
-  gunshotTrail: {fileID: 0}
+  gunshotSound: {fileID: 8300000, guid: b5770e711a08c1843b2701ae251c6d05, type: 3}
+  reloadSound: {fileID: 8300000, guid: 38af7e18c812bdd4f9c566d724fbecf4, type: 3}
 --- !u!212 &4560480244872111392
 SpriteRenderer:
   m_ObjectHideFlags: 0

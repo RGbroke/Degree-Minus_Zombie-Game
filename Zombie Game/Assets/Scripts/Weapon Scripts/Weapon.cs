@@ -14,7 +14,9 @@ public class Weapon : MonoBehaviour
 
     //Weapon Cospetics
     public GameObject muzzle;
-    public AudioSource gunshot;
+    public AudioSource soundPlayer;
+    private AudioClip fireSound;
+    private AudioClip reloadSound;
     public Sprite FlashSprite;
     private Sprite bulletSprite;
     private float bulletScale;
@@ -93,14 +95,19 @@ public class Weapon : MonoBehaviour
         reloadTime = newGun.getReloadTime();
         magazineSize = newGun.getMagSize();
         currAmmo = newGun.getNumBullets();
+        fireSound = newGun.getGunshotSoundEffect();
+        reloadSound = newGun.getReloadSoundEffect();
     }
+
+
 
     public void Fire()
     {
         if (Time.time > lastShootTime + fireRate && Time.timeScale != 0 && currAmmo > 0 && !isReloading)
         {
             StartCoroutine(DoFlash(0.02f));
-            gunshot.Play();
+            soundPlayer.clip = fireSound;
+            soundPlayer.Play();
             lastShootTime = Time.time;
             bulletShot++;
             currAmmo--;
@@ -164,6 +171,9 @@ public class Weapon : MonoBehaviour
         {
             return;
         }
+
+        soundPlayer.clip = reloadSound;
+        soundPlayer.Play();
             
         weaponControl.reloading();
         isReloading = true;
