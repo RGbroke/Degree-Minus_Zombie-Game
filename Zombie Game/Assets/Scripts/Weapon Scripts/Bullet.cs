@@ -19,20 +19,21 @@ public class Bullet : MonoBehaviour
         {
             enemyComp.TakeDamage(damage);
         }
-        else if (collision.gameObject.TryGetComponent<FirstBoss>(out FirstBoss boss))
+        else if (collision.gameObject.TryGetComponent<FirstBossTest>(out FirstBossTest bossTest))
         {
-            boss.TakeDamage(damage);
+            bossTest.TakeDamage(damage); 
         }
         else if (collision.gameObject.TryGetComponent<KatanaBoss>(out KatanaBoss kboss))
         {
             kboss.TakeDamage(damage);
             Debug.Log("2hi");
         }
-        /*REMOVE LATER*/
-        else if (collision.gameObject.TryGetComponent<FirstBossTest>(out FirstBossTest bossTest))
+        /*Does absolutely nothing rn*/
+        else if (collision.gameObject.TryGetComponent<FirstBoss>(out FirstBoss boss))
         {
-            bossTest.TakeDamage(damage); /*TEMPORARY FIX*/
+            boss.TakeDamage(damage);
         }
+        
 
 
 

@@ -131363,7 +131363,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1504935871}
   GameOverScreen: {fileID: 1026654365}
-  maxZombies: 1000
+  maxZombies: 100
 --- !u!114 &571784348
 MonoBehaviour:
   m_ObjectHideFlags: 0

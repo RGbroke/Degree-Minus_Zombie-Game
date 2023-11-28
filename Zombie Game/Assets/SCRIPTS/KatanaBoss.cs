@@ -24,7 +24,7 @@ public class KatanaBoss : MonoBehaviour
     private Color defaultColor;
 
     //Stats
-    public GameObject healthBar;
+    public HealthBar healthBar;
     public float maxHealth = 3f;
     private float health;
     public float speed;
@@ -49,6 +49,9 @@ public class KatanaBoss : MonoBehaviour
 
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         health = maxHealth;
+        healthBar.setActive(true);
+        healthBar.SetMaxHealth(maxHealth);
+        healthBar.SetHealth(health);
         defaultColor = sprite.color;
     }
 
@@ -73,11 +76,12 @@ public class KatanaBoss : MonoBehaviour
 
         if (health <= 0)
         {
+            healthBar.setActive(false);
             Destroy(this.gameObject);
         }
         else
         {
-            healthBar.transform.localScale = new Vector3(health / maxHealth, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
+            healthBar.SetHealth(health);
         }
     }
 
