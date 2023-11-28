@@ -44,6 +44,7 @@ public class KatanaBoss : MonoBehaviour
     // Declare a variable to track the last teleport time
     private float lastTeleportTime;
 
+    public AudioSource audioSource;
     public IEnumerator FlashRed()
     {
         sprite.color = Color.red;
@@ -117,6 +118,7 @@ public class KatanaBoss : MonoBehaviour
         if (health <= 0)
         {
             healthBar.setActive(false);
+            audioSource.Stop();
             Destroy(this.gameObject);
         }
         else
