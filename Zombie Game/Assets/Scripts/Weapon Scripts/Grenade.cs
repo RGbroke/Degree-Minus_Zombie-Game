@@ -40,25 +40,30 @@ public class Grenade : MonoBehaviour
         {
             //BlastDamage
             Enemy zombieMelee = collider.GetComponent<Enemy>();
+            RangedEnemy zombieRange = collider.GetComponent<RangedEnemy>();
+            FirstBoss boss1 = collider.GetComponent<FirstBoss>();
+            FirstBossTest boss1TEST = collider.GetComponent<FirstBossTest>();
+            KatanaBoss secondBoss = collider.GetComponent<KatanaBoss>();
             if (zombieMelee)
             {
                 zombieMelee.TakeDamage(explosionDamage);
             }
-            RangedEnemy zombieRange = collider.GetComponent<RangedEnemy>();
-            if (zombieRange)
+            else if (zombieRange)
             {
                 zombieRange.TakeDamage(explosionDamage);
             }
-            FirstBoss boss1 = collider.GetComponent<FirstBoss>();
-            if (boss1)
+            else if (boss1)
             {
                 boss1.TakeDamage(explosionDamage);
             }
             /*TEMP FIX REMOVE LATER*/
-            FirstBossTest boss1TEST = collider.GetComponent<FirstBossTest>();
-            if (boss1TEST)
+            else if (boss1TEST)
             {
                 boss1TEST.TakeDamage(explosionDamage);
+            }
+            else if (secondBoss)
+            {
+                secondBoss.TakeDamage(explosionDamage);
             }
 
         }
