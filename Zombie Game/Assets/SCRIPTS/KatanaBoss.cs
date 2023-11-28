@@ -34,6 +34,16 @@ public class KatanaBoss : MonoBehaviour
     public float ZombiesToKill = 20f;
     private bool stopPickUp = false;
 
+    bool changingSpeed = false;
+    public Vector2 roomSize;
+
+    // Declare a variable to store the teleport cooldown
+    public float teleportDelay = 5f;
+    public Transform[] spawnPoints;
+
+    // Declare a variable to track the last teleport time
+    private float lastTeleportTime;
+
     public IEnumerator FlashRed()
     {
         sprite.color = Color.red;
@@ -53,6 +63,9 @@ public class KatanaBoss : MonoBehaviour
         healthBar.SetMaxHealth(maxHealth);
         healthBar.SetHealth(health);
         defaultColor = sprite.color;
+
+        lastTeleportTime = 0f;
+
     }
 
     void Update()
@@ -67,6 +80,33 @@ public class KatanaBoss : MonoBehaviour
             player.TakeDamage(1);
             new WaitForSeconds(1f);
         }
+
+        if (!changingSpeed && !isColliding)
+        {
+            // Start the coroutine
+            StartCoroutine(ChangeSpeed());
+        }
+    }
+
+    IEnumerator ChangeSpeed()
+    {
+        // Set the boolean variable to true to indicate the coroutine is running
+        changingSpeed = true;
+
+        // Set the agent's speed to 0
+        agent.speed = 0;
+
+        // Wait for 2 seconds
+        yield return new WaitForSeconds(2f);
+
+        // Set the agent's speed to 50
+        agent.speed = 50;
+
+        // Wait for 2 seconds
+        yield return new WaitForSeconds(2f);
+
+        // Set the boolean variable to false to indicate the coroutine is finished
+        changingSpeed = false;
     }
 
     public void TakeDamage(float damageAmount)
@@ -92,6 +132,18 @@ public class KatanaBoss : MonoBehaviour
             isColliding = true;
             //animator.SetBool("isColliding", true);
             player = playerComponent;
+
+            if (isColliding && Time.time - lastTeleportTime > teleportDelay)
+            {
+                // Select a random spawn point from the array
+                Transform randomSpawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
+
+                // Teleport the agent to the spawn point position
+                transform.position = randomSpawnPoint.position;
+
+                // Update the last teleport time to the current time
+                lastTeleportTime = Time.time;
+            }
         }
     }
 
