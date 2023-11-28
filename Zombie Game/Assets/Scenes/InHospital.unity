@@ -69625,7 +69625,7 @@ PrefabInstance:
       objectReference: {fileID: 1632792654}
     - target: {fileID: 960330135498867237, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: spread
-      value: 0.3
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 960330135498867237, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: magSize
@@ -69633,7 +69633,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 960330135498867237, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: bulletDrag
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 960330135498867237, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: numBullets
@@ -69645,11 +69645,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 960330135498867237, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: bulletScale
-      value: 0.3
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 960330135498867237, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: bulletSpeed
-      value: 50
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 960330135498867237, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: reloadSound
@@ -69664,8 +69664,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 3592254cca9c9e941b2831e3a8eeb675, type: 3}
     - target: {fileID: 960330135498867237, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
+      propertyPath: weaponInHand
+      value: 
+      objectReference: {fileID: 21300000, guid: c64a4b04a83e6be478dd0eb0c4acf0bb, type: 3}
+    - target: {fileID: 960330135498867237, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: bulletLifespan
-      value: 1
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 960330135498867237, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: projectilePrefab
@@ -70336,6 +70340,10 @@ PrefabInstance:
     - target: {fileID: 7437272481873189775, guid: 545fe6d1e2f3ef241b37600f9d28e46e, type: 3}
       propertyPath: m_Colors.m_SelectedColor.r
       value: 0.9811321
+      objectReference: {fileID: 0}
+    - target: {fileID: 7549229784824161710, guid: 545fe6d1e2f3ef241b37600f9d28e46e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8108421207953293824, guid: 545fe6d1e2f3ef241b37600f9d28e46e, type: 3}
       propertyPath: m_Colors.m_SelectedColor.b
@@ -79955,6 +79963,10 @@ PrefabInstance:
       propertyPath: gunshotSound
       value: 
       objectReference: {fileID: 8300000, guid: b5770e711a08c1843b2701ae251c6d05, type: 3}
+    - target: {fileID: 960330135498867237, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
+      propertyPath: weaponInHand
+      value: 
+      objectReference: {fileID: 21300000, guid: 78c65c5137bd9d747820e2c9fe6fc429, type: 3}
     - target: {fileID: 960330135498867237, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: bulletLifespan
       value: 2.5
@@ -89665,6 +89677,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 2cd8f79d804f23647989d83bdd11e1e0, type: 3}
     - target: {fileID: 960330135498867237, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
+      propertyPath: weaponInHand
+      value: 
+      objectReference: {fileID: 21300000, guid: d295bf4790bdf454ba69255c16d05b9a, type: 3}
+    - target: {fileID: 960330135498867237, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: bulletLifespan
       value: 5
       objectReference: {fileID: 0}
@@ -89846,10 +89862,22 @@ PrefabInstance:
       propertyPath: weaponControl
       value: 
       objectReference: {fileID: 143875688}
+    - target: {fileID: 1161420109505124211, guid: e8b062e4ea524dc43bcb6a2adf8140a3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d295bf4790bdf454ba69255c16d05b9a, type: 3}
+    - target: {fileID: 1161420109505124211, guid: e8b062e4ea524dc43bcb6a2adf8140a3, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2115788589608772105, guid: e8b062e4ea524dc43bcb6a2adf8140a3, type: 3}
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1308435309}
+    - target: {fileID: 2115788589608772105, guid: e8b062e4ea524dc43bcb6a2adf8140a3, type: 3}
+      propertyPath: moveSpeed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5536918832966046342, guid: e8b062e4ea524dc43bcb6a2adf8140a3, type: 3}
       propertyPath: m_Name
       value: Player
@@ -94985,6 +95013,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5408381638107092127, guid: fb123fdf15b294a4c8381d77fb8cbe66, type: 3}
+      propertyPath: weaponInHand
+      value: 
+      objectReference: {fileID: 21300000, guid: c085580fc1a7a1d4fbd947c350a6833c, type: 3}
     - target: {fileID: 5408381638107092127, guid: fb123fdf15b294a4c8381d77fb8cbe66, type: 3}
       propertyPath: numBulletsPerShot
       value: 100

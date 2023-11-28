@@ -18,6 +18,7 @@ public class Weapon : MonoBehaviour
     private AudioClip fireSound;
     private AudioClip reloadSound;
     public Sprite FlashSprite;
+    public SpriteRenderer WeaponInHand;
     private Sprite bulletSprite;
     private float bulletScale;
 
@@ -76,6 +77,7 @@ public class Weapon : MonoBehaviour
     public void WeaponChanged()
     {
         Gun newGun = weaponControl.getEquiped().GetComponent<Gun>();
+        WeaponInHand.sprite = weaponControl.getEquiped().GetComponent<Gun>().weaponInHand;
 
         if (!newGun) //Exit if the current equiped gun is null
             return;
@@ -201,15 +203,20 @@ public class Weapon : MonoBehaviour
         var originalSprite = renderer.sprite;
         renderer.sprite = FlashSprite;
         float recoil = amtBullet * bulletDamage / 5;
-        if(recoil > 0.8f)
+        if(recoil > 1.5f)
         {
-            recoil = 0.8f;
+            recoil = 1.5f;
         }
+
         transform.localPosition = transform.localPosition - new Vector3(recoil, 0, 0);
+
         yield return new WaitForSeconds(flashrate);
-        transform.localPosition = transform.localPosition + new Vector3(recoil, 0, 0);
 
         renderer.sprite = originalSprite;
+
+        yield return new WaitForSeconds(flashrate * 3);
+
+        transform.localPosition = transform.localPosition + new Vector3(recoil, 0, 0);
     }
 
     public void Melee()

@@ -540,7 +540,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gc: {fileID: 0}
-  dialogue: {fileID: 0}
   sprite: {fileID: 7813864211610970591}
   animator: {fileID: 1150052953845089468}
   healthBar: {fileID: 2518768494718145410}

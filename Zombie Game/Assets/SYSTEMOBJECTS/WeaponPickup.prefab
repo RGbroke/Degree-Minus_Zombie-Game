@@ -249,7 +249,7 @@ MonoBehaviour:
   bulletSprite: {fileID: 0}
   bulletScale: -1
   gunshotSound: {fileID: 0}
-  gunshotTrail: {fileID: 0}
+  reloadSound: {fileID: 0}
 --- !u!212 &5919229342913341913
 SpriteRenderer:
   m_ObjectHideFlags: 0

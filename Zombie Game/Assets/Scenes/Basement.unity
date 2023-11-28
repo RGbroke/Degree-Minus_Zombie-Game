@@ -69973,6 +69973,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5056358245784967173, guid: 96d5a1dbc37a2434a9cc3f392163179a, type: 3}
+      propertyPath: weaponInHand
+      value: 
+      objectReference: {fileID: 21300000, guid: 78c65c5137bd9d747820e2c9fe6fc429, type: 3}
     - target: {fileID: 8137472900905209590, guid: 96d5a1dbc37a2434a9cc3f392163179a, type: 3}
       propertyPath: m_Name
       value: SMG
@@ -70074,6 +70078,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5408381638107092127, guid: fb123fdf15b294a4c8381d77fb8cbe66, type: 3}
+      propertyPath: weaponInHand
+      value: 
+      objectReference: {fileID: 21300000, guid: c085580fc1a7a1d4fbd947c350a6833c, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -70139,6 +70147,10 @@ PrefabInstance:
       propertyPath: bulletSprite
       value: 
       objectReference: {fileID: 21300000, guid: 4343c01e639204c34a0221fba3ec0e75, type: 3}
+    - target: {fileID: 7681562334609840850, guid: 954b128d6bf367a409826e7aa0db5adb, type: 3}
+      propertyPath: weaponInHand
+      value: 
+      objectReference: {fileID: 21300000, guid: d295bf4790bdf454ba69255c16d05b9a, type: 3}
     m_RemovedComponents:
     - {fileID: 1003368235827725181, guid: 954b128d6bf367a409826e7aa0db5adb, type: 3}
     m_RemovedGameObjects: []
@@ -70741,6 +70753,30 @@ PrefabInstance:
     - target: {fileID: 4183176145424468899, guid: b62f0b4577d787b458f2cf58eadc3c7a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9136979782052133504, guid: b62f0b4577d787b458f2cf58eadc3c7a, type: 3}
+      propertyPath: spread
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9136979782052133504, guid: b62f0b4577d787b458f2cf58eadc3c7a, type: 3}
+      propertyPath: bulletDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9136979782052133504, guid: b62f0b4577d787b458f2cf58eadc3c7a, type: 3}
+      propertyPath: bulletScale
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 9136979782052133504, guid: b62f0b4577d787b458f2cf58eadc3c7a, type: 3}
+      propertyPath: bulletSpeed
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 9136979782052133504, guid: b62f0b4577d787b458f2cf58eadc3c7a, type: 3}
+      propertyPath: weaponInHand
+      value: 
+      objectReference: {fileID: 21300000, guid: c64a4b04a83e6be478dd0eb0c4acf0bb, type: 3}
+    - target: {fileID: 9136979782052133504, guid: b62f0b4577d787b458f2cf58eadc3c7a, type: 3}
+      propertyPath: bulletLifespan
+      value: 0.3
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5673100970051679403, guid: b62f0b4577d787b458f2cf58eadc3c7a, type: 3}
