@@ -34,7 +34,7 @@ public class WeaponPickup : MonoBehaviour
         if (dialogPlayed || !notification)
             return;
 
-        dialogPopup(dialog);
+        StartCoroutine(dialogPopup());
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -45,10 +45,11 @@ public class WeaponPickup : MonoBehaviour
         playerHover();
     }
 
-    private void dialogPopup(string dialog)
+    IEnumerator dialogPopup()
     {
+        yield return new WaitWhile(() => notification.isDisplayed());
         dialogPlayed = true;
-        notification.PopUp(dialog);
+        notification.PopUp(this.dialog);
     }
 
     private void playerHover()
