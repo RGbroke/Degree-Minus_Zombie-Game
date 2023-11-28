@@ -17,7 +17,6 @@ public class PopupSystem : MonoBehaviour
     void Start()
     {
         currentlyDisplayed = false;
-
         actionReference.action.performed += context =>
         {
             resume();
@@ -41,7 +40,6 @@ public class PopupSystem : MonoBehaviour
         this.GetComponent<Animator>().SetTrigger("pop");
         yield return new WaitForSeconds(1f);
         pause();
-        
     }
 
     public void pause()
@@ -57,9 +55,12 @@ public class PopupSystem : MonoBehaviour
         this.GetComponent<Animator>().SetTrigger("close");
         Time.timeScale = 1;
     }
-
-    void setDisplayToClosed()
+    private void setDisplayToClosed()
     {
         currentlyDisplayed = false;
+    }
+    public bool isDisplayed()
+    {
+        return currentlyDisplayed;
     }
 }

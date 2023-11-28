@@ -95014,12 +95014,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5408381638107092127, guid: fb123fdf15b294a4c8381d77fb8cbe66, type: 3}
+      propertyPath: bulletDamage
+      value: 12.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5408381638107092127, guid: fb123fdf15b294a4c8381d77fb8cbe66, type: 3}
       propertyPath: weaponInHand
       value: 
       objectReference: {fileID: 21300000, guid: c085580fc1a7a1d4fbd947c350a6833c, type: 3}
     - target: {fileID: 5408381638107092127, guid: fb123fdf15b294a4c8381d77fb8cbe66, type: 3}
       propertyPath: numBulletsPerShot
-      value: 100
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
