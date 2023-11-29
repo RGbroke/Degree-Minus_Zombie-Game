@@ -30,12 +30,7 @@ public class KatanaBoss : MonoBehaviour
     public float speed;
     bool isColliding = false;
 
-    //PowerUpDrop
-    public float ZombiesToKill = 20f;
-    private bool stopPickUp = false;
-
     bool changingSpeed = false;
-    public Vector2 roomSize;
 
     // Declare a variable to store the teleport cooldown
     public float teleportDelay = 5f;
@@ -98,13 +93,13 @@ public class KatanaBoss : MonoBehaviour
         agent.speed = 0;
 
         // Wait for 2 seconds
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.5f);
 
         // Set the agent's speed to 50
         agent.speed = 50;
 
         // Wait for 2 seconds
-        yield return new WaitForSeconds(2f);
+        yield return new WaitUntil(() => isColliding);
 
         // Set the boolean variable to false to indicate the coroutine is finished
         changingSpeed = false;
@@ -125,6 +120,18 @@ public class KatanaBoss : MonoBehaviour
         {
             healthBar.SetHealth(health);
         }
+
+        if(Time.time - lastTeleportTime > teleportDelay)
+        {
+            // Select a random spawn point from the array
+            Transform randomSpawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
+
+            // Teleport the agent to the spawn point position
+            transform.position = randomSpawnPoint.position;
+
+            // Update the last teleport time to the current time
+            lastTeleportTime = Time.time;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -134,18 +141,6 @@ public class KatanaBoss : MonoBehaviour
             isColliding = true;
             //animator.SetBool("isColliding", true);
             player = playerComponent;
-
-            if (isColliding && Time.time - lastTeleportTime > teleportDelay)
-            {
-                // Select a random spawn point from the array
-                Transform randomSpawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
-
-                // Teleport the agent to the spawn point position
-                transform.position = randomSpawnPoint.position;
-
-                // Update the last teleport time to the current time
-                lastTeleportTime = Time.time;
-            }
         }
     }
 
