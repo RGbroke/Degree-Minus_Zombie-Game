@@ -561,6 +561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfa712aaec9f341429bce0b886dc36db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageSound: {fileID: 8300000, guid: 7e7cca86a92632f45bacdaadf98c2302, type: 3}
   healthBar: {fileID: 0}
   maxHealth: 25
   currHealth: 0

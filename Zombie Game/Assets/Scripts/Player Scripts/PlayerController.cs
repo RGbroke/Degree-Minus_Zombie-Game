@@ -9,6 +9,10 @@ using UnityEngine.Audio;
 [RequireComponent(typeof(PlayerInput))]
 public class PlayerController : MonoBehaviour
 {
+    // Sound when damage taken
+    public AudioClip damageSound;
+    private AudioSource source;
+
     //Health
     public HealthBar healthBar;
     [SerializeField] public int maxHealth = 10;
@@ -61,6 +65,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        source = GetComponent<AudioSource>();
         cursorHotspot = new Vector2(cursorTexture.width / 2, cursorTexture.height / 2);
         Cursor.SetCursor(cursorTexture, cursorHotspot, CursorMode.Auto);
         weapon.meleeDelay = meleeDelay;
@@ -226,6 +231,9 @@ public class PlayerController : MonoBehaviour
     {
         damageTaken = damage;
         hit = true;
+        if (!source.isPlaying) {
+            source.PlayOneShot(damageSound);
+        }
     }
 
     public void addHealth(int health)
