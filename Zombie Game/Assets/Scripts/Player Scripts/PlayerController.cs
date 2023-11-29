@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float moveSpeed = 5f;
     private Vector2 moveDirection;
     private Vector2 aimDirection;
+    public bool knockbackImmune = true;
 
     //Controls
     [SerializeField] private Rigidbody2D controller;
@@ -107,18 +108,17 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    private void FixedUpdate()
+ 
+    void Update()
     {
-        if (Time.timeScale != 0)
+        
+        if (Time.timeScale != 0 && knockbackImmune)
         {
             HandleInput();
             HandleMovement();
             HandleAiming();
         }
-    }
-    void Update()
-    {
-        
+
         currGrenadeCooldown -= Time.deltaTime;
         //Movement/Control handling
 
@@ -250,10 +250,14 @@ public class PlayerController : MonoBehaviour
         return currHealth;
     }
 
-    public void KnockBack(Vector2 direction)
+
+    void OnCollisionEnter2D(Collision2D col)
     {
-        Debug.Log(direction);
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        rb.AddForce(direction * 10000f, ForceMode2D.Force);
+        Debug.Log("Collision Happened");
+        if(!knockbackImmune && col.gameObject.tag == "Object")
+        {
+            knockbackImmune = true;
+        }
     }
+
 }

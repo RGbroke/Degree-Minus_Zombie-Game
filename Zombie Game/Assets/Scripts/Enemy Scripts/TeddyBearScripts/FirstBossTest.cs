@@ -18,36 +18,43 @@ public class FirstBossTest : MonoBehaviour
     public HealthBar healthBar;
     private float health;
     public float maxHealth = 3f;
-    [SerializeField] private float bulletSpeed;
-    public float knockbackForce = 100f;
+    private float startOfFight = 0f;
+    private bool invincible = true;
 
     //Range Attacks
-    public bool isRangeAttacking; 
+    [HideInInspector] public bool isRangeAttacking; 
     public float distanceToShoot = 5f;
     public float distanceToStop = 3f;
     public float fireRate;
     public float timeToFire;
     public Transform firingPoint;
-    public GameObject bulletPrefab;
+    [SerializeField] private bool rangeAttacker;
 
     //Melee Attacks
     public LayerMask hitTarget;
-    public float attackRange = 3f;
-    public int attackDamage = 5;
-    float meleeAttackDelay = 0;
-    public bool isMeleeAttacking;
+    private float meleeAttackDelay = 0;
+    [SerializeField] private float nextMeleeAttack;
+    [HideInInspector] public bool isMeleeAttacking;
+    [SerializeField] private bool meleeAttacker;
 
+    //Third Phase
+    private bool thirdPhase = false;
+    private float thirdPhaseCount = 1;
+    private float retaliation;
+    [SerializeField] GameObject children;
+    private float killCount;
 
     // Animations
     public Animator animator;
-    public bool moveRight = false;
-    public bool facingRight = true;
+    [HideInInspector] public bool moveRight = false;
+    [HideInInspector] public bool facingRight = true;
 
     //UI + Sprites + System
     public SpriteRenderer sprite;
     public GameController gc;
     UnityEngine.AI.NavMeshAgent agent;
-    public bool SecondPhase;
+    [SerializeField] private bool boss;
+    [SerializeField] private GameObject HPBar;
     [SerializeField] private ObjectiveController_Stage2 objectiveControl;
 
  
@@ -63,19 +70,23 @@ public class FirstBossTest : MonoBehaviour
     //Taking Damage Script
     public void TakeDamage(float damageAmount)
     {
-        StartCoroutine(FlashRed());
-        health -= damageAmount;
-
-        if (health <= 0)
+        if (startOfFight >= 2.1f && (!invincible || !boss))
         {
-            healthBar.setActive(false);
-            Destroy(this.gameObject);
+            StartCoroutine(FlashRed());
+            health -= damageAmount;
+            if (health <= 0)
+            {
+                if(boss)
+                    healthBar.setActive(false);
+                else
+                    objectiveControl.teddyKilled();
+                Destroy(this.gameObject);
+            }
+            else if (health >= 0 && boss)
+            {
+                healthBar.SetHealth(health);
+            }
         }
-        else
-        {
-            healthBar.SetHealth(health);
-        }
-       
     }
 
 
@@ -90,25 +101,55 @@ public class FirstBossTest : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody2D>();
         timeToFire = 0f;
         health = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
-        healthBar.SetHealth(health);
         isMeleeAttacking = false;
         isRangeAttacking = false;
-        SecondPhase = false;
-        gameObject.transform.GetChild(1).gameObject.SetActive(false);
+        if(healthBar != null && boss)
+            {
+                healthBar.SetMaxHealth(maxHealth);
+                healthBar.SetHealth(health);
+            }
+        if(boss)
+            gameObject.transform.GetChild(1).gameObject.SetActive(false);
+
     }
 
 
     private void Update()
     {
+        Debug.Log(objectiveControl.killCount);
         if(objectiveControl.objectives.ContainsKey("boss"))
         {
-        if (!target)
+        startOfFight += Time.deltaTime;
+        if (thirdPhase && boss)
         {
-            GetTarget();
+            retaliation += Time.deltaTime;
+            invincible = true;
+            if(retaliation >= 1)
+            {
+                health += 2f;
+                retaliation = 0;
+            }
+            healthBar.SetHealth(health);
+
+            if(objectiveControl.killCount >= 6)
+            {
+                thirdPhase = false;
+                gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().isStopped = false;
+            }
+            else if(health >= 180)
+            {
+                thirdPhase = false;
+                gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().isStopped = false;
+            }
         }
-        else
+        else if (!thirdPhase)
         {
+            //Activating HP Bar
+            if(startOfFight >= 2.1f && boss)
+            {
+                HPBar.SetActive(true);
+                invincible = false;
+            }
 
             //bool agentIsMovingLeft = agentVelocity.x < 0;
             // Calculate movement direction for ranged enemy
@@ -166,47 +207,66 @@ public class FirstBossTest : MonoBehaviour
             }
             else
             {
+                agent.SetDestination(transform.position);
                 animator.SetFloat("Speed", 0);
             }
-        }
 
-        
-        if (target != null && Vector2.Distance(target.position, transform.position) <= distanceToStop && meleeAttackDelay >= 4 && !isRangeAttacking)
-        {
-            agent.SetDestination(transform.position);
-            gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().isStopped = true;
-            isMeleeAttacking = true;
-            meleeAttackDelay = 0;
-            animator.SetBool("isColliding", true);
-        }
-        else if (target != null && Vector2.Distance(target.position, transform.position) <= distanceToShoot && timeToFire <= 0f && !isMeleeAttacking)
-        {
-            agent.SetDestination(transform.position);
-            gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().isStopped = true;
-            isRangeAttacking = true;
-            animator.SetBool("isSpitting", true);
-        }
+            if (target != null && Vector2.Distance(target.position, transform.position) <= distanceToStop && meleeAttackDelay >= nextMeleeAttack && !isRangeAttacking && meleeAttacker)
+            {
+                agent.SetDestination(transform.position);
+                gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().isStopped = true;
+                isMeleeAttacking = true;
+                meleeAttackDelay = 0;
+                animator.SetBool("isColliding", true);
+            }
+            else if (target != null && Vector2.Distance(target.position, transform.position) <= distanceToShoot && timeToFire <= 0f && !isMeleeAttacking && rangeAttacker && startOfFight >= 2)
+            {
+                agent.SetDestination(transform.position);
+                gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().isStopped = true;
+                isRangeAttacking = true;
+                animator.SetBool("isSpitting", true);
+            }
 
-        //Adjusting speed of attacks depending on distance based off y-axis
-        double distance = transform.position.y - target.position.y;
-        meleeAttackDelay += Time.deltaTime;
+            //Adjusting speed of attacks depending on distance based off y-axis
+            double distance = transform.position.y - target.position.y;
+            meleeAttackDelay += Time.deltaTime;
 
-        Debug.Log(Math.Abs(distance));
-        if(Math.Abs(distance) >= 5)
+            if(Math.Abs(distance) >= 5)
             {
                 timeToFire -= Time.deltaTime * 2;
             }
-        else
+            else
             {
                 timeToFire -= Time.deltaTime;
             }
 
-        if(health <= 1500)
-        {
-            SecondPhase = true;
-            gameObject.transform.GetChild(1).gameObject.SetActive(true);
+            //Ring Phase
+            if(health <= 180 && boss)
+            {
+                gameObject.transform.GetChild(1).gameObject.SetActive(true);
+            }
+
+            if(health <= 90 && thirdPhaseCount > 0 && boss)
+            {
+                gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().isStopped = true;
+                gameObject.transform.GetChild(1).gameObject.SetActive(false);
+                  /*Knocking Back Effect*/
+                player = target.GetComponent<PlayerController>();
+                Vector2 knockbackDirection = (target.position - transform.position).normalized;
+                Vector2 knockback = knockbackDirection * 10f;
+                Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
+                rb.AddForce(knockback, ForceMode2D.Impulse);
+                player.knockbackImmune = false;
+                children.SetActive(true);
+                animator.SetFloat("Speed", 0);
+                thirdPhaseCount = 0;
+                thirdPhase = true;
+            }
         }
         }
+
+
+        //Third Phase
 
         //transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
     }
@@ -231,8 +291,6 @@ public class FirstBossTest : MonoBehaviour
     }
 
 
-    
-
   
 
 
@@ -246,17 +304,7 @@ public class FirstBossTest : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {       
-        Collider2D collider = collision.collider;
-        if (collision.gameObject.TryGetComponent<PlayerController>(out PlayerController playerComponent))
-        {
-            player = playerComponent;
-
-            /*Knocking Back Effect*/
-            /*Vector2 direction = (collider.transform.position - transform.position).normalized;
-            Vector2 knockback = direction * 10f;
-            player.KnockBack(knockback);*/
-        
-        }
+       
     }
 
  
@@ -264,9 +312,11 @@ public class FirstBossTest : MonoBehaviour
 
     private void OnDestroy()
     {
+        if(boss)
+        {
         if (objectiveControl.getObjective("boss") != null)
             objectiveControl.getObjective("boss").completeObjective();
-
         objectiveControl.bossKilled();
+        }
     }
 }

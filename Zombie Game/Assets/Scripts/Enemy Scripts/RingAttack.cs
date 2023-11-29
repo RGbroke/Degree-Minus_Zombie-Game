@@ -6,6 +6,7 @@ public class RingAttack : MonoBehaviour
 {
     // The bullet prefab
     public GameObject bulletPrefab;
+    private EnemyProjectile projectile;
 
     // The speed of the bullets
     public float bulletSpeed = 10f;
@@ -49,6 +50,10 @@ public class RingAttack : MonoBehaviour
         }
 
         ringTimeToFire -= Time.deltaTime;
+
+        projectile = bulletPrefab.GetComponent<EnemyProjectile>();
+        projectile.destroyTime = 2f;
+        
     }
 
     // Ring Attack Special ability

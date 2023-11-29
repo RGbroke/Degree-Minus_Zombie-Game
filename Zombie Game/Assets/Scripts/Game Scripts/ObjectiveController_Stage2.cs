@@ -14,6 +14,7 @@ public class ObjectiveController_Stage2 : MonoBehaviour
     [SerializeField] private GameObject key;
     [SerializeField] private GameObject carpetInteraction;
     [SerializeField] private GameObject levelSwitch;
+    public float killCount;
 
 
     public Dictionary<string,Objective> objectives = new Dictionary<string, Objective>();
@@ -27,6 +28,11 @@ public class ObjectiveController_Stage2 : MonoBehaviour
     private void Update()
     {
         printObjectives();
+    }
+
+    public void teddyKilled()
+    {
+        killCount += 1;
     }
 
     public void bossKilled()
