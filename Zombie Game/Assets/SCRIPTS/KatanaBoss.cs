@@ -17,6 +17,7 @@ public class KatanaBoss : MonoBehaviour
 
     //System
     public GameController gc;
+    public ObjectiveController_Stage3 objectiveControl;
 
     //Sprite
     public SpriteRenderer sprite;
@@ -93,7 +94,7 @@ public class KatanaBoss : MonoBehaviour
         agent.speed = 0;
 
         // Wait for 2 seconds
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.75f);
 
         // Set the agent's speed to 50
         agent.speed = 50;
@@ -154,4 +155,12 @@ public class KatanaBoss : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        if (objectiveControl.getObjective("boss") == null)
+            return;
+
+        objectiveControl.getObjective("boss").completeObjective();
+        objectiveControl.findCure();
+    }
 }
