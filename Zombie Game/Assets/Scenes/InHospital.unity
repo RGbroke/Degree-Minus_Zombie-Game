@@ -5755,9 +5755,9 @@ GameObject:
   - component: {fileID: 859444391}
   - component: {fileID: 859444390}
   - component: {fileID: 859444392}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
