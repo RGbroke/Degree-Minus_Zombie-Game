@@ -9,6 +9,11 @@ public class SpawnTentacles : MonoBehaviour
     [HideInInspector]
     private float lastTime;
     public float triggerTime = 5f;
+    public float xLeft = -40f;
+    public float xRight = 5f;
+    public float yUp = 0f;
+    public float yDown = -26f;
+    public float randomness = 0.04f;
 
     private void Start()
     {
@@ -20,7 +25,14 @@ public class SpawnTentacles : MonoBehaviour
         if (lastTime + triggerTime <= Time.time)
         {
             lastTime = Time.time;
-            GameObject zom = Instantiate(tentacle, player.position, transform.rotation);
+            Vector2 adj = player.position;
+            adj.y += 3.5f;
+
+            Instantiate(tentacle, adj, transform.rotation);
+        }
+        if (lastTime + triggerTime + Random.Range(-randomness, 0f) <= Time.time)
+        {
+            Instantiate(tentacle, new Vector2(Random.Range(xLeft, xRight), Random.Range(yDown, yUp)), transform.rotation);
         }
     }
 }

@@ -66205,6 +66205,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8419489999169770504, guid: 04bc8e035d2bbae44b14779d10fdf09f, type: 3}
+      propertyPath: m_Mass
+      value: 99999
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419489999169770504, guid: 04bc8e035d2bbae44b14779d10fdf09f, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419489999169770504, guid: 04bc8e035d2bbae44b14779d10fdf09f, type: 3}
+      propertyPath: m_LinearDrag
+      value: 99999
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -66215,6 +66227,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7356862119447816681, guid: 04bc8e035d2bbae44b14779d10fdf09f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1970404424}
+    - targetCorrespondingSourceObject: {fileID: 7356862119447816681, guid: 04bc8e035d2bbae44b14779d10fdf09f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1970404434}
   m_SourcePrefab: {fileID: 100100000, guid: 04bc8e035d2bbae44b14779d10fdf09f, type: 3}
 --- !u!1 &1555776989 stripped
 GameObject:
@@ -66998,7 +67013,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.74181557, y: 1.7650323}
@@ -67049,6 +67064,31 @@ MonoBehaviour:
   tentacle: {fileID: 1309852478163497071, guid: 0f7a1993d76633c47aa67a18100faa1d, type: 3}
   player: {fileID: 531649225}
   triggerTime: 2
+  xLeft: -40
+  xRight: 5
+  yUp: 0
+  yDown: -26
+  randomness: 0.03
+--- !u!114 &1970404434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 278528266}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14b135241e964ca438e3ba849141137d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tentacle: {fileID: 7271430161696043779, guid: f9f7cce78fec7d1439dd5a2cc772fea2, type: 3}
+  player: {fileID: 531649225}
+  triggerTime: 5
+  speed: 15
+  damage: 5
+  tentacleSegment: {fileID: 15619761206680768, guid: d7af2473a9924c44094f139020d54540, type: 3}
+  addSegmentTime: 0.02
+  timeToDestroy: 2
 --- !u!1 &1992321602 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1468334481011037450, guid: fb123fdf15b294a4c8381d77fb8cbe66, type: 3}
