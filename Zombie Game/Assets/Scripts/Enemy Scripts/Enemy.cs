@@ -26,7 +26,8 @@ public class Enemy : MonoBehaviour
     //Stats
     public GameObject healthBar;
     public float maxHealth = 3f;
-    private float health;
+    [HideInInspector]
+    public float health;
     public float speed;
     bool isColliding = false;
 
