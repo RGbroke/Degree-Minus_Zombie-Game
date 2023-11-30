@@ -292,8 +292,11 @@ public class FirstBossTest : MonoBehaviour
 
     void walkSFX()
     {
-    zombieNoise.clip = footStep;
-    zombieNoise.Play(); 
+    if(boss)
+        {
+        zombieNoise.clip = footStep;
+        zombieNoise.Play(); 
+        }
     }
 
     void deathSFX()

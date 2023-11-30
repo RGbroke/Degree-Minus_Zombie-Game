@@ -15,7 +15,6 @@ public class objectiveAdder : MonoBehaviour
     {
         if (collision.gameObject.name != "Player" || played)
             return;
-
         objectiveControl.alertPlayer(dialogOnCollision);
         objectiveControl.addObjective(objectiveTag, new Objective(objectiveDescriptor, stepsToComplete));
         played = true;
