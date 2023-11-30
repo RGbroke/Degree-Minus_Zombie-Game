@@ -251,6 +251,8 @@ public class Weapon : MonoBehaviour
         {
             Enemy enemy;
             RangedEnemy rangedEnemy;
+            FirstBossTest firstBoss;
+            KatanaBoss secondBoss;
             if(enemy = collider.GetComponent<Enemy>())
             {
                 enemy.TakeDamage(meleeDamage);
@@ -267,6 +269,23 @@ public class Weapon : MonoBehaviour
                 kb.strength = meleeForce;
                 kb.PlayFeedback(meleePoint);
             }
+            if (firstBoss = collider.GetComponent<FirstBossTest>())
+            {
+                rangedEnemy.TakeDamage(meleeDamage);
+                KnockBackFeedBack kb = rangedEnemy.GetComponent<KnockBackFeedBack>();
+                kb.delay = knockOutTime;
+                kb.strength = meleeForce;
+                kb.PlayFeedback(meleePoint);
+            }
+            if (secondBoss = collider.GetComponent<KatanaBoss>())
+            {
+                rangedEnemy.TakeDamage(meleeDamage);
+                KnockBackFeedBack kb = rangedEnemy.GetComponent<KnockBackFeedBack>();
+                kb.delay = knockOutTime;
+                kb.strength = meleeForce;
+                kb.PlayFeedback(meleePoint);
+            }
+
         }
     }
 }

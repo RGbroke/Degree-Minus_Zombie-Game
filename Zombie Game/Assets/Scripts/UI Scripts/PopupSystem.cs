@@ -29,6 +29,9 @@ public class PopupSystem : MonoBehaviour
 
     public void PopUp(string text)
     {
+        if (popUpBox == null)
+            return; 
+
         StartCoroutine(opening(text));
     }
 

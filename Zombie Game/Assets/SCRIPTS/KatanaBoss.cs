@@ -33,6 +33,7 @@ public class KatanaBoss : MonoBehaviour
 
     bool changingSpeed = false;
     bool animationToRight = false;
+    bool hasTeleported = false;
 
     // Declare a variable to store the teleport cooldown
     public float teleportDelay = 5f;
@@ -115,8 +116,8 @@ public class KatanaBoss : MonoBehaviour
         // Set the agent's speed to 0
         agent.speed = 0;
 
-        // Wait for 2 seconds
-        yield return new WaitForSeconds(0.75f);
+        // Wait for a few seconds
+        yield return new WaitForSeconds(1.25f);
 
         // Set the agent's speed to 50
         agent.speed = 50;
@@ -130,6 +131,27 @@ public class KatanaBoss : MonoBehaviour
 
     public void TakeDamage(float damageAmount)
     {
+        if (Time.time - lastTeleportTime > teleportDelay)
+        {
+            // Select a random spawn point from the array
+            Transform randomSpawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
+
+            // Teleport the agent to the spawn point position
+            transform.position = randomSpawnPoint.position;
+
+            // Update the last teleport time to the current time
+            lastTeleportTime = Time.time;
+
+            if (!hasTeleported)
+            {
+                objectiveControl.alertPlayer("Did he just dodge my attack!?");
+                hasTeleported = true;
+            }
+
+            //Avoids damage by teleporting away
+            return;
+        }
+
         StartCoroutine(FlashRed());
         health -= damageAmount;
 
@@ -142,18 +164,6 @@ public class KatanaBoss : MonoBehaviour
         else
         {
             healthBar.SetHealth(health);
-        }
-
-        if(Time.time - lastTeleportTime > teleportDelay)
-        {
-            // Select a random spawn point from the array
-            Transform randomSpawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
-
-            // Teleport the agent to the spawn point position
-            transform.position = randomSpawnPoint.position;
-
-            // Update the last teleport time to the current time
-            lastTeleportTime = Time.time;
         }
     }
 

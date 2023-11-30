@@ -9,6 +9,7 @@ public class ObjectiveController_Stage3 : MonoBehaviour
     [SerializeField] private TextMeshProUGUI objectiveDisplay;
     [SerializeField] private GameObject[] elevator;
     [SerializeField] private GameObject cure;
+    [SerializeField] private GameObject ambient;
 
     private bool elevatorOpen = false;
 
@@ -26,6 +27,9 @@ public class ObjectiveController_Stage3 : MonoBehaviour
         addObjective("cure", new Objective("Find the Cure"));
         if(cure != null)
             cure.SetActive(true);
+
+        if (ambient != null)
+            ambient.SetActive(true);
     }
     public void openElevator()
     {
