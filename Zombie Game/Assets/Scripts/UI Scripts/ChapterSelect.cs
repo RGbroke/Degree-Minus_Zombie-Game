@@ -17,4 +17,8 @@ public class ChapterSelect : MonoBehaviour
     {
         SceneManager.LoadScene("Basement");
     }
+    public void loadChapter4()
+    {
+        SceneManager.LoadScene("RoofTop");
+    }
 }

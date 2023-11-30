@@ -128,20 +128,28 @@ public class KatanaBoss : MonoBehaviour
         changingSpeed = false;
     }
 
-    IEnumerator teleporting()
+    IEnumerator teleporting(float waitTime)
     {
         agent.speed = 0;
         gameObject.GetComponent<Animator>().SetBool("isTeleporting", true);
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(waitTime);
         agent.speed = 50;
         gameObject.GetComponent<Animator>().SetBool("isTeleporting", false);
+    }
+
+    IEnumerator delayedDeath()
+    {
+        agent.speed = 0;
+        gameObject.GetComponent<Animator>().SetBool("isTeleporting", true);
+        yield return new WaitForSeconds(1.25f);
+        Destroy(this.gameObject);
     }
 
     public void TakeDamage(float damageAmount)
     {
         if (Time.time - lastTeleportTime > teleportDelay)
         {
-            StartCoroutine(teleporting());
+            StartCoroutine(teleporting(0.75f));
 
             // Select a random spawn point from the array
             Transform randomSpawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
@@ -169,7 +177,7 @@ public class KatanaBoss : MonoBehaviour
         {
             healthBar.setActive(false);
             audioSource.Stop();
-            Destroy(this.gameObject);
+            StartCoroutine(delayedDeath());
         }
         else
         {

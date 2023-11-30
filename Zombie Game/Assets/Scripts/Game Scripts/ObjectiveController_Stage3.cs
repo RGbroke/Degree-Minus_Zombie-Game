@@ -8,6 +8,7 @@ public class ObjectiveController_Stage3 : MonoBehaviour
     [SerializeField] private PopupSystem notification;
     [SerializeField] private TextMeshProUGUI objectiveDisplay;
     [SerializeField] private GameObject[] elevator;
+    [SerializeField] private GameObject wall;
     [SerializeField] private GameObject cure;
     [SerializeField] private GameObject ambient;
 
@@ -27,7 +28,10 @@ public class ObjectiveController_Stage3 : MonoBehaviour
         notification.currentlyDisplayed = true;
         alertPlayer("*Sigh* Well whatever doc, I guess I'll find the cure on my own..");
         addObjective("cure", new Objective("Find the Cure"));
-        if(cure != null)
+        if (wall != null)
+            wall.SetActive(false);
+
+        if (cure != null)
             cure.SetActive(true);
 
         if (ambient != null)

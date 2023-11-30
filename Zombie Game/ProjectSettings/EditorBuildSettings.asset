@@ -21,6 +21,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Basement.unity
     guid: 3ee75931302d7ea428da99130cd3f932
   - enabled: 1
-    path: Assets/Scenes/Roof.unity
-    guid: c04dc6e0f73180c47918aa44e413bed8
+    path: Assets/Scenes/RoofTop.unity
+    guid: 7313c7ea3a2286e4490f3b9d634bd197
   m_configObjects: {}
