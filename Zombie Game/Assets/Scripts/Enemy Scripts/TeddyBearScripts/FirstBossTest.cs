@@ -31,7 +31,6 @@ public class FirstBossTest : MonoBehaviour
     [SerializeField] private bool rangeAttacker;
 
     //Melee Attacks
-    public LayerMask hitTarget;
     private float meleeAttackDelay = 0;
     [SerializeField] private float nextMeleeAttack;
     [HideInInspector] public bool isMeleeAttacking;
@@ -56,6 +55,15 @@ public class FirstBossTest : MonoBehaviour
     [SerializeField] private bool boss;
     [SerializeField] private GameObject HPBar;
     [SerializeField] private ObjectiveController_Stage2 objectiveControl;
+    public AudioSource zombieNoise;
+    public AudioClip teddyRoar;
+    public AudioClip footStep;
+    public AudioClip scratch;
+    public AudioClip death;
+
+
+    private bool fixedPosition = false;
+    private bool enraged = false;
 
  
 
@@ -72,14 +80,20 @@ public class FirstBossTest : MonoBehaviour
     {
         if (startOfFight >= 2.1f && (!invincible || !boss))
         {
-            StartCoroutine(FlashRed());
+            if(!enraged)
+                StartCoroutine(FlashRed());
             health -= damageAmount;
             if (health <= 0)
             {
                 if(boss)
+                    {
                     healthBar.setActive(false);
+                    animator.SetBool("onDeath", true);
+                    }
                 else
-                    objectiveControl.teddyKilled();
+                    {
+                        objectiveControl.teddyKilled();
+                    }
                 Destroy(this.gameObject);
             }
             else if (health >= 0 && boss)
@@ -116,31 +130,14 @@ public class FirstBossTest : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(objectiveControl.killCount);
         if(objectiveControl.objectives.ContainsKey("boss"))
         {
         startOfFight += Time.deltaTime;
         if (thirdPhase && boss)
         {
-            retaliation += Time.deltaTime;
-            invincible = true;
-            if(retaliation >= 1)
-            {
-                health += 2f;
-                retaliation = 0;
-            }
-            healthBar.SetHealth(health);
-
-            if(objectiveControl.killCount >= 6)
-            {
-                thirdPhase = false;
-                gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().isStopped = false;
-            }
-            else if(health >= 180)
-            {
-                thirdPhase = false;
-                gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().isStopped = false;
-            }
+            if(fixedPosition)
+                teleportCenter();
+            thirdPhasePeriod();
         }
         else if (!thirdPhase)
         {
@@ -228,47 +225,22 @@ public class FirstBossTest : MonoBehaviour
             }
 
             //Adjusting speed of attacks depending on distance based off y-axis
-            double distance = transform.position.y - target.position.y;
-            meleeAttackDelay += Time.deltaTime;
-
-            if(Math.Abs(distance) >= 5)
-            {
-                timeToFire -= Time.deltaTime * 2;
-            }
-            else
-            {
-                timeToFire -= Time.deltaTime;
-            }
+            attackIntervalBalance();
 
             //Ring Phase
-            if(health <= 180 && boss)
+            if(health <= 1500 && boss)
             {
                 gameObject.transform.GetChild(1).gameObject.SetActive(true);
             }
 
-            if(health <= 90 && thirdPhaseCount > 0 && boss)
+
+            if(health <= 500 && thirdPhaseCount > 0 && boss)
             {
-                gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().isStopped = true;
-                gameObject.transform.GetChild(1).gameObject.SetActive(false);
-                  /*Knocking Back Effect*/
-                player = target.GetComponent<PlayerController>();
-                Vector2 knockbackDirection = (target.position - transform.position).normalized;
-                Vector2 knockback = knockbackDirection * 10f;
-                Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
-                rb.AddForce(knockback, ForceMode2D.Impulse);
-                player.knockbackImmune = false;
-                children.SetActive(true);
-                animator.SetFloat("Speed", 0);
-                thirdPhaseCount = 0;
-                thirdPhase = true;
+                thirdPhaseStart();
             }
         }
         }
 
-
-        //Third Phase
-
-        //transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
     }
 
     private void RotateFiringPoint()
@@ -291,24 +263,124 @@ public class FirstBossTest : MonoBehaviour
     }
 
 
-  
-
-
-    private void GetTarget()
+    //Shooting Interval Balance
+    private void attackIntervalBalance()
     {
-        if (GameObject.FindGameObjectWithTag("Player"))
+        double distance = transform.position.y - target.position.y;
+
+        meleeAttackDelay += Time.deltaTime;
+
+        if(Math.Abs(distance) >= 5)
         {
-            target = GameObject.FindGameObjectWithTag("Player").transform;
+            timeToFire -= Time.deltaTime * 2;
+        }
+        else
+        {
+            timeToFire -= Time.deltaTime;
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {       
-       
+
+    //*****************************************************************************************************************//
+    //SOUND EFFECTS//
+
+    void scratchSFX()
+    {
+    zombieNoise.clip = scratch;
+    zombieNoise.Play();
     }
 
- 
+    void walkSFX()
+    {
+    zombieNoise.clip = footStep;
+    zombieNoise.Play(); 
+    }
+
+    void deathSFX()
+    {
+    zombieNoise.clip = death;
+    zombieNoise.Play(); 
+    }
+
+    void roarSFX()
+    {
+    zombieNoise.clip = teddyRoar;
+    zombieNoise.Play(); 
+    }
+
+
+
+
+
+
+
+    //****************************************************************************************************************//
+    //THIRD PHASE COMPONENTS//
+
+    private void thirdPhasePeriod()
+    {
+        retaliation += Time.deltaTime;
+        if(retaliation >= 1)
+        {
+            health += 50f;
+            retaliation = 0;
+        }
+        healthBar.SetHealth(health);
+        if(objectiveControl.killCount >= 10)
+        {
+            thirdPhaseFinished();
+        }
+        else if (health >= 1300)
+        {
+            thirdPhaseFinished();
+            BearNormalAttacks attackScript = GetComponent<BearNormalAttacks>();
+            attackScript.attackDamage += 2;
+            fireRate /= 2;
+            agent.acceleration = 18;
+            agent.speed = 18;
+            sprite.color = Color.red;
+            enraged = true;
+        }
+    }
+
+    private void thirdPhaseStart()
+    {
+        invincible = true;
+        animator.SetBool("isTeleporting", true);
+        roarSFX();
+        animator.SetFloat("Speed", 0);
+        gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().isStopped = true;
+        gameObject.transform.GetChild(1).gameObject.SetActive(false);                
+        thirdPhaseCount = 0;
+        thirdPhase = true;
+    }
   
+    private void fixPosition()
+    {
+        fixedPosition = true;
+    }
+
+    private void teleportCenter()
+    {
+        transform.localPosition = new Vector3(-20, 19,0);
+    }
+
+    private void setChildrenActive()
+    {
+        children.SetActive(true);
+    }
+  
+    private void thirdPhaseFinished()
+    {
+        roarSFX();
+        fixedPosition = false;
+        thirdPhase = false;
+        gameObject.GetComponent<UnityEngine.AI.NavMeshAgent>().isStopped = false;
+        animator.SetFloat("Speed", speed);
+    }
+
+
+    //DEATH
 
     private void OnDestroy()
     {

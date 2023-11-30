@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 55.68323, y: 2.9959013, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -163,6 +163,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   pool: {fileID: 8973096332313670071, guid: 73b2515bd32ee3c4994532e91af40402, type: 3}
-  destroyTime: 0.5
+  destroyTime: 1.5
   acidDuration: 10
   acidDamage: 1

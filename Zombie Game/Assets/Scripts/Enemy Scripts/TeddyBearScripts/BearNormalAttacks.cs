@@ -27,7 +27,6 @@ public class BearNormalAttacks : MonoBehaviour
 
     public IEnumerator MeleeAttack()
     {
-        Debug.Log("Test");
         Collider2D[] hitTargets = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, hitTarget);
         foreach(Collider2D target in hitTargets)
         {
@@ -48,7 +47,6 @@ public class BearNormalAttacks : MonoBehaviour
 
     public IEnumerator RangeAttackDelay()
     { 
-        Debug.Log("Range Attacking");
         yield return new WaitForSeconds(attackDelay);
         GameObject enemyProjectileObject;
         if(parent.facingRight)

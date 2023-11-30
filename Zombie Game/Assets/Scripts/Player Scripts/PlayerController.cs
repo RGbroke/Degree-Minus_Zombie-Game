@@ -22,7 +22,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float moveSpeed = 5f;
     private Vector2 moveDirection;
     private Vector2 aimDirection;
-    public bool knockbackImmune = true;
 
     //Controls
     [SerializeField] private Rigidbody2D controller;
@@ -112,7 +111,7 @@ public class PlayerController : MonoBehaviour
     {
 
 
-        if (Time.timeScale != 0 && knockbackImmune)
+        if (Time.timeScale != 0)
         {
             HandleInput();
             HandleMovement();
@@ -254,13 +253,5 @@ public class PlayerController : MonoBehaviour
         return currHealth;
     }
 
-
-    void OnCollisionEnter2D(Collision2D col)
-    {
-        if(!knockbackImmune && col.gameObject.tag == "Object")
-        {
-            knockbackImmune = true;
-        }
-    }
 
 }
