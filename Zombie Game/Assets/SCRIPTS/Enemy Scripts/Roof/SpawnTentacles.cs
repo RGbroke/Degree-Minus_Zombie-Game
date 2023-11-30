@@ -15,6 +15,9 @@ public class SpawnTentacles : MonoBehaviour
     public float yDown = -26f;
     public float randomness = 0.04f;
 
+    [HideInInspector]
+    public float used = 0;
+
     private void Start()
     {
         lastTime = Time.time;
@@ -29,6 +32,7 @@ public class SpawnTentacles : MonoBehaviour
             adj.y += 3.5f;
 
             Instantiate(tentacle, adj, transform.rotation);
+            used++;
         }
         if (lastTime + triggerTime + Random.Range(-randomness, 0f) <= Time.time)
         {

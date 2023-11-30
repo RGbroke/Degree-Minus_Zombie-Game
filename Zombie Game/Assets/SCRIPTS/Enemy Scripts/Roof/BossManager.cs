@@ -7,43 +7,45 @@ public class BossManager : MonoBehaviour
 {
     public TriggerWall wall;
     public SpawnTentacles tent;
+    public FireTentacle shoot;
     public Enemy boss;
     public GameObject escape;
     public float holeTime = 3f;
 
-    private float lastTime;
-    public float wallPhaseTime = 20f;
-    public float underTentTime = 10f;
     public float xReturn;
     public float yReturn;
 
-    public UnityEvent OnWall, OnTent, OnRage;
-    private bool wallPhase = false, underPhase = true;
+    public float maxWallUse = 3f;
+    public float maxTentUse = 10f;
+    public float maxShootUse = 1f;
 
-    void Start()
-    {
-        lastTime = Time.time;
-    }
+    public UnityEvent OnWall, OnTent, OnShoot, OnRage;
+    private bool wallPhase = false, underPhase = false, shootPhase = true;
 
     void Update()
     {
-        if (lastTime + wallPhaseTime <= Time.time && wallPhase && boss.health > boss.maxHealth/2)
+        if (wall.used >= maxWallUse && wallPhase && boss.health > boss.maxHealth/2)
         {
-            lastTime = Time.time;
             wallPhase = false;
-            OnTent.Invoke();
-            underPhase = true;
-            transform.position = new Vector3(xReturn, yReturn, 0);
+            wall.used = 0;
+            OnShoot.Invoke();
+            shootPhase = true;
             GameObject hole1 = Instantiate(escape, new Vector3(xReturn, yReturn + 1.5f, 0), transform.rotation);
             Destroy(hole1, holeTime);
         }
-        if(lastTime + underTentTime <= Time.time && underPhase && boss.health > boss.maxHealth / 2)
+        if(shoot.used >= maxShootUse && shootPhase && boss.health > boss.maxHealth / 2)
         {
-            lastTime = Time.time;
+            shootPhase = false;
+            shoot.used = 0;
+            OnTent.Invoke();
+            underPhase = true;
+        }
+        if (tent.used >= maxTentUse && underPhase && boss.health > boss.maxHealth / 2)
+        {
             underPhase = false;
+            tent.used = 0;
             OnWall.Invoke();
             wallPhase = true;
-            transform.position = new Vector3(-999, 0, 0);
             GameObject hole2 = Instantiate(escape, new Vector3(xReturn, yReturn + 1.5f, 0), transform.rotation);
             Destroy(hole2, holeTime);
         }
@@ -52,6 +54,7 @@ public class BossManager : MonoBehaviour
             OnRage.Invoke();
             wallPhase = false;
             underPhase = false;
+            shootPhase = false;
         }
     }
 }

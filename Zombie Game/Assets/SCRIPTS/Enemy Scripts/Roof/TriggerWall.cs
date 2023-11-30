@@ -10,6 +10,9 @@ public class TriggerWall : MonoBehaviour
     private float lastTime;
     public float triggerTime = 5f;
 
+    [HideInInspector]
+    public float used = 0;
+
     private void Start()
     {
         lastTime = Time.time;
@@ -19,6 +22,7 @@ public class TriggerWall : MonoBehaviour
     {
         if (!on && lastTime + triggerTime <= Time.time)
         {
+            used++;
             on = true;
             lastTime = Time.time;
             wall.SetActive(true);

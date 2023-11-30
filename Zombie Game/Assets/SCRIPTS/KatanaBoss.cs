@@ -21,7 +21,6 @@ public class KatanaBoss : MonoBehaviour
 
     //Sprite
     public SpriteRenderer sprite;
-    //public Animator animator;
     private Color defaultColor;
 
     //Stats
@@ -117,7 +116,7 @@ public class KatanaBoss : MonoBehaviour
         agent.speed = 0;
 
         // Wait for a few seconds
-        yield return new WaitForSeconds(1.25f);
+        yield return new WaitForSeconds(1.5f);
 
         // Set the agent's speed to 50
         agent.speed = 50;
@@ -129,10 +128,21 @@ public class KatanaBoss : MonoBehaviour
         changingSpeed = false;
     }
 
+    IEnumerator teleporting()
+    {
+        agent.speed = 0;
+        gameObject.GetComponent<Animator>().SetBool("isTeleporting", true);
+        yield return new WaitForSeconds(0.25f);
+        agent.speed = 50;
+        gameObject.GetComponent<Animator>().SetBool("isTeleporting", false);
+    }
+
     public void TakeDamage(float damageAmount)
     {
         if (Time.time - lastTeleportTime > teleportDelay)
         {
+            StartCoroutine(teleporting());
+
             // Select a random spawn point from the array
             Transform randomSpawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
 
