@@ -777,7 +777,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5621346258185821426, guid: c5f581fcf5d7ab040b0d4dd21c50dcda, type: 3}
       propertyPath: maxHealth
-      value: 20000
+      value: 15000
       objectReference: {fileID: 0}
     - target: {fileID: 5621346258185821426, guid: c5f581fcf5d7ab040b0d4dd21c50dcda, type: 3}
       propertyPath: roomSize.x
