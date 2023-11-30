@@ -32,6 +32,7 @@ public class KatanaBoss : MonoBehaviour
     bool isColliding = false;
 
     bool changingSpeed = false;
+    bool animationToRight = false;
 
     // Declare a variable to store the teleport cooldown
     public float teleportDelay = 5f;
@@ -82,6 +83,22 @@ public class KatanaBoss : MonoBehaviour
         {
             // Start the coroutine
             StartCoroutine(ChangeSpeed());
+            
+        }
+
+        
+        //Dirty animation fix
+        if (target.position.x - gameObject.transform.position.x < 0 && animationToRight)
+        {
+            Debug.Log(target.position.x - gameObject.transform.position.x);
+            gameObject.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f); //Points the doc to the left
+            animationToRight = false;
+        }
+        else if(target.position.x - gameObject.transform.position.x > 0 && !animationToRight)
+        {
+            Debug.Log(target.position.x - gameObject.transform.position.x);
+            gameObject.transform.localScale = new Vector3(-0.2f, 0.2f, 0.2f); //Points the doc to the right
+            animationToRight = true;
         }
     }
 

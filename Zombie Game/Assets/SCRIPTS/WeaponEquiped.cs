@@ -115,8 +115,6 @@ public class WeaponEquiped : MonoBehaviour
 
         weapons.Add(newWeapon);
         updateWindow();
-
-        UnityEngine.Debug.Log("Weapon Equiped " + equiped);
     }
     public void nextWeapon(InputAction.CallbackContext context)
     {

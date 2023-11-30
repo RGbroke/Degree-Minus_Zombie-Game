@@ -253,7 +253,6 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        Debug.Log("Collision Happened");
         if(!knockbackImmune && col.gameObject.tag == "Object")
         {
             knockbackImmune = true;
