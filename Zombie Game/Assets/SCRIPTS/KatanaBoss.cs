@@ -33,6 +33,7 @@ public class KatanaBoss : MonoBehaviour
     bool changingSpeed = false;
     bool animationToRight = false;
     bool hasTeleported = false;
+    bool dying = false;
 
     // Declare a variable to store the teleport cooldown
     public float teleportDelay = 5f;
@@ -68,6 +69,9 @@ public class KatanaBoss : MonoBehaviour
 
     void Update()
     {
+        if (dying)
+            return;
+
         agent.SetDestination(target.position);
 
         //animator.SetFloat("Horizontal", target.position.x - transform.position.x);
@@ -139,9 +143,10 @@ public class KatanaBoss : MonoBehaviour
 
     IEnumerator delayedDeath()
     {
+        dying = true;
         agent.speed = 0;
         gameObject.GetComponent<Animator>().SetBool("isTeleporting", true);
-        yield return new WaitForSeconds(1.25f);
+        yield return new WaitForSeconds(2f);
         Destroy(this.gameObject);
     }
 

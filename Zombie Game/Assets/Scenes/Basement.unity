@@ -71132,7 +71132,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7681562334609840850, guid: 954b128d6bf367a409826e7aa0db5adb, type: 3}
       propertyPath: reloadTime
-      value: 6
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 7681562334609840850, guid: 954b128d6bf367a409826e7aa0db5adb, type: 3}
       propertyPath: bulletDamage
