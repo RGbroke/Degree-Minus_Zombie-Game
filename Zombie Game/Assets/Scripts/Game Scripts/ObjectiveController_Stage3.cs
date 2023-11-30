@@ -23,7 +23,9 @@ public class ObjectiveController_Stage3 : MonoBehaviour
     }
 
     public void findCure() {
-        alertPlayer("*GASP* Well if the doc isn't gonna be any help, I guess I'll find the cure on my own..");
+        alertPlayer("*GASP* Is he dead..?");
+        notification.currentlyDisplayed = true;
+        alertPlayer("*Sigh* Well whatever doc, I guess I'll find the cure on my own..");
         addObjective("cure", new Objective("Find the Cure"));
         if(cure != null)
             cure.SetActive(true);
@@ -38,9 +40,14 @@ public class ObjectiveController_Stage3 : MonoBehaviour
         elevator[1].SetActive(true);
         elevator[2].SetActive(true);
     }
+    private IEnumerator queuePopup(string dialog)
+    {
+        yield return new WaitWhile(() => notification.isDisplayed());
+        notification.PopUp(dialog);
+    }
     public void alertPlayer(string dialog)
     {
-        notification.PopUp(dialog);
+        StartCoroutine(queuePopup(dialog));
     }
     public void addObjective(string objectiveTag, Objective objective)
     {

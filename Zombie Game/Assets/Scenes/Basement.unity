@@ -72723,7 +72723,7 @@ PrefabInstance:
       objectReference: {fileID: 1284190081}
     - target: {fileID: 5621346258185821426, guid: c5f581fcf5d7ab040b0d4dd21c50dcda, type: 3}
       propertyPath: teleportDelay
-      value: 2.5
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5621346258185821426, guid: c5f581fcf5d7ab040b0d4dd21c50dcda, type: 3}
       propertyPath: objectiveControl
@@ -73391,7 +73391,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1284190082}
   - component: {fileID: 1284190081}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: BattleMusic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80123,7 +80123,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2063327150}
   - component: {fileID: 2063327151}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: katanaboss_swipe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
