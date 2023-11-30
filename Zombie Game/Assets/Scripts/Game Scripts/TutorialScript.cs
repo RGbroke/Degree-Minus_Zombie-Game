@@ -69,21 +69,21 @@ public class TutorialScript : MonoBehaviour
        switch(currObjective)
         {
             case 0:
-              yield return new WaitForSeconds(1);
+              yield return new WaitWhile(() => popup.isDisplayed());
               popup.PopUp(tutorialList[0]); 
               yield return new WaitForSeconds(1);
               go.objectiveFlag++;
               go.weapon.bulletShot = 0;
               break;
             case 1:
-              yield return new WaitForSeconds(1);
+              yield return new WaitWhile(() => popup.isDisplayed());
               popup.PopUp(tutorialList[1]);
               yield return new WaitForSeconds(1);
               go.objectiveFlag++;
               go.weapon.meleeCount = 0;
               break;
             case 2:
-              yield return new WaitForSeconds(1);
+              yield return new WaitWhile(() => popup.isDisplayed());
               popup.PopUp(tutorialList[2]);
               yield return new WaitForSeconds(1);
               go.weapon.grenadeThrew = 0;

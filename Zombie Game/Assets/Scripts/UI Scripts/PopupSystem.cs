@@ -10,13 +10,14 @@ public class PopupSystem : MonoBehaviour
 {
     public GameObject popUpBox;
     public TMP_Text popUpText;
-    public bool currentlyDisplayed;
+    public bool currentlyDisplayed = false;
+    public string delayedText;
 
     [SerializeField] private InputActionReference actionReference;
 
+
     void Start()
     {
-        currentlyDisplayed = false;
         actionReference.action.performed += context =>
         {
             resume();
@@ -54,14 +55,16 @@ public class PopupSystem : MonoBehaviour
     {
         if (Time.timeScale != 0 || !this)
             return;
-
-        this.GetComponent<Animator>().SetTrigger("close");
         Time.timeScale = 1;
+        this.GetComponent<Animator>().SetTrigger("close");
+        
     }
     private void setDisplayToClosed()
     {
         currentlyDisplayed = false;
     }
+
+
     public bool isDisplayed()
     {
         return currentlyDisplayed;
