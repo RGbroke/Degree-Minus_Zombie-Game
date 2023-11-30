@@ -12,9 +12,6 @@ public class BossManager : MonoBehaviour
     public GameObject escape;
     public float holeTime = 3f;
 
-    public float xReturn;
-    public float yReturn;
-
     public float maxWallUse = 3f;
     public float maxTentUse = 10f;
     public float maxShootUse = 1f;
@@ -30,7 +27,7 @@ public class BossManager : MonoBehaviour
             wall.used = 0;
             OnShoot.Invoke();
             shootPhase = true;
-            GameObject hole1 = Instantiate(escape, new Vector3(xReturn, yReturn + 1.5f, 0), transform.rotation);
+            GameObject hole1 = Instantiate(escape, transform.position + new Vector3(0, 1.5f, 0), transform.rotation);
             Destroy(hole1, holeTime);
         }
         if(shoot.used >= maxShootUse && shootPhase && boss.health > boss.maxHealth / 2)
@@ -46,7 +43,7 @@ public class BossManager : MonoBehaviour
             tent.used = 0;
             OnWall.Invoke();
             wallPhase = true;
-            GameObject hole2 = Instantiate(escape, new Vector3(xReturn, yReturn + 1.5f, 0), transform.rotation);
+            GameObject hole2 = Instantiate(escape, transform.position + new Vector3(0, 1.5f, 0), transform.rotation);
             Destroy(hole2, holeTime);
         }
         if (boss.health <= boss.maxHealth / 2)

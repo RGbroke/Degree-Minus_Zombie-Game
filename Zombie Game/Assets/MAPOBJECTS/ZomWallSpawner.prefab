@@ -771,7 +771,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boss: {fileID: 0}
   indicateTime: 1
-  openrate: 0.4
+  openrate: 0.3
   wallZombie: {fileID: 6982769625430185063, guid: 702ab84c92439ac4282e72f84e2567b1, type: 3}
   spread: 6
   spawnrate: 0.5
