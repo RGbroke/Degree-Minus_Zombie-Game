@@ -70695,6 +70695,10 @@ PrefabInstance:
       propertyPath: weaponInHand
       value: 
       objectReference: {fileID: 21300000, guid: c085580fc1a7a1d4fbd947c350a6833c, type: 3}
+    - target: {fileID: 5408381638107092127, guid: fb123fdf15b294a4c8381d77fb8cbe66, type: 3}
+      propertyPath: timeBetweenShots
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -71136,7 +71140,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7681562334609840850, guid: 954b128d6bf367a409826e7aa0db5adb, type: 3}
       propertyPath: bulletDamage
-      value: 75
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 7681562334609840850, guid: 954b128d6bf367a409826e7aa0db5adb, type: 3}
       propertyPath: bulletSprite
@@ -73304,6 +73308,10 @@ PrefabInstance:
     - target: {fileID: 9136979782052133504, guid: b62f0b4577d787b458f2cf58eadc3c7a, type: 3}
       propertyPath: bulletLifespan
       value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9136979782052133504, guid: b62f0b4577d787b458f2cf58eadc3c7a, type: 3}
+      propertyPath: timeBetweenShots
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 9136979782052133504, guid: b62f0b4577d787b458f2cf58eadc3c7a, type: 3}
       propertyPath: numBulletsPerShot
