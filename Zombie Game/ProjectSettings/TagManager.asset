@@ -27,7 +27,7 @@ TagManager:
   - Bullet
   - Player
   - EnemyBullet
-  - 
+  - Tree
   - 
   - 
   - 
@@ -49,4 +49,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Tree
+    uniqueID: 3597316307
     locked: 0
