@@ -1285,7 +1285,7 @@ MonoBehaviour:
   spinTimes: 40
   incrementAngleTime: 1
   speed: 25
-  damage: 5
+  damage: 3
   timeToDestroy: 2
   maxFireTimes: 10
   multiTentaclesNum: 12
