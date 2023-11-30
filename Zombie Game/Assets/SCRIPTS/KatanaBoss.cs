@@ -75,8 +75,13 @@ public class KatanaBoss : MonoBehaviour
 
         if (isColliding)
         {
+            gameObject.GetComponent<Animator>().SetBool("nearPlayer",true);
             player.TakeDamage(1);
             new WaitForSeconds(1f);
+        }
+        else
+        {
+            gameObject.GetComponent<Animator>().SetBool("nearPlayer", false);
         }
 
         if (!changingSpeed && !isColliding)
@@ -90,13 +95,13 @@ public class KatanaBoss : MonoBehaviour
         //Dirty animation fix
         if (target.position.x - gameObject.transform.position.x < 0 && animationToRight)
         {
-            Debug.Log(target.position.x - gameObject.transform.position.x);
+            //Debug.Log(target.position.x - gameObject.transform.position.x);
             gameObject.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f); //Points the doc to the left
             animationToRight = false;
         }
         else if(target.position.x - gameObject.transform.position.x > 0 && !animationToRight)
         {
-            Debug.Log(target.position.x - gameObject.transform.position.x);
+            //Debug.Log(target.position.x - gameObject.transform.position.x);
             gameObject.transform.localScale = new Vector3(-0.2f, 0.2f, 0.2f); //Points the doc to the right
             animationToRight = true;
         }

@@ -24,7 +24,8 @@ public class ObjectiveController_Stage3 : MonoBehaviour
     public void findCure() {
         alertPlayer("*GASP* Well if the doc isn't gonna be any help, I guess I'll find the cure on my own..");
         addObjective("cure", new Objective("Find the Cure"));
-        cure.SetActive(true);
+        if(cure != null)
+            cure.SetActive(true);
     }
     public void openElevator()
     {
