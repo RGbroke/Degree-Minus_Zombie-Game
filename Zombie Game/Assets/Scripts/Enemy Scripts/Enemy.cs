@@ -38,8 +38,8 @@ public class Enemy : MonoBehaviour
 
     //PowerUpDrop
     public GameObject healthDrop;
-    public float ZombiesToKill = 20f;
-    private bool stopPickUp = false;
+    public float dropRate = 0.05f;
+    private bool dropping = false;
 
     public IEnumerator FlashRed()
     {
@@ -50,6 +50,10 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
+        if (Random.Range(0f, 1f) > 1f - dropRate)
+        {
+            dropping = true;
+        }
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
@@ -80,9 +84,9 @@ public class Enemy : MonoBehaviour
 
         if (health <= 0)
         {
-            if (gc.numZombiesKilled() % 20 == 0 && !stopPickUp && damageAmount < 5)
+            if (dropping)
             {
-                stopPickUp = true;
+                dropping = false;
                 Instantiate(healthDrop, transform.position, transform.rotation);
             }
             Destroy(this.gameObject);

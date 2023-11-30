@@ -108,16 +108,20 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
- 
-    void Update()
+    void FixedUpdate()
     {
-        
+
+
         if (Time.timeScale != 0 && knockbackImmune)
         {
             HandleInput();
             HandleMovement();
             HandleAiming();
         }
+    }
+
+    void Update()
+    {
 
         currGrenadeCooldown -= Time.deltaTime;
         //Movement/Control handling

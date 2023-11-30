@@ -72988,7 +72988,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9136979782052133504, guid: b62f0b4577d787b458f2cf58eadc3c7a, type: 3}
       propertyPath: bulletSpeed
-      value: 70
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 9136979782052133504, guid: b62f0b4577d787b458f2cf58eadc3c7a, type: 3}
       propertyPath: weaponInHand
@@ -72996,7 +72996,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: c64a4b04a83e6be478dd0eb0c4acf0bb, type: 3}
     - target: {fileID: 9136979782052133504, guid: b62f0b4577d787b458f2cf58eadc3c7a, type: 3}
       propertyPath: bulletLifespan
-      value: 0.3
+      value: 0.4
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5673100970051679403, guid: b62f0b4577d787b458f2cf58eadc3c7a, type: 3}

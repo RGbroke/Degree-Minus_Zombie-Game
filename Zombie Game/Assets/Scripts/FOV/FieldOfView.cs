@@ -20,7 +20,7 @@ public class FieldOfView : MonoBehaviour
         origin = Vector3.zero;
     }
 
-    private void LateUpdate()
+    private void FixedUpdate()
     {
         float angle = startingAngle;
         float angleIncrease = fov / rayCount;

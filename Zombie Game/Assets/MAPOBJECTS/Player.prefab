@@ -573,7 +573,7 @@ MonoBehaviour:
   grenadeCooldown: 2
   damageRate: 0.5
   sprite: {fileID: 1557002769649977749}
-  weaponSprite: {fileID: 5060037789874680870}
+  weaponSprite: {fileID: 1161420109505124211}
   animator: {fileID: 2588117930869202780}
   cursorTexture: {fileID: 2800000, guid: 3b05a93d8c2ebcc43bb96735f61237c3, type: 3}
   cursorTextureShoot: {fileID: 2800000, guid: 943a9770bea270c40ac0d4d658a8126d, type: 3}

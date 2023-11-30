@@ -39,8 +39,8 @@ public class RangedEnemy : MonoBehaviour
 
     //PowerUpDrop
     public GameObject healthDrop;
-    public float ZombiesToKill = 20f;
-    private bool stopPickUp = false;
+    public float dropRate = 0.05f;
+    private bool dropping = false;
 
     public IEnumerator FlashRed()
     {
@@ -56,9 +56,9 @@ public class RangedEnemy : MonoBehaviour
 
         if (health <= 0)
         {
-            if (gc.numZombiesKilled() % 20 == 0 && !stopPickUp && damageAmount < 5)
+            if (dropping)
             {
-                stopPickUp = true;
+                dropping = false;
                 Instantiate(healthDrop, transform.position, transform.rotation);
             }
             Destroy(this.gameObject);
@@ -86,6 +86,10 @@ public class RangedEnemy : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody2D>();
         timeToFire = 0f;
         health = maxHealth;
+        if (Random.Range(0f, 1f) > 1f - dropRate)
+        {
+            dropping = true;
+        }
     }
 
     private void Update()
