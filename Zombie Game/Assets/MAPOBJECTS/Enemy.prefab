@@ -251,6 +251,7 @@ GameObject:
   - component: {fileID: 1742496746694104854}
   - component: {fileID: 1559476172363459673}
   - component: {fileID: 5167419917531611336}
+  - component: {fileID: 709299688471808200}
   m_Layer: 8
   m_Name: Enemy
   m_TagString: Enemy
@@ -544,13 +545,14 @@ MonoBehaviour:
   animator: {fileID: 1150052953845089468}
   healthBar: {fileID: 2518768494718145410}
   maxHealth: 25
+  health: 0
   speed: 1
   zombieNoise: {fileID: 7162416127034130355}
   zombieAttackNoise1: {fileID: 8300000, guid: 9651acff3c37ee94abab54ebc6d45bb0, type: 3}
   zombieAttackNoise2: {fileID: 8300000, guid: 6267f5ef2a597e74b980263556d880e5, type: 3}
   zombieAttackNoise3: {fileID: 8300000, guid: 7d4da90722287a34f951d9688431a104, type: 3}
   healthDrop: {fileID: 3948647394299110574, guid: d268366105919cf4686ab1f7157ab816, type: 3}
-  ZombiesToKill: 20
+  dropRate: 0.05
 --- !u!114 &1559476172363459673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -631,3 +633,38 @@ CapsuleCollider2D:
   m_Offset: {x: 0.4044661, y: -6.188393}
   m_Size: {x: 7.5131764, y: 3.3875787}
   m_Direction: 1
+--- !u!58 &709299688471808200
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7356862119447816681}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 6}
+  serializedVersion: 2
+  m_Radius: 3.629866
