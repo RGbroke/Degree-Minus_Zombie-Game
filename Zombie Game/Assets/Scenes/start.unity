@@ -131425,7 +131425,7 @@ MonoBehaviour:
   objectiveDisplay: {fileID: 1884157257}
   popup: {fileID: 879500121}
   trigger: {fileID: 1612696309}
-  zombiesToKill: 999
+  zombiesToKill: 300
   tutorial: {fileID: 571784350}
   activator: {fileID: 1805130350}
   objectiveCheck: 0
