@@ -26,7 +26,7 @@ public class KatanaBoss : MonoBehaviour
     //Stats
     public HealthBar healthBar;
     public float maxHealth = 3f;
-    private float health;
+    public float health;
     public float speed;
     bool isColliding = false;
 
