@@ -85168,7 +85168,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 38af7e18c812bdd4f9c566d724fbecf4, type: 3}
     - target: {fileID: 960330135498867237, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: bulletDamage
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 960330135498867237, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: bulletSprite
@@ -85192,7 +85192,7 @@ PrefabInstance:
       objectReference: {fileID: 918000483746761494, guid: ca2142017356c69498558b5b3b8834fa, type: 3}
     - target: {fileID: 960330135498867237, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: timeBetweenShots
-      value: 0.075
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 960330135498867237, guid: 6f59f4cae2e3b194aa6091bf20fb07d4, type: 3}
       propertyPath: numBulletsPerShot
