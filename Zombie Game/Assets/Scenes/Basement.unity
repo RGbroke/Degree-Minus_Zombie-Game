@@ -79592,7 +79592,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectiveControl: {fileID: 1689334614}
-  dialogOnCollision: Huh, a secred lab. The cure should be around here somewhere
+  dialogOnCollision: Huh, a secret lab. The cure should be around here somewhere
     and maybe even the good doctor who made it..
   objectiveTag: search1
   objectiveDescriptor: Search the lab for the cure and the doctor

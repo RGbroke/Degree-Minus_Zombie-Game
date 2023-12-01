@@ -3070,9 +3070,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5056358245784967173, guid: 96d5a1dbc37a2434a9cc3f392163179a, type: 3}
+      propertyPath: bulletDamage
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5056358245784967173, guid: 96d5a1dbc37a2434a9cc3f392163179a, type: 3}
       propertyPath: weaponInHand
       value: 
       objectReference: {fileID: 21300000, guid: 78c65c5137bd9d747820e2c9fe6fc429, type: 3}
+    - target: {fileID: 5056358245784967173, guid: 96d5a1dbc37a2434a9cc3f392163179a, type: 3}
+      propertyPath: timeBetweenShots
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 8137472900905209590, guid: 96d5a1dbc37a2434a9cc3f392163179a, type: 3}
       propertyPath: m_Name
       value: SMG
